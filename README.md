@@ -4,5 +4,5 @@ This is the collection of DOTNET CORE API Features Collection
 
 ## FEATURES
 
-- JWT Authentication
+- [JWT Authentication](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)
 - WEBSOCKET
