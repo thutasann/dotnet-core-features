@@ -17,14 +17,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    # ------- Build and Test JWT-AUTH 
     - name: Build and Test JWT-AUTH
       run: | 
         cd jwt-auth
         dotnet restore
         dotnet build
         dotnet test
-    - name: Build and Test JWT-AUTH
+    - name: Build and Test WEBSOCKET
       run: | 
         cd websocket
         dotnet restore
