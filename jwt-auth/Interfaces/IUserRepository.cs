@@ -7,5 +7,6 @@ namespace jwt_auth.Interfaces
         Task<User> GetByEmail(string email);
         Task<User> GetByUserName(string username);
         Task<User> Create(User user);
+        List<User> GetUsers();
     }
 }

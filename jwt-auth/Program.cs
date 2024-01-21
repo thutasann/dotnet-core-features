@@ -8,7 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRepository, InMemoryUserRepositories>();
 builder.Services.AddScoped<IPasswordHasher, BcryptPasswordHasher>();
 
 var app = builder.Build();

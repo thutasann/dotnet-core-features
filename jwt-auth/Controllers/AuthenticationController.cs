@@ -20,6 +20,12 @@ namespace jwt_auth.Controllers
             _passwordHasher = passwordHasher;
         }
 
+        [HttpGet("users")]
+        public IActionResult GetAllUsers()
+        {
+            return Ok(_userRepository.GetUsers());
+        }
+
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest registerRequest)
         {
@@ -34,22 +40,19 @@ namespace jwt_auth.Controllers
             }
 
             User existingUserByEmail = await _userRepository.GetByEmail(registerRequest.Email);
-
             if (existingUserByEmail != null)
             {
-                return Conflict("User already exists");
+                return Conflict("Already exists");
             }
 
             User existingUserByUserName = await _userRepository.GetByUserName(registerRequest.UserName);
-
             if (existingUserByUserName != null)
             {
-                return Conflict("User already exists");
+                return Conflict("Already exists");
             }
 
             string passwordHash = _passwordHasher.HasPassword(registerRequest.Password);
-
-            User registirationUser = new User()
+            User registirationUser = new()
             {
                 Email = registerRequest.Email,
                 UserName = registerRequest.UserName,
@@ -57,8 +60,7 @@ namespace jwt_auth.Controllers
             };
 
             await _userRepository.Create(registirationUser);
-
-            return Ok("Register successfully");
+            return Ok(registirationUser);
         }
     }
 }
