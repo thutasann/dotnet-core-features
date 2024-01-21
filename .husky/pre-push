@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+cd jwt-auth
+dotnet build --no-restore
+dotnet test --no-build --verbosity normal
+
+cd websocket
+dotnet build --no-restore
+dotnet test --no-build --verbosity normal
