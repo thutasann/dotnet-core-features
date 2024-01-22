@@ -21,9 +21,10 @@ namespace jwt_auth.Controllers
         }
 
         [HttpGet("users")]
-        public IActionResult GetAllUsers()
+        public async Task<IActionResult> GetAllUsers()
         {
-            return Ok(_userRepository.GetUsers());
+            var users = await _userRepository.GetUsers();
+            return Ok(users);
         }
 
         [HttpPost("register")]
@@ -39,13 +40,13 @@ namespace jwt_auth.Controllers
                 return BadRequest("Please confirm the password again");
             }
 
-            User existingUserByEmail = await _userRepository.GetByEmail(registerRequest.Email);
+            User? existingUserByEmail = await _userRepository.GetByEmail(registerRequest.Email);
             if (existingUserByEmail != null)
             {
                 return Conflict("Already exists");
             }
 
-            User existingUserByUserName = await _userRepository.GetByUserName(registerRequest.UserName);
+            User? existingUserByUserName = await _userRepository.GetByUserName(registerRequest.UserName);
             if (existingUserByUserName != null)
             {
                 return Conflict("Already exists");

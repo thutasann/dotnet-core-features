@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 namespace jwt_auth.Models
 {
     public class User
