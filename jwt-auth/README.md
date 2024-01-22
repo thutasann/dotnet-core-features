@@ -1,6 +1,9 @@
-#  JWET-BASED AUTHENTICATION
+#  JWET-BASED AUTHENTICATION 🔐
+
+## Features
 
 - Register
 - Login
-- Refresh Tokens
+- JWT Token
+- Refresh Token
 - Logout

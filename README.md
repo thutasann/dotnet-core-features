@@ -27,6 +27,8 @@ dotnet watch run
 
 ### EF Database Migration
 
+- Replace `DefaultConnection` in `ConnectionStrings` with your real one.
+
 ```bash
 dotnet tool install --global dotnet-ef --version 7.*
 ```

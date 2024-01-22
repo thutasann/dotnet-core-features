@@ -5,8 +5,6 @@ using jwt_auth.Reposistories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add(typeof(ModelStateValidatorFilter));
@@ -20,6 +18,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPasswordHasher, BcryptPasswordHasher>();
+builder.Services.AddScoped<IAccessTokenGenerator, AccessTokenGenerator>();
 
 var app = builder.Build();
 

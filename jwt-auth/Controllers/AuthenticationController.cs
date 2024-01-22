@@ -3,6 +3,7 @@ using jwt_auth.Dto;
 using Microsoft.AspNetCore.Mvc;
 using jwt_auth.Interfaces;
 using jwt_auth.Models;
+using jwt_auth.Dto.response;
 
 namespace jwt_auth.Controllers
 {
@@ -13,11 +14,13 @@ namespace jwt_auth.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly IAccessTokenGenerator _accessTokenGenerator;
 
-        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher)
+        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher, IAccessTokenGenerator accessTokenGenerator)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
+            _accessTokenGenerator = accessTokenGenerator;
         }
 
         [HttpGet("users")]
@@ -32,24 +35,24 @@ namespace jwt_auth.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest();
+                return BadRequestModelState();
             }
 
             if (registerRequest.Password != registerRequest.ConfirmPassword)
             {
-                return BadRequest("Please confirm the password again");
+                return BadRequest(new ErrorResponse("Passwords do not match"));
             }
 
             User? existingUserByEmail = await _userRepository.GetByEmail(registerRequest.Email);
             if (existingUserByEmail != null)
             {
-                return Conflict("Already exists");
+                return Conflict(new ErrorResponse("Email already exists"));
             }
 
             User? existingUserByUserName = await _userRepository.GetByUserName(registerRequest.UserName);
             if (existingUserByUserName != null)
             {
-                return Conflict("Already exists");
+                return Conflict(new ErrorResponse("UserName already exists"));
             }
 
             string passwordHash = _passwordHasher.HasPassword(registerRequest.Password);
@@ -62,6 +65,48 @@ namespace jwt_auth.Controllers
 
             await _userRepository.Create(registirationUser);
             return Ok(registirationUser);
+        }
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest loginRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequestModelState();
+            }
+
+            User? user = await _userRepository.GetByUserName(loginRequest.UserName);
+
+            if (user == null)
+            {
+                return Unauthorized();
+            }
+
+            bool isVerifiedPsw = _passwordHasher.VerifyPassword(loginRequest.Password, user.PasswordHash);
+
+            if (!isVerifiedPsw)
+            {
+                return Unauthorized();
+            }
+
+            string accessToken = _accessTokenGenerator.GenerateToken(user);
+
+            return Ok(new AuthenticatedUserResponse()
+            {
+                AccessToken = accessToken
+            });
+        }
+
+
+        /// <summary>
+        /// Bad Request Model Errors State
+        /// </summary>
+        /// <returns></returns>
+        private IActionResult BadRequestModelState()
+        {
+            IEnumerable<string> errorMessages = ModelState.Values.SelectMany(v => v.Errors.Select(e => e.ErrorMessage));
+            return BadRequest(new ErrorResponse(errorMessages));
         }
     }
 }
