@@ -102,6 +102,17 @@ namespace jwt_auth.Controllers
             });
         }
 
+        [HttpPost("refresh")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest refreshRequest)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequestModelState();
+            }
+
+            return Ok();
+        }
+
 
         /// <summary>
         /// Bad Request Model Errors State

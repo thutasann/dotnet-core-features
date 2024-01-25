@@ -66,6 +66,7 @@ builder.Services.AddScoped<IPasswordHasher, BcryptPasswordHasher>();
 builder.Services.AddSingleton<TokenGenerator>();
 builder.Services.AddScoped<IAccessTokenGenerator, AccessTokenGenerator>();
 builder.Services.AddScoped<IRefreshTokenGenerator, RefreshTokenGenerator>();
+builder.Services.AddScoped<IRefreshTokenValidator, RefreshTokenValidator>();
 
 var app = builder.Build();
 
