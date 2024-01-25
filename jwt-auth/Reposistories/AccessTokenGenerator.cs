@@ -1,16 +1,17 @@
-using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 using jwt_auth.Interfaces;
 using jwt_auth.Models;
-using Microsoft.IdentityModel.Tokens;
 
 namespace jwt_auth.Reposistories
 {
     public class AccessTokenGenerator : IAccessTokenGenerator
     {
-        static readonly SecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2SsdtaC3NbTD6PPHCorHBuAJPBlvFtUsVoDRHUNhhc1WNf5oyK39"));
-        readonly SigningCredentials credentials = new(key, SecurityAlgorithms.HmacSha256);
+        private readonly TokenGenerator _tokenGenerator;
+
+        public AccessTokenGenerator(TokenGenerator tokenGenerator)
+        {
+            _tokenGenerator = tokenGenerator;
+        }
 
         public string GenerateToken(User user)
         {
@@ -21,16 +22,13 @@ namespace jwt_auth.Reposistories
                 new(ClaimTypes.Name, user.UserName)
             };
 
-            JwtSecurityToken token = new(
+            return _tokenGenerator.GenerateToken(
+                "2SsdtaC3NbTD6PPHCorHBuAJPBlvFtUsVoDRHUNhhc1WNf5oyK39",
                 "http://localhost:5054/",
                 "http://localhost:5054/",
-                claims,
-                DateTime.UtcNow,
-                DateTime.UtcNow.AddMinutes(30),
-                credentials
+                30,
+                claims
             );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }

@@ -15,12 +15,14 @@ namespace jwt_auth.Controllers
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
         private readonly IAccessTokenGenerator _accessTokenGenerator;
+        private readonly IRefreshTokenGenerator _refreshTokenGenerator;
 
-        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher, IAccessTokenGenerator accessTokenGenerator)
+        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher, IAccessTokenGenerator accessTokenGenerator, IRefreshTokenGenerator refreshTokenGenerator)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
             _accessTokenGenerator = accessTokenGenerator;
+            _refreshTokenGenerator = refreshTokenGenerator;
         }
 
         [HttpGet("users")]
@@ -91,10 +93,12 @@ namespace jwt_auth.Controllers
             }
 
             string accessToken = _accessTokenGenerator.GenerateToken(user);
+            string refreshToken = _refreshTokenGenerator.GenerateToken();
 
             return Ok(new AuthenticatedUserResponse()
             {
-                AccessToken = accessToken
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
             });
         }
 
