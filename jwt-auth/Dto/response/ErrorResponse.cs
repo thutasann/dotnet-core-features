@@ -1,5 +1,8 @@
 namespace jwt_auth.Dto.response
 {
+    /// <summary>
+    /// Error Response Format
+    /// </summary>
     public class ErrorResponse
     {
         public IEnumerable<string> _errorMessages { get; set; }

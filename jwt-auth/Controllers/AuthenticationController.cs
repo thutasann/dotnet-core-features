@@ -16,13 +16,15 @@ namespace jwt_auth.Controllers
         private readonly IPasswordHasher _passwordHasher;
         private readonly IAccessTokenGenerator _accessTokenGenerator;
         private readonly IRefreshTokenGenerator _refreshTokenGenerator;
+        private readonly IRefreshTokenValidator _refreshTokenValidator;
 
-        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher, IAccessTokenGenerator accessTokenGenerator, IRefreshTokenGenerator refreshTokenGenerator)
+        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher, IAccessTokenGenerator accessTokenGenerator, IRefreshTokenGenerator refreshTokenGenerator, IRefreshTokenValidator refreshTokenValidator)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
             _accessTokenGenerator = accessTokenGenerator;
             _refreshTokenGenerator = refreshTokenGenerator;
+            _refreshTokenValidator = refreshTokenValidator;
         }
 
         [HttpGet("users")]
@@ -108,6 +110,13 @@ namespace jwt_auth.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequestModelState();
+            }
+
+            bool isValidRefreshToken = _refreshTokenValidator.Validate(refreshRequest.RefreshToken);
+
+            if (!isValidRefreshToken)
+            {
+                return BadRequest(new ErrorResponse("Invalid Refresh Token."));
             }
 
             return Ok();
