@@ -5,6 +5,7 @@ This is the collection of DOTNET CORE API Features Collection.
 ## Features
 
 - [JWT Authentication](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)
+- [Data Structure and Algorithms](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)
 
 ## Scripts
 
