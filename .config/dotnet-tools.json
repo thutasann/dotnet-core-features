@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "isRoot": true,
+  "isRoot": false,
   "tools": {
     "husky": {
       "version": "0.6.4",
