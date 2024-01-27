@@ -121,6 +121,8 @@ namespace jwt_auth.Controllers
                 return NotFound(new ErrorResponse("Refresh Token is not found!"));
             }
 
+            await _refreshTokenRepository.Delete(refreshTokenDTO.Id);
+
             User? user = await _userRepository.GetById(refreshTokenDTO.UserId);
 
             if (user == null)

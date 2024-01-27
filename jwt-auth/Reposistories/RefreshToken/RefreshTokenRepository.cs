@@ -20,8 +20,13 @@ namespace jwt_auth.Reposistories
         public async Task Create(RefreshToken refreshToken)
         {
             refreshToken.Id = new Guid();
-            await _context.AddAsync(refreshToken);
+            await _context.RefreshTokens.AddAsync(refreshToken);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task Delete(Guid id)
+        {
+            await _context.RefreshTokens.Where(r => r.Id == id).ExecuteDeleteAsync();
         }
 
         public async Task<RefreshToken?> GetByToken(string token)
