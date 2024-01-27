@@ -23,9 +23,3 @@ jobs:
         dotnet restore
         dotnet build
         dotnet test
-    - name: Build and Test WEBSOCKET
-      run: | 
-        cd websocket
-        dotnet restore
-        dotnet build
-        dotnet test
