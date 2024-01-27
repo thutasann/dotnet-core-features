@@ -7,5 +7,12 @@ namespace jwt_auth.Interfaces
         Task<RefreshToken?> GetByToken(string token);
         Task Create(RefreshToken refreshToken);
         Task Delete(Guid id);
+
+        /// <summary>
+        /// Delete All RefreshTokens related to that UserId when Logout
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        Task DeleteAll(Guid userId);
     }
 }

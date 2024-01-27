@@ -27,6 +27,14 @@ namespace jwt_auth.Reposistories
         public async Task Delete(Guid id)
         {
             await _context.RefreshTokens.Where(r => r.Id == id).ExecuteDeleteAsync();
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAll(Guid userId)
+        {
+            var tokensToDelete = await _context.RefreshTokens.Where(r => r.UserId == userId).ToListAsync();
+            _context.RefreshTokens.RemoveRange(tokensToDelete);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<RefreshToken?> GetByToken(string token)

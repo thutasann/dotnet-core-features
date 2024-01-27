@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using jwt_auth.Interfaces;
 using jwt_auth.Models;
 using jwt_auth.Dto.response;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace jwt_auth.Controllers
 {
@@ -135,6 +137,21 @@ namespace jwt_auth.Controllers
             return Ok(response);
         }
 
+        [Authorize]
+        [HttpGet("logout")]
+        public async Task<IActionResult> Logout()
+        {
+            string? rawUserId = HttpContext.User.FindFirstValue("id");
+
+            if (!Guid.TryParse(rawUserId, out Guid userId))
+            {
+                return Unauthorized();
+            }
+
+            await _refreshTokenRepository.DeleteAll(Guid.Parse(rawUserId));
+
+            return NoContent();
+        }
 
         /// <summary>
         /// Bad Request Model Errors State

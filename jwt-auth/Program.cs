@@ -10,6 +10,7 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Controllers
 builder.Services.AddControllers(options =>
 {
     options.Filters.Add(typeof(ModelStateValidatorFilter));
@@ -31,6 +32,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 });
 
 builder.Services.AddEndpointsApiExplorer();
+
+// Swagger Gen
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Jwt Authentication", Version = "v1" });
@@ -56,6 +59,8 @@ builder.Services.AddSwaggerGen(c =>
         { securityScheme, new string[] { } }
     });
 });
+
+// Data Context
 builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!);
