@@ -23,3 +23,9 @@ jobs:
         dotnet restore
         dotnet build
         dotnet test
+    - name: Build and Test DataStructure and Algorithms
+      run: | 
+        cd data-structure-algo
+        dotnet restore
+        dotnet build
+        dotnet test
