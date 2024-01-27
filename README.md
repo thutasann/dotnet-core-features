@@ -1,6 +1,7 @@
 # .NET CORE API FEATURES COLLECTION
 
-This is the collection of DOTNET CORE API Features Collection.
+This is the collection of DOTNET CORE API Features Collection. <br>
+SQL files alredy included in the `sql` folder.
 
 ## Features
 

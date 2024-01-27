@@ -1,6 +1,6 @@
 #  JWET-BASED AUTHENTICATION 🔐
 
-## Features
+## Features included
 
 - Register
 - Login
