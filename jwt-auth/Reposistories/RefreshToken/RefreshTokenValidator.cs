@@ -7,11 +7,19 @@ namespace jwt_auth.Reposistories
 {
     public class RefreshTokenValidator : IRefreshTokenValidator
     {
+        private readonly ILogger<RefreshTokenValidator> _logger;
+
+
+        public RefreshTokenValidator(ILogger<RefreshTokenValidator> logger)
+        {
+            _logger = logger;
+        }
+
         public bool Validate(string refreshToken)
         {
             TokenValidationParameters validationParameters = new()
             {
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("2SsdtaC3NbTD6PPHCorHBuAJPBlvFtUsVoDRHUNhhc1WNf5oyK39")),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("3y7XS2AHicSOs2uUJCxwlHWqTJNExW3UDUjMeXi96uLEso1YV4RazqQubpFBdx0zZGtdxBelKURhh0WXxPR0mEJQHk_0U9HeYtqcMManhoP3X2Ge8jgxh6k4C_Gd4UPTc6lkx0Ca5eRE16ciFQ6wmYDnaXC8NbngGqartHccAxE")),
                 ValidIssuer = "http://localhost:5054/",
                 ValidAudience = "http://localhost:5054/",
                 ValidateIssuerSigningKey = true,
@@ -19,6 +27,7 @@ namespace jwt_auth.Reposistories
                 ValidateAudience = true,
                 ClockSkew = TimeSpan.Zero
             };
+
             JwtSecurityTokenHandler tokenHandler = new();
 
             try
@@ -26,8 +35,9 @@ namespace jwt_auth.Reposistories
                 tokenHandler.ValidateToken(refreshToken, validationParameters, out SecurityToken validatedToken);
                 return true;
             }
-            catch (System.Exception)
+            catch (Exception e)
             {
+                _logger.LogError("RefreshToken validate error => ", e.Message);
                 return false;
             }
         }

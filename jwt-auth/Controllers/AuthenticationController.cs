@@ -14,17 +14,17 @@ namespace jwt_auth.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher _passwordHasher;
-        private readonly IAccessTokenGenerator _accessTokenGenerator;
-        private readonly IRefreshTokenGenerator _refreshTokenGenerator;
         private readonly IRefreshTokenValidator _refreshTokenValidator;
+        private readonly IRefreshTokenRepository _refreshTokenRepository;
+        private readonly IAuthenticator _authenticator;
 
-        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher, IAccessTokenGenerator accessTokenGenerator, IRefreshTokenGenerator refreshTokenGenerator, IRefreshTokenValidator refreshTokenValidator)
+        public AuthenticationController(IUserRepository userRepository, IPasswordHasher passwordHasher, IRefreshTokenValidator refreshTokenValidator, IRefreshTokenRepository refreshTokenRepository, IAuthenticator authenticator)
         {
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
-            _accessTokenGenerator = accessTokenGenerator;
-            _refreshTokenGenerator = refreshTokenGenerator;
             _refreshTokenValidator = refreshTokenValidator;
+            _refreshTokenRepository = refreshTokenRepository;
+            _authenticator = authenticator;
         }
 
         [HttpGet("users")]
@@ -94,14 +94,9 @@ namespace jwt_auth.Controllers
                 return Unauthorized();
             }
 
-            string accessToken = _accessTokenGenerator.GenerateToken(user);
-            string refreshToken = _refreshTokenGenerator.GenerateToken();
+            AuthenticatedUserResponse response = await _authenticator.Authenticate(user);
 
-            return Ok(new AuthenticatedUserResponse()
-            {
-                AccessToken = accessToken,
-                RefreshToken = refreshToken
-            });
+            return Ok(response);
         }
 
         [HttpPost("refresh")]
@@ -119,7 +114,23 @@ namespace jwt_auth.Controllers
                 return BadRequest(new ErrorResponse("Invalid Refresh Token."));
             }
 
-            return Ok();
+            RefreshToken? refreshTokenDTO = await _refreshTokenRepository.GetByToken(refreshRequest.RefreshToken);
+
+            if (refreshTokenDTO == null)
+            {
+                return NotFound(new ErrorResponse("Refresh Token is not found!"));
+            }
+
+            User? user = await _userRepository.GetById(refreshTokenDTO.UserId);
+
+            if (user == null)
+            {
+                return NotFound(new ErrorResponse("User not found."));
+            }
+
+            AuthenticatedUserResponse response = await _authenticator.Authenticate(user);
+
+            return Ok(response);
         }
 
 

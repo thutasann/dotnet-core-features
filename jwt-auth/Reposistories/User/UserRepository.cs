@@ -27,6 +27,11 @@ namespace jwt_auth.Reposistories
             return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
         }
 
+        public async Task<User?> GetById(Guid userId)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+        }
+
         public async Task<User?> GetByUserName(string username)
         {
             return await _context.Users.FirstOrDefaultAsync(u => u.UserName == username);

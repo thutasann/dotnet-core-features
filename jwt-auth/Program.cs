@@ -67,6 +67,8 @@ builder.Services.AddSingleton<TokenGenerator>();
 builder.Services.AddScoped<IAccessTokenGenerator, AccessTokenGenerator>();
 builder.Services.AddScoped<IRefreshTokenGenerator, RefreshTokenGenerator>();
 builder.Services.AddScoped<IRefreshTokenValidator, RefreshTokenValidator>();
+builder.Services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+builder.Services.AddScoped<IAuthenticator, Authenticator>();
 
 var app = builder.Build();
 
