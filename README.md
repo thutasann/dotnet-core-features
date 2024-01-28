@@ -13,10 +13,21 @@ SQL files alredy included in the `sql` folder.
 
 ### Create Dotnet project
 
+**Web API**
+
 ```bash
-dotnet new webapi -o <project-name> // webapi
-dotnet new console -n <project-name> // console
-dotnet new web -o <project-name> // web
+dotnet new webapi -o <project-name>
+```
+**Console App**
+
+```bash
+dotnet new console -n <project-name>
+```
+
+**Web**
+
+```bash
+dotnet new web -o <project-name>
 ```
 
 ### Dotnet Watch Run
