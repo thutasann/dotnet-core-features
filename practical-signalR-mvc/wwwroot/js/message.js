@@ -3,7 +3,6 @@
 var connection = new signalR.HubConnectionBuilder().withUrl('/messages').build()
 
 connection.on('ReceiveMesssage', function (message) {
-  console.log('message', message)
   var msg = message.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
   var div = document.createElement('div')
   div.innerHTML = msg + '<hr/>'
@@ -15,7 +14,6 @@ connection.start().catch(function (err) {
 })
 
 document.getElementById('sendButton').addEventListener('click', function (event) {
-  console.log('msg')
   var message = document.getElementById('messageInput').value
   connection.invoke('SendMessageToAll', message).catch(function (err) {
     return console.error('SendMessageToAll Error', err.toString())
