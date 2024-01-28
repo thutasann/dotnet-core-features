@@ -6,6 +6,7 @@ In this section, C# DSA will be included days by days.
 
 - [C Sharps Basics From my other Repo](https://github.com/thutasann/c-sharp)
 - Data Structures and Algorithms
+- Leet Code Solutions
 - C# Concepts
 
 ## Sources

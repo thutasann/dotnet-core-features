@@ -2,6 +2,7 @@
 using data_structure_algo.src.Arrays;
 using data_structure_algo.src.BigONotation;
 using data_structure_algo.src.Fundamentals;
+using data_structure_algo.src.LeetCodes;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
 
@@ -25,3 +26,9 @@ arrayInSample.ArrayStartInsertion();
 StackFundamentals stackFundamentals = new();
 stackFundamentals.StackSampleOne();
 stackFundamentals.GenericStackSample();
+
+// ------ Leet Codes
+TwoSum twoSum = new();
+int[] nums = { 2, 11, 7, 15 };
+twoSum.TwoSumSolution(nums, 9);
+
