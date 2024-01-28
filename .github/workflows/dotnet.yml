@@ -34,3 +34,9 @@ jobs:
           dotnet restore
           dotnet build
           dotnet test
+      - name: Build and Test Mailkit & SMTP
+        run: |
+          cd email-mailkit-smtp
+          dotnet restore
+          dotnet build
+          dotnet test
