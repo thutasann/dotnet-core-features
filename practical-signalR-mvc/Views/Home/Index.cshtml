@@ -2,11 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div style="margin-bottom: 2px;">
+    <button type="button" id="joinGroupBtn">Join Private Group</button>
+</div>
+
 <div style="display: flex; gap: 2px; margin-bottom: 2px;">
     <textarea name="message" id="messageInput"></textarea>
     <select id="group">
         <option value="All">Everyone</option>
         <option value="Myself">MySelf</option>
+        <option value="PrivateGroup">Private Group</option>
     </select>
     <button id="sendButton">Send Message</button>
 </div>

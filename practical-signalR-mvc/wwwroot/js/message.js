@@ -30,6 +30,7 @@ connection.start().catch(function (err) {
   return console.error('Connection Error', err.toString())
 })
 
+// Message Send Event
 document.getElementById('sendButton').addEventListener('click', function (event) {
   var message = document.getElementById('messageInput').value
   var groupElement = document.getElementById('group')
@@ -40,11 +41,23 @@ document.getElementById('sendButton').addEventListener('click', function (event)
     connection.invoke(method, message).catch(function (err) {
       return console.error('SendMessageToAll Error', err.toString())
     })
+  } else if (groupValue === 'PrivateGroup') {
+    connection.invoke('SendMessageToGroup', 'PrivateGroup', message).catch(function (err) {
+      return console.error('SendMessageToGroup Error', err.toString())
+    })
   } else {
     connection.invoke('SendMessageToUser', groupValue, message).catch(function (err) {
       return console.error('SendMessageToAll Error', err.toString())
     })
   }
 
+  event.preventDefault()
+})
+
+// Join Group Event
+document.getElementById('joinGroupBtn').addEventListener('click', function (event) {
+  connection.invoke('JoinGroup', 'PrivateGroup').catch(function (err) {
+    return console.error('Join Group Error', err.toString())
+  })
   event.preventDefault()
 })
