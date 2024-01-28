@@ -2,7 +2,13 @@
     ViewData["Title"] = "Home Page";
 }
 
-<textarea name="message" id="messageInput"></textarea>
-<button id="sendButton">Send Message</button>
+<div style="display: flex; gap: 2px; margin-bottom: 2px;">
+    <textarea name="message" id="messageInput"></textarea>
+    <select id="group">
+        <option value="All">Everyone</option>
+        <option value="Myself">MySelf</option>
+    </select>
+    <button id="sendButton">Send Message</button>
+</div>
 
 <div id="messages"></div>
