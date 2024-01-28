@@ -1,13 +1,13 @@
 namespace data_structure_algo.src.Arrays
 {
-    public class ArraySample
+    public class ArrayInsertionSample
     {
         /// <summary>
         /// Array End Insertion
         /// </summary>
         public void ArrayEndInsertion()
         {
-            Console.WriteLine("------- Array End Insertaion");
+            Console.WriteLine("------->> Array End Insertaion");
             int[] intArray = new int[6];
             // Make a variable to keep the length because .Length is based off capacity and does track the actual index
             int length = 0;
@@ -33,7 +33,7 @@ namespace data_structure_algo.src.Arrays
         /// </summary>
         public void ArrayStartInsertion()
         {
-            Console.WriteLine("------- Array Start Insertion");
+            Console.WriteLine("------->> Array Start Insertion");
             int[] intArray = new int[6];
             int length = 0;
 
@@ -58,14 +58,6 @@ namespace data_structure_algo.src.Arrays
                 // just for console logs
                 Console.WriteLine("inNum => " + intNum);
             }
-        }
-
-        /// <summary>
-        /// Array AnyWhere Insertion
-        /// </summary>
-        public void ArrayAnyWhereInsertion()
-        {
-
         }
     }
 }
