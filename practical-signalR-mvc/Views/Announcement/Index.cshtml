@@ -1,0 +1,16 @@
+@{
+    ViewData["Title"] = "Announcement Page";
+}
+
+<a href="/">Back Home</a>
+
+<h1>Announcement Page</h1>
+
+<form asp-controller="Announcement" asp-action="Post" method="POST" style="display: flex; gap: 2px;">
+    <textarea name="message"></textarea>
+    <button type="submit">
+        Send
+    </button>
+</form>
+
+<script src="~/lib/signalr.js"></script>

@@ -14,7 +14,7 @@ connection.on('UserConnected', function (connectionId) {
   var option = document.createElement('option')
   option.text = connectionId
   option.value = connectionId
-  groupElement.add(option)
+  groupElement?.add(option)
 })
 
 connection.on('UserDisconnected', function (connectionId) {
