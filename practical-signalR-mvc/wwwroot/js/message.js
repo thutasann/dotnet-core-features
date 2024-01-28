@@ -1,6 +1,13 @@
 'use strict'
 
-var connection = new signalR.HubConnectionBuilder().withUrl('/messages').build()
+const tokenSample =
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTBhNGU2OWU1NmFmYjI2MzkxYWUzOCIsImlhdCI6MTcwNjQzNDkzOCwiZXhwIjoxNzA5MDI2OTM4fQ.0goyrDRK8DJE2abziFQ09ECvc_lpAGM8BKNa7pX1JPE'
+
+var connection = new signalR.HubConnectionBuilder()
+  .withUrl('/messages', {
+    accessTokenFactory: () => tokenSample,
+  })
+  .build()
 
 connection.on('ReceiveMesssage', function (message) {
   var msg = message.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')

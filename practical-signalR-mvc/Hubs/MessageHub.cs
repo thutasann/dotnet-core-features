@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
 namespace practical_signalR_mvc.Hubs
 {
+    // [Authorize]
     public class MessageHub : Hub
     {
         private readonly ILogger<MessageHub> _logger;
