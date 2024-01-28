@@ -36,7 +36,10 @@ var builder = WebApplication.CreateBuilder(args);
 //     };
 // });
 builder.Services.AddControllersWithViews();
-builder.Services.AddSignalR();
+builder.Services.AddSignalR().AddRedis(options =>
+{
+    options.Configuration.ClientName = "SignalR";
+});
 
 var app = builder.Build();
 
