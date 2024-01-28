@@ -27,6 +27,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapHub<MessageHub>("/messages");
+app.MapHub<MessageHub>("messages");
 
 app.Run();
