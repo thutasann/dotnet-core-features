@@ -7,7 +7,7 @@ SQL files alredy included in the `sql` folder.
 
 - [Data Structure and Algorithms](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)
 - [JWT Authentication](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)
-- [Practical SingalR](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR)
+- [Practical SingalR](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)
 
 ## Scripts
 
@@ -18,16 +18,17 @@ SQL files alredy included in the `sql` folder.
 ```bash
 dotnet new webapi -o <project-name>
 ```
+
 **Console App**
 
 ```bash
 dotnet new console -n <project-name>
 ```
 
-**Web**
+**MVC**
 
 ```bash
-dotnet new web -o <project-name>
+dotnet new mvc -o <project-name>
 ```
 
 ### Dotnet Watch Run

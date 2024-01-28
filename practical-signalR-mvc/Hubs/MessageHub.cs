@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.SignalR;
 
-namespace practical_signalR.Hubs
+namespace practical_signalR_mvc.Hubs
 {
     public class MessageHub : Hub
     {
