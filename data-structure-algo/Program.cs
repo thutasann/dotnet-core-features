@@ -1,6 +1,7 @@
 ﻿using data_structure_algo.src.AbstractDataType;
 using data_structure_algo.src.Arrays;
 using data_structure_algo.src.BigONotation;
+using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.LeetCodes;
 
@@ -17,10 +18,16 @@ Console.WriteLine("------->> Pokemons ADT " + pokemons.ToList());
 // ------ BigONotation
 BigOSampleOne bigOSample = new();
 
+// ------ Collections
+Console.WriteLine("------->> Collections");
+CollectionSample collectionSample = new();
+collectionSample.DirectAccessCollection();
+
 // ------ Arrays + Array Insertions
 ArrayInsertionSample arrayInSample = new();
 arrayInSample.ArrayEndInsertion();
 arrayInSample.ArrayStartInsertion();
+
 
 // ------ Stack Fundamentals
 StackFundamentals stackFundamentals = new();
