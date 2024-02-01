@@ -17,30 +17,30 @@ namespace data_structure_algo.src.Collections
 
         public string FirstName
         {
-            get { return fName; }
+            readonly get { return fName; }
             set { fName = FirstName; }
         }
 
         public string MiddleName
         {
-            get { return mName; }
+            readonly get { return mName; }
             set { mName = MiddleName; }
         }
 
         public string LastName
         {
-            get { return lName; }
+            readonly get { return lName; }
             set { lName = LastName; }
         }
 
-        public override string ToString()
+        public override readonly string ToString()
         {
-            return String.Format("{0} {1} {2}", fName, mName, lName);
+            return string.Format("{0} {1} {2}", fName, mName, lName);
         }
 
-        public string Initials()
+        public readonly string Initials()
         {
-            return String.Format("{0}{1}{2}", fName.Substring(0, 1), mName.Substring(0, 1), lName.Substring(0, 1));
+            return string.Format("{0}{1}{2}", fName[..1], mName[..1], lName[..1]);
         }
 
     }

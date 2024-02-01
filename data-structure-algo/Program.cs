@@ -20,8 +20,26 @@ BigOSampleOne bigOSample = new();
 
 // ------ Collections
 Console.WriteLine("------->> Collections");
-CollectionSample collectionSample = new();
+CollectionSample collectionSample = new()
+{
+    "Javascript",
+    "ASP.NET MVC",
+    "C#",
+    "Python"
+};
+foreach (var course in collectionSample)
+{
+    System.Console.WriteLine(course);
+}
+System.Console.WriteLine("Number of courses : " + collectionSample.Count());
+collectionSample.Remove("Python");
+System.Console.WriteLine("Number of courses : " + collectionSample.Count());
+collectionSample.Clear();
+System.Console.WriteLine("Number of courses : " + collectionSample.Count());
+
+
 collectionSample.DirectAccessCollection();
+
 
 // ------ Arrays + Array Insertions
 ArrayInsertionSample arrayInSample = new();
