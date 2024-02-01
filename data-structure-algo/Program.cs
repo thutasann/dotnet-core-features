@@ -4,6 +4,7 @@ using data_structure_algo.src.BigONotation;
 using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.LeetCodes;
+using data_structure_algo.src.LinkedList;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
 
@@ -57,3 +58,13 @@ TwoSum twoSum = new();
 int[] nums = { 2, 11, 7, 15 };
 twoSum.TwoSumSolution(nums, 9);
 
+// -------- LinkedList 
+Console.WriteLine("------->> LinkedList");
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+LinkedListSample<string> node1 = new("John", null);
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+LinkedListSample<string> node2 = new("Mall", node1);
+LinkedListSample<string> obj = node2.Link;
+System.Console.WriteLine("Node1 Data " + node1.Data);
+System.Console.WriteLine("Node2 Data " + node2.Data);
+System.Console.WriteLine("Object Data " + obj.Data);
