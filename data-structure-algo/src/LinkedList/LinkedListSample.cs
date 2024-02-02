@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace data_structure_algo.src.LinkedList
 {
     /// <summary>
-    /// Linked List Sample
+    ///Linked List is a linear data structure which consists of a group of nodes in a sequence. Each node contains two parts. <br/>
+    ///- Data <br/>
+    ///- Address <br/>
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class LinkedListSample<T>
