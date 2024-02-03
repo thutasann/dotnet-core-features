@@ -1,3 +1,4 @@
+using chat_backend.Dto;
 using chat_backend.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddSignalR();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<IDictionary<string, UserConnection>>(opts => new Dictionary<string, UserConnection>());
 
 // ------ Cors
 builder.Services.AddCors(options =>

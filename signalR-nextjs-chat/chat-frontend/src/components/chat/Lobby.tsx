@@ -28,17 +28,19 @@ export function Lobby() {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const { user, room } = values
     try {
-      const connection = new HubConnectionBuilder()
-        .withUrl(SOCKET_BASE + 'chat')
-        .configureLogging(LogLevel.Information)
-        .build()
+      const connection = new HubConnectionBuilder().withUrl(SOCKET_BASE + 'chat').build()
 
       connection.on('ReceiveMessage', (user, message) => {
         setMessages((prev) => [...prev, { user, message }])
       })
 
+      connection.onclose((e) => {
+        setConnection(null)
+        setMessages([])
+      })
+
       await connection.start()
-      await connection.invoke<JoinRoomRes>(ChatInvokes.JOIN_ROOM, { user, room })
+      await connection.invoke(ChatInvokes.JOIN_ROOM, { user, room })
       setConnection(connection)
     } catch (error) {
       toast({

@@ -5,4 +5,5 @@ export interface JoinRoomRes {
 
 export enum ChatInvokes {
   JOIN_ROOM = 'JoinRoom',
+  SEND_MESSAGE = 'SendMessage',
 }
