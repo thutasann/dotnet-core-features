@@ -8,6 +8,7 @@ SQL files alredy included in the `sql` folder.
 - [Data Structure and Algorithms](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)
 - [JWT Authentication](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)
 - [Practical SingalR](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)
+- [SignalR Nextjs Simple Chat app](https://github.com/thutasann/dotnet-core-features/tree/master/singalR-nextjs-chat)
 - [Send Email With MailKit & SMTP](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)
 
 ## Scripts

@@ -54,9 +54,12 @@ stackFundamentals.StackSampleOne();
 stackFundamentals.GenericStackSample();
 
 // ------ Leet Codes
+Console.WriteLine("------>> Leet Codes");
 TwoSum twoSum = new();
 int[] nums = { 2, 11, 7, 15 };
 twoSum.TwoSumSolution(nums, 9);
+twoSum.TwoSumSolutionTwo(nums, 9);
+twoSum.TwoSumSolutionThree(nums, 9);
 
 // -------- LinkedList 
 Console.WriteLine("------->> LinkedList");
