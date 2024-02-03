@@ -9,7 +9,6 @@ SQL files alredy included in the `sql` folder.
 - EF Core
 - Mysql
 - Nextjs
-- Typescript
 - ShadcnUI
 
 ## Features

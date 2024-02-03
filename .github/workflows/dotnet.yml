@@ -34,6 +34,13 @@ jobs:
           dotnet restore
           dotnet build
           dotnet test
+      - name: Build and Test SignalR Chat app
+        run: |
+          cd signalR-nextjs-chat
+          cd chat-backend
+          dotnet restore
+          dotnet build
+          dotnet test
       - name: Build and Test Mailkit & SMTP
         run: |
           cd email-mailkit-smtp

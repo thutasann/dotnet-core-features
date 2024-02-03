@@ -6,18 +6,45 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/
 import { Input } from '@/components/ui/input'
 import { formSchema } from '../../../dto/form-schema'
 import { HubConnectionBuilder, LogLevel } from '@microsoft/signalr'
+import { SOCKET_BASE } from '@/lib/utils'
+import { useToast } from '../ui/use-toast'
+import { ChatInvokes, JoinRoomRes } from '../../../dto/chat'
+import { useRecoilState } from 'recoil'
+import { ConnectionState } from '../../../states/ConnectionState'
 
 export function Lobby() {
+  const [connection, setConnection] = useRecoilState(ConnectionState)
+
+  const { toast } = useToast()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: '',
+      user: '',
       room: '',
     },
   })
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    console.log('values', values)
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const { user, room } = values
+    try {
+      const connection = new HubConnectionBuilder()
+        .withUrl(SOCKET_BASE + 'chat')
+        .configureLogging(LogLevel.Information)
+        .build()
+
+      connection.on('ReceiveMessage', (user, message) => {
+        console.log('message received: ', user, message)
+      })
+
+      await connection.start()
+      await connection.invoke<JoinRoomRes>(ChatInvokes.JOIN_ROOM, { user, room })
+      setConnection(connection)
+    } catch (error) {
+      toast({
+        title: 'Something went wrong in joining',
+        variant: 'destructive',
+      })
+    }
   }
 
   return (
@@ -26,7 +53,7 @@ export function Lobby() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="name"
+          name="user"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Username</FormLabel>
