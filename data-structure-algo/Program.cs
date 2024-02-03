@@ -61,10 +61,17 @@ twoSum.TwoSumSolution(nums, 9);
 // -------- LinkedList 
 Console.WriteLine("------->> LinkedList");
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
-LinkedListSample<string> node1 = new("John", null);
+LinkedListSample<string?> node1 = new("John", null);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
-LinkedListSample<string> node2 = new("Mall", node1);
-LinkedListSample<string> obj = node2.Link;
-System.Console.WriteLine("Node1 Data " + node1.Data);
-System.Console.WriteLine("Node2 Data " + node2.Data);
-System.Console.WriteLine("Object Data " + obj.Data);
+LinkedListSample<string?> node2 = new("Mall", node1);
+LinkedListSample<string?> obj = node2.Link;
+Console.WriteLine("Node1 Data " + node1.Data);
+Console.WriteLine("Node2 Data " + node2.Data);
+Console.WriteLine("Object Data " + obj.Data);
+
+LinkedListSampleTwo linkedListSampleTwo = new();
+
+// -------- Jagged Array
+Console.WriteLine("------->> Jagged Array");
+JaggedArraySample jaggedArraySample = new();
+jaggedArraySample.SampleOne();

@@ -4,6 +4,7 @@ namespace data_structure_algo.src.LinkedList
     ///Linked List is a linear data structure which consists of a group of nodes in a sequence. Each node contains two parts. <br/>
     ///- Data <br/>
     ///- Address <br/>
+    /// Source - https://www.c-sharpcorner.com/article/linked-list-implementation-in-c-sharp/
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class LinkedListSample<T>
