@@ -15,7 +15,7 @@ namespace chat_backend.Hubs
         public async Task JoinRoom(UserConnection userConnection)
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, userConnection.Room);
-            await Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", _botUser, $"{userConnection.User} Has Joined to {userConnection.Room}.");
+            await Clients.Group(userConnection.Room).SendAsync("ReceiveMessage", _botUser, $"{userConnection.User} has Joined to {userConnection.Room}.");
         }
     }
 }

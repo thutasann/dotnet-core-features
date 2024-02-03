@@ -10,10 +10,11 @@ import { SOCKET_BASE } from '@/lib/utils'
 import { useToast } from '../ui/use-toast'
 import { ChatInvokes, JoinRoomRes } from '../../../dto/chat'
 import { useRecoilState } from 'recoil'
-import { ConnectionState } from '../../../states/ConnectionState'
+import { ConnectionState, MessagesState } from '../../../states/ChatStates'
 
 export function Lobby() {
   const [connection, setConnection] = useRecoilState(ConnectionState)
+  const [messages, setMessages] = useRecoilState(MessagesState)
 
   const { toast } = useToast()
   const form = useForm<z.infer<typeof formSchema>>({
@@ -33,7 +34,7 @@ export function Lobby() {
         .build()
 
       connection.on('ReceiveMessage', (user, message) => {
-        console.log('message received: ', user, message)
+        setMessages((prev) => [...prev, { user, message }])
       })
 
       await connection.start()
@@ -49,7 +50,7 @@ export function Lobby() {
 
   return (
     <Form {...form}>
-      <h1 className="font-extrabold mb-2 text-2xl">Lobby</h1>
+      <h1 className="font-extrabold text-slate-700 mb-2 text-2xl">Lobby</h1>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
