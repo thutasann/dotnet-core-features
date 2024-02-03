@@ -1,15 +1,15 @@
 using email_mailkit_smtp.Dto;
 using email_mailkit_smtp.Interfaces;
 using MailKit.Net.Smtp;
+using MailKit.Security;
 using MimeKit;
-using SendGrid.Helpers.Mail;
 
 namespace email_mailkit_smtp.Respositories
 {
     public class EmailNotificationRepository : IEmailNotificationRepository
     {
 
-        private readonly MailSettings _mailSettings;
+        public readonly MailSettings _mailSettings;
 
         public EmailNotificationRepository(MailSettings mailSettings)
         {
@@ -18,8 +18,10 @@ namespace email_mailkit_smtp.Respositories
 
         public async Task SendEmailAsync(MailRequest mailRequest)
         {
-            var email = new MimeMessage();
-            email.Sender = MailboxAddress.Parse(_mailSettings.BccSettings.Email);
+            var email = new MimeMessage
+            {
+                Sender = MailboxAddress.Parse(_mailSettings.Mail)
+            };
             email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
             email.Subject = mailRequest.Subject;
             var builder = new BodyBuilder();
@@ -46,6 +48,10 @@ namespace email_mailkit_smtp.Respositories
             email.Body = builder.ToMessageBody();
 
             using var smtp = new SmtpClient();
+            smtp.Connect(_mailSettings.Host, _mailSettings.Port, SecureSocketOptions.StartTls);
+            smtp.Authenticate(_mailSettings.Mail, _mailSettings.Password);
+            await smtp.SendAsync(email);
+            smtp.Disconnect(true);
         }
     }
 }
