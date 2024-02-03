@@ -1,7 +1,16 @@
-# .NET CORE API FEATURES COLLECTION
+# C# & .NET CORE API FEATURES COLLECTION
 
-This is the collection of DOTNET CORE API Features Collection. <br>
+This is the collection of C# Fundamentals & DOTNET CORE API Features Collection. <br>
 SQL files alredy included in the `sql` folder.
+
+## Tech Stacks
+
+- .NET Core
+- EF Core
+- Mysql
+- Nextjs
+- Typescript
+- ShadcnUI
 
 ## Features
 
