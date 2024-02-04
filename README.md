@@ -67,3 +67,9 @@ dotnet ef migrations add init
 ```bash
 dotnet ef database update
 ```
+
+### Dotnet Certificates
+
+```bash
+dotnet dev-certs https --trust
+```

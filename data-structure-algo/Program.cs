@@ -1,5 +1,6 @@
 ﻿using data_structure_algo.src.AbstractDataType;
 using data_structure_algo.src.Arrays;
+using data_structure_algo.src.Basics;
 using data_structure_algo.src.BigONotation;
 using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
@@ -8,6 +9,10 @@ using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.Sortings;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
+
+// ------ With Expression
+WithSample withSample = new();
+withSample.SampleOne();
 
 // ------ Abstract Data Types
 List<Pokemon> pokemons = new();

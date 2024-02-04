@@ -47,3 +47,12 @@ jobs:
           dotnet restore
           dotnet build
           dotnet test
+      - name: Build and Test Game Play MicroService Project
+        run: |
+          cd microservices-project-one
+          cd Play.Catalog
+          cd src
+          cd Play.Catalog.Service
+          dotnet restore
+          dotnet build
+          dotnet test
