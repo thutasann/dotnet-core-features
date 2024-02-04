@@ -41,7 +41,7 @@ namespace data_structure_algo.src.Arrays
                 average = total / 7;
                 Console.WriteLine("average Sales for Month " + month + ":" + average);
             }
-            Console.ReadLine();
+            Console.WriteLine();
         }
     }
 }

@@ -5,6 +5,7 @@ using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
+using data_structure_algo.src.Sortings;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
 
@@ -78,3 +79,8 @@ LinkedListSampleTwo linkedListSampleTwo = new();
 Console.WriteLine("------->> Jagged Array");
 JaggedArraySample jaggedArraySample = new();
 jaggedArraySample.SampleOne();
+
+// -------- Bubble Sort
+Console.WriteLine("------>> Bubble Sort Sample One");
+BubbleSortSample bubbleSortSample = new();
+bubbleSortSample.SampleOne();
