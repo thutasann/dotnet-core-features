@@ -18,7 +18,7 @@ SQL files alredy included in the `sql` folder.
 - [Practical SingalR](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)
 - [SignalR Nextjs Simple Chat app](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)
 - [Send Email With MailKit & SMTP](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)
-- [.NET MicroService Project One](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)
+- [Game System MicroService Project](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)
 
 ## Scripts
 
