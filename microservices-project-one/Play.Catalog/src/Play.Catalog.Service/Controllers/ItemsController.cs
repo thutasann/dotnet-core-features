@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
+using Play.Catalog.Service.Entities;
+using Play.Catalog.Service.Interfaces;
 
 namespace Play.Catalog.Service.Controllers
 {
@@ -17,10 +19,18 @@ namespace Play.Catalog.Service.Controllers
             new ItemDto(Guid.NewGuid(), "Bonze sword", "Deals a small amount of damange", 5, DateTimeOffset.UtcNow)
         };
 
-        [HttpGet]
-        public IEnumerable<ItemDto> Get()
+        private readonly IItemsRepository _itemsRepository;
+
+        public ItemsController(IItemsRepository itemsRepository)
         {
-            return items;
+            _itemsRepository = itemsRepository;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
+        {
+            var items = await _itemsRepository.GetAllAsync();
+            return Ok(items);
         }
 
         [HttpGet("{id}")]

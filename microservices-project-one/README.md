@@ -2,6 +2,9 @@
 
 This Project is from the [.NET Microservices](https://www.youtube.com/watch?v=CqCDOosvZIk&t=673s). and The system is `Play Economy` Game system.
 
+thuta
+dTz58aaBsPQFaOoY
+
 ## Tech Stacks
 
 - MongoDB
