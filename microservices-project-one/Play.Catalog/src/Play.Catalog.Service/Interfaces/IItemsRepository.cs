@@ -6,5 +6,8 @@ namespace Play.Catalog.Service.Interfaces
     {
         Task<IReadOnlyCollection<Item>> GetAllAsync();
         Task<Item> GetAsync(Guid id);
+        Task CreateAsync(Item item);
+        Task UpdateAsync(Item item);
+        Task RemoveAsync(Guid id);
     }
 }

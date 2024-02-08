@@ -9,16 +9,6 @@ namespace Play.Catalog.Service.Controllers
     [Route("items")]
     public class ItemsController : ControllerBase
     {
-        /// <summary>
-        /// In-Memory Items (For now)
-        /// </summary>
-        public static readonly List<ItemDto> items = new()
-        {
-            new ItemDto(Guid.NewGuid(), "Potion", "Restore a small amount of HP", 5, DateTimeOffset.UtcNow),
-            new ItemDto(Guid.NewGuid(), "Antitode", "Cure Poision", 7, DateTimeOffset.UtcNow),
-            new ItemDto(Guid.NewGuid(), "Bonze sword", "Deals a small amount of damange", 5, DateTimeOffset.UtcNow)
-        };
-
         private readonly IItemsRepository _itemsRepository;
 
         public ItemsController(IItemsRepository itemsRepository)
@@ -30,69 +20,69 @@ namespace Play.Catalog.Service.Controllers
         public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
         {
             var items = await _itemsRepository.GetAllAsync();
-            return Ok(items);
+            var itemDto = items.Select(s => s.AsDto());
+            return Ok(itemDto);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute] Guid id)
+        public async Task<ActionResult<Item>> GetById([FromRoute] Guid id)
         {
-            var item = items.Where(item => item.Id == id).FirstOrDefault();
+            var item = await _itemsRepository.GetAsync(id);
             if (item == null)
             {
                 return NotFound();
             }
-            return Ok(item);
+            return Ok(item.AsDto());
         }
 
         [HttpPost]
-        public ActionResult<ItemDto> Create([FromForm] CreateItemDto createItemDto)
+        public async Task<ActionResult<ItemDto>> Create([FromForm] CreateItemDto createItemDto)
         {
-            var item = new ItemDto(Guid.NewGuid(), createItemDto.Name, createItemDto.Description, createItemDto.Price, DateTimeOffset.UtcNow);
-
-            if (item == null)
+            var item = new Item
             {
-                return BadRequest("Please enter all information");
-            }
+                Id = new Guid(),
+                Name = createItemDto.Name,
+                Description = createItemDto.Description,
+                Price = createItemDto.Price,
+                CreatedAt = DateTimeOffset.UtcNow
+            };
 
-            items.Add(item);
+            await _itemsRepository.CreateAsync(item);
 
             return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put([FromRoute] Guid id, [FromForm] UpdateItemDto updateItemDto)
+        public async Task<ActionResult> Put([FromRoute] Guid id, [FromForm] UpdateItemDto updateItemDto)
         {
-            var existingItem = items.Where(item => item.Id == id).FirstOrDefault();
+            var existingItem = await _itemsRepository.GetAsync(id);
 
             if (existingItem == null)
             {
-                return NotFound("Item Not Found");
+                return NotFound();
             }
 
-            var updatedItem = existingItem with
-            {
-                Name = updateItemDto.Name,
-                Description = updateItemDto.Description,
-                Price = updateItemDto.Price,
-            };
+            existingItem.Name = updateItemDto.Name;
+            existingItem.Description = updateItemDto.Description;
+            existingItem.Price = updateItemDto.Price;
 
-            var index = items.FindIndex(item => item.Id == id);
-            items[index] = updatedItem;
+            await _itemsRepository.UpdateAsync(existingItem);
 
             return Ok("Item Updated successfully!");
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var index = items.FindIndex(item => item.Id == id);
+            var existingItem = await _itemsRepository.GetAsync(id);
 
-            if (index < 0)
+            if (existingItem == null)
             {
-                return NotFound("Item Not Found");
+                return NotFound();
             }
 
-            items.RemoveAt(index);
+            await _itemsRepository.RemoveAsync(existingItem.Id);
+
             return Ok("Item Deleted");
         }
     }
