@@ -1,3 +1,4 @@
+using dotnet_pokemon_review.Middleware;
 using Play.Catalog.Service.Interfaces;
 using Play.Catalog.Service.Repositories;
 
@@ -13,6 +14,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
 
 var app = builder.Build();
+app.UseMiddleware<ResponseTimeMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

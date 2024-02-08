@@ -28,3 +28,9 @@ cd src
 ```bash
 dotnet new webapi -n Play.Catalog.Service
 ```
+
+### Docker setup
+
+```bash
+docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
+```
