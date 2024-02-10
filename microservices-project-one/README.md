@@ -26,6 +26,20 @@ cd src
 dotnet new webapi -n Play.Catalog.Service
 ```
 
+### Create Common Lib
+
+```bash
+mkdir Play.Common
+
+mkdir src
+
+cd src
+```
+
+```bash
+dotnet new classlib -n Play.Common
+```
+
 ### Docker setup
 
 ```bash
