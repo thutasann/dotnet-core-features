@@ -1,7 +1,6 @@
 # C# & .NET CORE API FEATURES COLLECTION
 
 This is the collection of C# Fundamentals & DOTNET CORE API Features Collection. <br>
-SQL files alredy included in the `sql` folder.
 
 ## Tech Stacks
 
@@ -13,14 +12,14 @@ SQL files alredy included in the `sql` folder.
 
 ## Features
 
-| Topic                            | Source                                                                                            | Type         |
-| -------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
-| Data Structure and Algorithm     | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)       | DSA          |
-| JWT Authentication               | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                  | Auth         |
-| Practical SingalR                | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)     | WebSocket    |
-| SignalR Nextjs Simple Chat app   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)       | WebSocket    |
-| Send Email With MailKit & SMTP   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)        | WebSocket    |
-| Game System MicroService Project | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one) | MicroService |
+| Topic                            | Source                                                                                            | Type             |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
+| Data Structure and Algorithm     | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)       | DSA              |
+| JWT Authentication               | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                  | Auth             |
+| Practical SingalR                | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)     | WebSocket        |
+| SignalR Nextjs Simple Chat app   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)       | WebSocket        |
+| Send Email With MailKit & SMTP   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)        | Email            |
+| Game System MicroService Project | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one) | MicroService ⭐️ |
 
 ## Scripts
 

@@ -15,6 +15,12 @@ namespace Play.Common.Interfaces
         /// <returns></returns>
         Task<IReadOnlyCollection<T>> GetAllAsync(Expression<Func<T, bool>> filter);
         Task<T> GetAsync(Guid id);
+        /// <summary>
+        /// Get Async with Filter
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        Task<T> GetAsync(Expression<Func<T, bool>> filter);
         Task CreateAsync(T entity);
         Task UpdateAsync(T entity);
         Task RemoveAsync(Guid id);
