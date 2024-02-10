@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace dotnet_pokemon_review.Middleware
+namespace Play.Catalog.Service.Middlewares
 {
     /// <summary>
     /// API response time Middleware

@@ -1,6 +1,9 @@
 namespace Play.Catalog.Service.Entities
 {
-    public class Item
+
+
+
+    public class Item : IEntity
     {
         public required Guid Id { get; set; }
         public required string Name { get; set; }

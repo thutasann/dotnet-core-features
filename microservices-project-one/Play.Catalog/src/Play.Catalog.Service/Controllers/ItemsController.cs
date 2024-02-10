@@ -2,17 +2,19 @@ using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
 using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Interfaces;
+using Play.Catalog.Service.Middlewares;
 
 namespace Play.Catalog.Service.Controllers
 {
     [Route("items")]
     [ApiController]
+    [CustomResponseFormat]
     public class ItemsController : ControllerBase
     {
-        private readonly IItemsRepository _itemsRepository;
+        private readonly IRepository<Item> _itemsRepository;
         private readonly ILogger<ItemsController> _logger;
 
-        public ItemsController(IItemsRepository itemsRepository, ILogger<ItemsController> logger)
+        public ItemsController(IRepository<Item> itemsRepository, ILogger<ItemsController> logger)
         {
             _itemsRepository = itemsRepository;
             _logger = logger;
