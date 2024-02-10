@@ -3,10 +3,10 @@ using Play.Catalog.Service.Entities;
 
 namespace Play.Catalog.Service
 {
-    public static class Extension
+    public static class Mapper
     {
         /// <summary>
-        /// Item DTO Mapper Extension
+        /// Item DTO Mapper
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
