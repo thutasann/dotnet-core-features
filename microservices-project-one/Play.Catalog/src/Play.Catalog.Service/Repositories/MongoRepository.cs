@@ -53,10 +53,5 @@ namespace Play.Catalog.Service.Repositories
             FilterDefinition<T> filter = filterBuilder.Eq(entity => entity.Id, id);
             await dbCollection.DeleteOneAsync(filter);
         }
-
-        Task<Item> IRepository<T>.GetAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

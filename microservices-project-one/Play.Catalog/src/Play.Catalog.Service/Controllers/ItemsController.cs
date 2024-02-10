@@ -28,7 +28,7 @@ namespace Play.Catalog.Service.Controllers
             return Ok(itemDto);
         }
 
-        // 531932ab-9ea1-4bf7-ac6f-a639dbdf4e6f
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetSingleItem([FromRoute] Guid id)
         {
