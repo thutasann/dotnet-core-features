@@ -40,6 +40,30 @@ cd src
 dotnet new classlib -n Play.Common
 ```
 
+**Publish in Local**
+
+```bash
+cd Play.Common
+dotnet pack -o ../../../packages/
+```
+
+**Install From Local**
+
+```bash
+cd Play.Catalog
+dotnet nuget add source ./packages -n PlayEconomyTTS
+dotnet add package Play.Common
+
+```
+
+**Install From Nuget Gallery**
+
+```bash
+cd src
+cd Play.Catalog.Service
+dotnet add package Play.Common
+```
+
 ### Docker setup
 
 ```bash

@@ -1,8 +1,7 @@
+using Play.Common.Interfaces;
+
 namespace Play.Catalog.Service.Entities
 {
-
-
-
     public class Item : IEntity
     {
         public required Guid Id { get; set; }
