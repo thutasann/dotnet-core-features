@@ -1,3 +1,5 @@
+using System.Linq.Expressions;
+
 namespace Play.Common.Interfaces
 {
     /// <summary>
@@ -6,7 +8,12 @@ namespace Play.Common.Interfaces
     /// <typeparam name="T"></typeparam>
     public interface IRepository<T> where T : IEntity
     {
-        Task<IReadOnlyCollection<T>> GetAllAsync();
+        /// <summary>
+        /// GetAllAsync with Filter
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        Task<IReadOnlyCollection<T>> GetAllAsync(Expression<Func<T, bool>> filter);
         Task<T> GetAsync(Guid id);
         Task CreateAsync(T entity);
         Task UpdateAsync(T entity);

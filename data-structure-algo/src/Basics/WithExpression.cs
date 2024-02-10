@@ -6,6 +6,7 @@ namespace data_structure_algo.src.Basics
     {
         public void SampleOne()
         {
+            Console.WriteLine("------>> With Expression");
             var person1 = new Person("Thuta", "Sann");
             var person2 = person1 with { LastName = "Sann Updated" };
 

@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using MongoDB.Driver;
 using Play.Common.Interfaces;
 
@@ -36,7 +37,7 @@ namespace Play.Common.MongoDB
             await dbCollection.ReplaceOneAsync(filter, entity);
         }
 
-        public async Task<IReadOnlyCollection<T>> GetAllAsync()
+        public async Task<IReadOnlyCollection<T>> GetAllAsync(Expression<Func<T, bool>> filter)
         {
             return await dbCollection.Find(filterBuilder.Empty).ToListAsync();
         }

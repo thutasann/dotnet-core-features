@@ -10,6 +10,10 @@ using data_structure_algo.src.Sortings;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
 
+// ------ Basic
+LambdaExpression lambdaExpression = new();
+lambdaExpression.SampleOne();
+
 // ------ With Expression
 WithSample withSample = new();
 withSample.SampleOne();
@@ -46,7 +50,6 @@ System.Console.WriteLine("Number of courses : " + collectionSample.Count());
 
 
 collectionSample.DirectAccessCollection();
-
 
 // ------ Arrays + Array Insertions
 ArrayInsertionSample arrayInSample = new();
