@@ -13,12 +13,14 @@ SQL files alredy included in the `sql` folder.
 
 ## Features
 
-- [Data Structure and Algorithms](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)
-- [JWT Authentication](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)
-- [Practical SingalR](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)
-- [SignalR Nextjs Simple Chat app](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)
-- [Send Email With MailKit & SMTP](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)
-- [Game System MicroService Project](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)
+| Topic                            | Source                                                                                            | Type         |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- | ------------ |
+| Data Structure and Algorithm     | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)       | DSA          |
+| JWT Authentication               | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                  | Auth         |
+| Practical SingalR                | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)     | WebSocket    |
+| SignalR Nextjs Simple Chat app   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)       | WebSocket    |
+| Send Email With MailKit & SMTP   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)        | WebSocket    |
+| Game System MicroService Project | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one) | MicroService |
 
 ## Scripts
 
