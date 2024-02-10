@@ -8,6 +8,7 @@ namespace Play.Common.Interfaces
     /// <typeparam name="T"></typeparam>
     public interface IRepository<T> where T : IEntity
     {
+        Task<IReadOnlyCollection<T>> GetAllAsync();
         /// <summary>
         /// GetAllAsync with Filter
         /// </summary>

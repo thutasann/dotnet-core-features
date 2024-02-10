@@ -22,12 +22,12 @@ namespace Play.Catalog.Service.Controllers
         }
 
         // [HttpGet]
-        // public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
-        // {
-        //     var items = await _itemsRepository.GetAllAsync();
-        //     var itemDto = items.Select(s => s.AsDto());
-        //     return Ok(itemDto);
-        // }
+        public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
+        {
+            var items = await _itemsRepository.GetAllAsync();
+            var itemDto = items.Select(s => s.AsDto());
+            return Ok(itemDto);
+        }
 
 
         [HttpGet("{id}")]
