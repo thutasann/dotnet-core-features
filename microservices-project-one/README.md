@@ -8,6 +8,14 @@ This Project is from the [.NET Microservices](https://www.youtube.com/watch?v=Cq
 - Docker
 - RabbitMQ
 
+## Docker Containers
+
+- MongoDB Container
+- RabbitMQ Container
+- Seq Container
+- Prometheus Container
+- Grafana Container
+
 ## High Level Architecture
 
 ![High Level Architecture](examples/high-level.png)
@@ -69,5 +77,3 @@ dotnet add package Play.Common
 ```bash
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
 ```
-
-## Creating NuGet Package for Shared Lib
