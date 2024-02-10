@@ -21,7 +21,7 @@ namespace Play.Catalog.Service.Controllers
             _logger = logger;
         }
 
-        // [HttpGet]
+        [HttpGet]
         public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
         {
             var items = await _itemsRepository.GetAllAsync();
