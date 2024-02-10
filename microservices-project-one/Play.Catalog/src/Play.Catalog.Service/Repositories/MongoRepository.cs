@@ -18,23 +18,23 @@ namespace Play.Catalog.Service.Repositories
             dbCollection = database.GetCollection<T>(collectionName);
         }
 
-        public async Task CreateAsync(T item)
+        public async Task CreateAsync(T entity)
         {
-            if (item == null)
+            if (entity == null)
             {
-                throw new ArgumentNullException(nameof(item));
+                throw new ArgumentNullException(nameof(entity));
             }
-            await dbCollection.InsertOneAsync(item);
+            await dbCollection.InsertOneAsync(entity);
         }
 
-        public async Task UpdateAsync(T item)
+        public async Task UpdateAsync(T entity)
         {
-            if (item == null)
+            if (entity == null)
             {
-                throw new ArgumentNullException(nameof(item));
+                throw new ArgumentNullException(nameof(entity));
             }
-            FilterDefinition<T> filter = filterBuilder.Eq(entity => entity.Id, item.Id);
-            await dbCollection.ReplaceOneAsync(filter, item);
+            FilterDefinition<T> filter = filterBuilder.Eq(entity => entity.Id, entity.Id);
+            await dbCollection.ReplaceOneAsync(filter, entity);
         }
 
         public async Task<IReadOnlyCollection<T>> GetAllAsync()

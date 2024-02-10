@@ -10,8 +10,8 @@ namespace Play.Catalog.Service.Interfaces
     {
         Task<IReadOnlyCollection<T>> GetAllAsync();
         Task<T> GetAsync(Guid id);
-        Task CreateAsync(T item);
-        Task UpdateAsync(T item);
+        Task CreateAsync(T entity);
+        Task UpdateAsync(T entity);
         Task RemoveAsync(Guid id);
     }
 }
