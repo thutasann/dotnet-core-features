@@ -12,7 +12,6 @@
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Redis" Version="1.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="7.0.0" />
-    <PackageReference Include="Thuta.Play.Common" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

@@ -43,7 +43,7 @@ dotnet new classlib -n Play.Common
 **Publish in Local**
 
 ```bash
-cd Play.Common
+cd Play.Common/src/Play.Common
 dotnet pack -o ../../../packages/
 ```
 
