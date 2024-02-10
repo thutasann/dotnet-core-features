@@ -7,16 +7,11 @@ namespace Play.Catalog.Service.Repositories
     public class ItemsRepository : IItemsRepository
     {
         private const string collectionName = "items";
-        private const string localDbConnection = "mongodb://localhost:27017";
-        private const string databaseConnection = "mongodb+srv://thuta:dTz58aaBsPQFaOoY@dotnet-microservice.ypdtkyp.mongodb.net/?retryWrites=true&w=majority";
         private readonly IMongoCollection<Item> dbCollection;
         private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
 
-        public ItemsRepository()
+        public ItemsRepository(IMongoDatabase database)
         {
-            var mongoClient = new MongoClient(localDbConnection);
-
-            var database = mongoClient.GetDatabase("Catalog");
             dbCollection = database.GetCollection<Item>(collectionName);
         }
 
