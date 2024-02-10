@@ -24,11 +24,11 @@ builder.Services.AddSingleton(serviceProvider =>
     return mongoClient.GetDatabase(serviceSettings?.ServiceName);
 });
 
-// DI
-builder.Services.AddSingleton<IItemsRepository, ItemsRepository>();
-
 // Controllers
 builder.Services.AddControllers();
+
+// DI
+builder.Services.AddScoped<IItemsRepository, ItemsRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

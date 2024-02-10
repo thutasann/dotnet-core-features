@@ -5,15 +5,17 @@ using Play.Catalog.Service.Interfaces;
 
 namespace Play.Catalog.Service.Controllers
 {
-    [ApiController]
     [Route("items")]
+    [ApiController]
     public class ItemsController : ControllerBase
     {
         private readonly IItemsRepository _itemsRepository;
+        private readonly ILogger<ItemsController> _logger;
 
-        public ItemsController(IItemsRepository itemsRepository)
+        public ItemsController(IItemsRepository itemsRepository, ILogger<ItemsController> logger)
         {
             _itemsRepository = itemsRepository;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -24,13 +26,15 @@ namespace Play.Catalog.Service.Controllers
             return Ok(itemDto);
         }
 
+        // 531932ab-9ea1-4bf7-ac6f-a639dbdf4e6f
         [HttpGet("{id}")]
-        public async Task<ActionResult<Item>> GetById([FromRoute] Guid id)
+        public async Task<IActionResult> GetSingleItem([FromRoute] Guid id)
         {
+            _logger.LogInformation("itemId => " + id);
             var item = await _itemsRepository.GetAsync(id);
             if (item == null)
             {
-                return NotFound();
+                return NotFound("Item Not Found");
             }
             return Ok(item.AsDto());
         }
@@ -49,17 +53,18 @@ namespace Play.Catalog.Service.Controllers
 
             await _itemsRepository.CreateAsync(item);
 
-            return CreatedAtAction(nameof(GetById), new { id = item.Id }, item);
+            return CreatedAtAction(nameof(GetSingleItem), new { id = item.Id }, item);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Put([FromRoute] Guid id, [FromForm] UpdateItemDto updateItemDto)
         {
+            _logger.LogInformation("itemId => ", id);
             var existingItem = await _itemsRepository.GetAsync(id);
 
             if (existingItem == null)
             {
-                return NotFound();
+                return NotFound("Item Not Found");
             }
 
             existingItem.Name = updateItemDto.Name;

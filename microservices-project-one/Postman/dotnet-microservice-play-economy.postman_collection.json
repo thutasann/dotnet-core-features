@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "b075807c-c831-4589-ab58-c17879e1b84e",
+		"name": "dotnet-microservice-play-economy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14049071"
+	},
+	"item": [
+		{
+			"name": "CatalogService",
+			"item": [
+				{
+					"name": "Get All Items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dotnet-localhost}}/items",
+							"host": [
+								"{{dotnet-localhost}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Item 3",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "This is Item 3",
+									"type": "text"
+								},
+								{
+									"key": "Price",
+									"value": "300",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dotnet-localhost}}/items",
+							"host": [
+								"{{dotnet-localhost}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{dotnet-localhost}}/items/0fa38206-4179-4780-8ca1-a319d2b913a4",
+							"host": [
+								"{{dotnet-localhost}}"
+							],
+							"path": [
+								"items",
+								"0fa38206-4179-4780-8ca1-a319d2b913a4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Item 4 updated",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "This is Item 4 updated",
+									"type": "text"
+								},
+								{
+									"key": "Price",
+									"value": "460",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{dotnet-localhost}}/items/0fa38206-4179-4780-8ca1-a319d2b913a4",
+							"host": [
+								"{{dotnet-localhost}}"
+							],
+							"path": [
+								"items",
+								"0fa38206-4179-4780-8ca1-a319d2b913a4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{dotnet-localhost}}/items/60f45fdd-83ef-4176-aeb0-acaadc091244",
+							"host": [
+								"{{dotnet-localhost}}"
+							],
+							"path": [
+								"items",
+								"60f45fdd-83ef-4176-aeb0-acaadc091244"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

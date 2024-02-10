@@ -9,10 +9,12 @@ namespace Play.Catalog.Service.Repositories
         private const string collectionName = "items";
         private readonly IMongoCollection<Item> dbCollection;
         private readonly FilterDefinitionBuilder<Item> filterBuilder = Builders<Item>.Filter;
+        private readonly ILogger<ItemsRepository> _logger;
 
-        public ItemsRepository(IMongoDatabase database)
+        public ItemsRepository(IMongoDatabase database, ILogger<ItemsRepository> logger)
         {
             dbCollection = database.GetCollection<Item>(collectionName);
+            _logger = logger;
         }
 
         public async Task CreateAsync(Item item)
