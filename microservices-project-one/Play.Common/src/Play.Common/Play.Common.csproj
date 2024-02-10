@@ -2,13 +2,11 @@
 
   <PropertyGroup>
     <PackageId>Thuta.Play.Common</PackageId>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Thuta Sann</Authors>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <IncludeBuildOutput>true</IncludeBuildOutput>
-    <IncludeXmlFiles>true</IncludeXmlFiles>
   </PropertyGroup>
 
   <ItemGroup>
