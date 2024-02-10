@@ -56,3 +56,12 @@ jobs:
           dotnet restore
           dotnet build
           dotnet test
+      - name: Build and Test Game Play MicroService Common Lib
+        run: |
+          cd microservices-project-one
+          cd Play.Common
+          cd src
+          cd Play.Common
+          dotnet restore
+          dotnet build
+          dotnet test

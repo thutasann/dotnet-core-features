@@ -1,4 +1,4 @@
-namespace Play.Common.Service.Settings
+namespace Play.Common.Settings
 {
     /// <summary>
     /// MongoDB Settings
