@@ -69,7 +69,7 @@ dotnet add package Play.Common
 ```bash
 cd src
 cd Play.Catalog.Service
-dotnet add package Play.Common
+dotnet add package Thuta.Play.Common
 ```
 
 ### Docker setup
