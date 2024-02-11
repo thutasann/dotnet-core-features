@@ -10,9 +10,20 @@ using data_structure_algo.src.Sortings;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
 
-// ------ Basic
+// ------ Lambda Expression
 LambdaExpression lambdaExpression = new();
 lambdaExpression.SampleOne();
+
+// ------ Extension Method
+ExtensionBaseClass extensionBaseClass = new();
+extensionBaseClass.Sample();
+extensionBaseClass.Display();
+extensionBaseClass.Print();
+extensionBaseClass.NewMethod();
+
+string str = "12345";
+int num = str.IntegerExtension();
+System.Console.WriteLine("Extended num " + num);
 
 // ------ With Expression
 WithSample withSample = new();

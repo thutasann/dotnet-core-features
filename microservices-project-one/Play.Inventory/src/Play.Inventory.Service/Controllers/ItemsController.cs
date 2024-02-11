@@ -31,7 +31,7 @@ namespace Play.Inventory.Service.Controllers
             return Ok(items);
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<ActionResult> PostAsync(GrantItemsDto grantItemsDto)
         {
             return Ok("Created TODO");
