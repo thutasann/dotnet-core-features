@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Play.Catalog.Service.Dtos
 {
     /// <summary>

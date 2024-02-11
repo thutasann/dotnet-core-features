@@ -2,6 +2,9 @@ using Play.Common.Interfaces;
 
 namespace Play.Inventory.Service.Entities
 {
+    /// <summary>
+    /// Inventory Item
+    /// </summary>
     public class InventoryItem : IEntity
     {
         public Guid Id { get; set; }
@@ -11,4 +14,3 @@ namespace Play.Inventory.Service.Entities
         public DateTimeOffset AcquiredDate { get; set; }
     }
 }
-

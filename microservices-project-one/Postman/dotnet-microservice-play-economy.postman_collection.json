@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "CatalogService",
+			"name": "Play.Catalog.Service",
 			"item": [
 				{
 					"name": "Get All Items",
@@ -136,6 +136,153 @@
 						}
 					},
 					"response": []
+				}
+			]
+		},
+		{
+			"name": "Play.Inventory.Service",
+			"item": [
+				{
+					"name": "items",
+					"item": [
+						{
+							"name": "/items",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/items?userId=<uuid>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items"
+									],
+									"query": [
+										{
+											"key": "userId",
+											"value": "<uuid>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/items?userId=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items"
+											],
+											"query": [
+												{
+													"key": "userId",
+													"value": "<uuid>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"catalogItemId\": \"<uuid>\",\n    \"quantity\": \"<integer>\",\n    \"acquiredDate\": \"<dateTime>\"\n  },\n  {\n    \"catalogItemId\": \"<uuid>\",\n    \"quantity\": \"<integer>\",\n    \"acquiredDate\": \"<dateTime>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "/items",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"userId\": \"<uuid>\",\n  \"catalogItemId\": \"<uuid>\",\n  \"quantity\": \"<integer>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/items",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"items"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"userId\": \"<uuid>\",\n  \"catalogItemId\": \"<uuid>\",\n  \"quantity\": \"<integer>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/items",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"items"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
 				}
 			]
 		}
