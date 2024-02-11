@@ -23,7 +23,7 @@ extensionBaseClass.NewMethod();
 
 string str = "12345";
 int num = str.IntegerExtension();
-System.Console.WriteLine("Extended num " + num);
+Console.WriteLine("Extended num " + num);
 
 // ------ With Expression
 WithSample withSample = new();
@@ -51,13 +51,13 @@ CollectionSample collectionSample = new()
 };
 foreach (var course in collectionSample)
 {
-    System.Console.WriteLine(course);
+    Console.WriteLine(course);
 }
-System.Console.WriteLine("Number of courses : " + collectionSample.Count());
+Console.WriteLine("Number of courses : " + collectionSample.Count());
 collectionSample.Remove("Python");
-System.Console.WriteLine("Number of courses : " + collectionSample.Count());
+Console.WriteLine("Number of courses : " + collectionSample.Count());
 collectionSample.Clear();
-System.Console.WriteLine("Number of courses : " + collectionSample.Count());
+Console.WriteLine("Number of courses : " + collectionSample.Count());
 
 
 collectionSample.DirectAccessCollection();
@@ -103,3 +103,7 @@ jaggedArraySample.SampleOne();
 Console.WriteLine("------>> Bubble Sort Sample One");
 BubbleSortSample bubbleSortSample = new();
 bubbleSortSample.SampleOne();
+
+// -------- Selection Sort
+SelectionSortSample selectionSortSample = new();
+selectionSortSample.SampleOne();

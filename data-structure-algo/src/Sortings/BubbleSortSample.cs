@@ -1,5 +1,3 @@
-using System.Collections.ObjectModel;
-
 namespace data_structure_algo.src.Sortings
 {
     /// <summary>

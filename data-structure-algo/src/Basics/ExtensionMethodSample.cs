@@ -1,5 +1,3 @@
-using System.Diagnostics.Contracts;
-
 namespace data_structure_algo.src.Basics
 {
     /// <summary>
