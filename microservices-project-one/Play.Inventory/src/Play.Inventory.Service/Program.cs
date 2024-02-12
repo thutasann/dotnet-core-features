@@ -18,7 +18,7 @@ builder.Services.AddHttpClient<CatalogClient>(client =>
     client.BaseAddress = new Uri("http://localhost:5008");
 })
 .AddTransientHttpErrorPolicy(transient => transient.Or<TimeoutRejectedException>().WaitAndRetryAsync( // exponential backoff
-    3,
+    5,
     retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)) + TimeSpan.FromMilliseconds(jitterer.Next(0, 1000)),
     onRetry: (outcome, timespan, retryAttempt) =>
     {
