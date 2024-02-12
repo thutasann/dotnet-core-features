@@ -73,11 +73,15 @@ ArrayInsertionSample arrayInSample = new();
 arrayInSample.ArrayEndInsertion();
 arrayInSample.ArrayStartInsertion();
 
-
 // ------ Stack Fundamentals
 StackFundamentals stackFundamentals = new();
 stackFundamentals.StackSampleOne();
 stackFundamentals.GenericStackSample();
+
+// ------ Queue Fundamentals
+QueueFundamental queueFundamental = new();
+queueFundamental.SampleOne();
+queueFundamental.EcommerceOrderSample();
 
 // ------ Leet Codes
 Console.WriteLine("------>> Leet Codes");
