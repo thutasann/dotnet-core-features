@@ -75,3 +75,7 @@ The client send a request to the service but the response, if any, is not sent i
 ### Service Communication
 
 ![Service Communication](./examples/service-communication.png)
+
+### Retries with exponential backoff
+
+![Retry](./examples/retry.png)

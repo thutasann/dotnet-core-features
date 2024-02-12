@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
 using Play.Catalog.Service.Entities;
-using Play.Catalog.Service.Middlewares;
 using Play.Common.Interfaces;
 
 namespace Play.Catalog.Service.Controllers
@@ -12,6 +11,7 @@ namespace Play.Catalog.Service.Controllers
     {
         private readonly IRepository<Item> _itemsRepository;
         private readonly ILogger<ItemsController> _logger;
+        private static int requestCounter = 0;
 
         public ItemsController(IRepository<Item> itemsRepository, ILogger<ItemsController> logger)
         {
@@ -22,10 +22,24 @@ namespace Play.Catalog.Service.Controllers
         [HttpGet]
         public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
         {
-            _logger.LogInformation("Retrieving Catalog Items");
-            var items = await _itemsRepository.GetAllAsync();
-            var itemDto = items.Select(s => s.AsDto());
-            return Ok(itemDto);
+            requestCounter++;
+            _logger.LogInformation("Retrieving CatalogItems Requested Time ==> " + requestCounter);
+
+            if (requestCounter <= 2)
+            {
+                _logger.LogInformation($"Request {requestCounter} Delaying..");
+                await Task.Delay(TimeSpan.FromSeconds(3)); // retries testing purpose
+            }
+
+            if (requestCounter <= 4)
+            {
+                _logger.LogInformation($"Request {requestCounter} 500 (Internal Server Error)..");
+                return StatusCode(500); // retries testing purpose
+            }
+
+            var items = (await _itemsRepository.GetAllAsync()).Select(s => s.AsDto());
+            _logger.LogInformation($"REquest {requestCounter} : 200 (OK)");
+            return Ok(items);
         }
 
 

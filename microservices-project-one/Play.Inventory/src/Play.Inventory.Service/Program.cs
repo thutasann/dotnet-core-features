@@ -2,6 +2,7 @@ using Play.Inventory.Service.Middlewares;
 using Play.Common.MongoDB;
 using Play.Inventory.Service.Entities;
 using Play.Inventory.Service.Clients;
+using Polly;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,8 @@ builder.Services.AddMongo().AddMongoRepository<InventoryItem>("inventoryitems");
 builder.Services.AddHttpClient<CatalogClient>(client =>
 {
     client.BaseAddress = new Uri("http://localhost:5008");
-});
+})
+.AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1)); // for retries
 
 // Controllers
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
