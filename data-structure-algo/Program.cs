@@ -29,6 +29,12 @@ Console.WriteLine("Extended num " + num);
 WithSample withSample = new();
 withSample.SampleOne();
 
+// ------ Dynamic Object and Dynamic Key
+DictionarySample dictionarySample = new();
+dictionarySample.DynamicObjectSample();
+dictionarySample.DynamicKeySample();
+
+
 // ------ Abstract Data Types
 List<Pokemon> pokemons = new();
 Pokemon pokemonOne = new("Pokemon One", 11);
