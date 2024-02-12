@@ -52,24 +52,8 @@ dotnet new classlib -n Play.Common
 
 ```bash
 cd Play.Common/src/Play.Common
+
 dotnet pack -o ../../../packages/
-```
-
-**Install From Local**
-
-```bash
-cd Play.Catalog
-dotnet nuget add source ./packages -n PlayEconomyTTS
-dotnet add package Play.Common
-
-```
-
-**Install From Nuget Gallery**
-
-```bash
-cd src
-cd Play.Catalog.Service
-dotnet add package Thuta.Play.Common
 ```
 
 ### Docker setup
@@ -77,3 +61,17 @@ dotnet add package Thuta.Play.Common
 ```bash
 docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
 ```
+
+## Microservice Communication Styles (Notes)
+
+**Synchronous**
+
+The client send a request and wait for a response from the service.
+
+**Asynchronous**
+
+The client send a request to the service but the response, if any, is not sent immediately.
+
+### Service Communication
+
+![Service Communication](./examples/service-communication.png)

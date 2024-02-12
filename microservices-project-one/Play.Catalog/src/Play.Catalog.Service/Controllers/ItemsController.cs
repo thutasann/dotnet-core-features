@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
 using Play.Catalog.Service.Entities;
@@ -9,7 +8,6 @@ namespace Play.Catalog.Service.Controllers
 {
     [Route("items")]
     [ApiController]
-    [CustomResponseFormat]
     public class ItemsController : ControllerBase
     {
         private readonly IRepository<Item> _itemsRepository;
@@ -24,6 +22,7 @@ namespace Play.Catalog.Service.Controllers
         [HttpGet]
         public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
         {
+            _logger.LogInformation("Retrieving Catalog Items");
             var items = await _itemsRepository.GetAllAsync();
             var itemDto = items.Select(s => s.AsDto());
             return Ok(itemDto);

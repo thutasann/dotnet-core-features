@@ -8,5 +8,10 @@ namespace Play.Catalog.Service.Dtos
     /// <summary>
     /// Inventory Item Dto
     /// </summary>
-    public record InventoryItemDto(Guid CatalogItemId, int Quantity, DateTimeOffset AcquiredDate);
+    public record InventoryItemDto(Guid CatalogItemId, string Name, string Description, int Quantity, DateTimeOffset AcquiredDate);
+
+    /// <summary>
+    /// Catalog Item Dto Record to Retrive from Catalog Service
+    /// </summary>
+    public record CatalogItemDto(Guid Id, string Name, string Description);
 }

@@ -10,9 +10,9 @@ namespace Play.Inventory.Service
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        public static InventoryItemDto AsDto(this InventoryItem item)
+        public static InventoryItemDto AsDto(this InventoryItem item, string name, string Description)
         {
-            return new InventoryItemDto(item.CatalogItemId, item.Quantity, item.AcquiredDate);
+            return new InventoryItemDto(item.CatalogItemId, name, Description, item.Quantity, item.AcquiredDate);
         }
     }
 }
