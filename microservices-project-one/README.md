@@ -79,3 +79,7 @@ The client send a request to the service but the response, if any, is not sent i
 ### Retries with exponential backoff
 
 ![Retry](./examples/retry.png)
+
+### Circuit Breaker Pattern
+
+![Circuit Breaker](./examples/circuit-breaker.png)

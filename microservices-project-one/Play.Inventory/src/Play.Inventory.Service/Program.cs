@@ -7,8 +7,10 @@ using Polly.Timeout;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Configuration
 builder.Services.AddMongo().AddMongoRepository<InventoryItem>("inventoryitems");
+ILogger<CatalogClient>? logger = null;
 
 Random jitterer = new();
 
@@ -22,13 +24,21 @@ builder.Services.AddHttpClient<CatalogClient>(client =>
     retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)) + TimeSpan.FromMilliseconds(jitterer.Next(0, 1000)),
     onRetry: (outcome, timespan, retryAttempt) =>
     {
-#pragma warning disable ASP0000 // Do not call 'IServiceCollection.BuildServiceProvider' in 'ConfigureServices'
-        var serviceProvider = builder.Services.BuildServiceProvider();
-#pragma warning restore ASP0000 // Do not call 'IServiceCollection.BuildServiceProvider' in 'ConfigureServices'
-        serviceProvider.GetService<ILogger<CatalogClient>>()?
-            .LogWarning($"Delaying for {timespan.TotalSeconds} seconds, then making retry {retryAttempt}"); // Dont use in Production
+        logger?.LogWarning($"Delaying for {timespan.TotalSeconds} seconds, then making retry {retryAttempt}"); // Dont use in Production
     }
 ))
+// .AddTransientHttpErrorPolicy(transient => transient.Or<TimeoutRejectedException>().CircuitBreakerAsync( // circuit breaker pattern
+//     3,
+//     TimeSpan.FromSeconds(15),
+//     onBreak: (outcome, timespan) =>
+//     {
+//         logger?.LogWarning($"Opening the circuit for {timespan.TotalSeconds} seconds....");
+//     },
+//     onReset: () =>
+//     {
+//         logger?.LogWarning("Closing the circuit");
+//     }
+// ))
 .AddPolicyHandler(Policy.TimeoutAsync<HttpResponseMessage>(1)); // for retries
 
 // Controllers
