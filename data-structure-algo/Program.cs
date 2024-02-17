@@ -121,3 +121,7 @@ bubbleSortSample.SampleOne();
 // -------- Selection Sort
 SelectionSortSample selectionSortSample = new();
 selectionSortSample.SampleOne();
+
+// -------- Merge Sort
+MergeSortSample mergeSortSample = new();
+mergeSortSample.SampleOne();
