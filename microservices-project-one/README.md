@@ -83,3 +83,15 @@ The client send a request to the service but the response, if any, is not sent i
 ### Circuit Breaker Pattern
 
 ![Circuit Breaker](./examples/circuit-breaker.png)
+
+### Microservice Autonomy
+
+![Microservice Autonomy](./examples/microsoft-autonomy.png)
+
+### Async Propagation of Data
+
+![Async Propagation of Data](./examples/async-propagation-of-data.png)
+
+### Implementing asynchronous communication
+
+![Implementing Async communication](./examples/implementing-async-communication.png)
