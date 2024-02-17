@@ -2,7 +2,6 @@ using MassTransit;
 using MassTransit.Definition;
 using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Middlewares;
-using Play.Catalog.Service.Settings;
 using Play.Common.MongoDB;
 using Play.Common.Settings;
 
