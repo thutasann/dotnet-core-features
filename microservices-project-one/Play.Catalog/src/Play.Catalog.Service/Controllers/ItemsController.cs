@@ -1,4 +1,6 @@
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using Play.Catalog.Contracts;
 using Play.Catalog.Service.Dtos;
 using Play.Catalog.Service.Entities;
 using Play.Common.Interfaces;
@@ -11,34 +13,31 @@ namespace Play.Catalog.Service.Controllers
     {
         private readonly IRepository<Item> _itemsRepository;
         private readonly ILogger<ItemsController> _logger;
-        private static int requestCounter = 0;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public ItemsController(IRepository<Item> itemsRepository, ILogger<ItemsController> logger)
+        public ItemsController(IRepository<Item> itemsRepository, ILogger<ItemsController> logger, IPublishEndpoint publishEndpoint)
         {
             _itemsRepository = itemsRepository;
             _logger = logger;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet]
         public async Task<ActionResult<IReadOnlyCollection<Item>>> Get()
         {
-            requestCounter++;
-            _logger.LogInformation("Retrieving CatalogItems Requested Time ==> " + requestCounter);
+            // if (requestCounter <= 2)
+            // {
+            //     _logger.LogInformation($"Request {requestCounter} Delaying..");
+            //     await Task.Delay(TimeSpan.FromSeconds(3)); // retries testing purpose
+            // }
 
-            if (requestCounter <= 2)
-            {
-                _logger.LogInformation($"Request {requestCounter} Delaying..");
-                await Task.Delay(TimeSpan.FromSeconds(3)); // retries testing purpose
-            }
-
-            if (requestCounter <= 4)
-            {
-                _logger.LogInformation($"Request {requestCounter} 500 (Internal Server Error)..");
-                return StatusCode(500); // retries testing purpose
-            }
+            // if (requestCounter <= 4)
+            // {
+            //     _logger.LogInformation($"Request {requestCounter} 500 (Internal Server Error)..");
+            //     return StatusCode(500); // retries testing purpose
+            // }
 
             var items = (await _itemsRepository.GetAllAsync()).Select(s => s.AsDto());
-            _logger.LogInformation($"REquest {requestCounter} : 200 (OK)");
             return Ok(items);
         }
 
@@ -68,6 +67,7 @@ namespace Play.Catalog.Service.Controllers
             };
 
             await _itemsRepository.CreateAsync(item);
+            await _publishEndpoint.Publish(new CatalogItemCreated(item.Id, item.Name, item.Description));
 
             return CreatedAtAction(nameof(GetSingleItem), new { id = item.Id }, item);
         }
@@ -89,6 +89,8 @@ namespace Play.Catalog.Service.Controllers
 
             await _itemsRepository.UpdateAsync(existingItem);
 
+            await _publishEndpoint.Publish(new CatalogItemUpdated(existingItem.Id, existingItem.Name, existingItem.Description));
+
             return Ok("Item Updated successfully!");
         }
 
@@ -103,6 +105,8 @@ namespace Play.Catalog.Service.Controllers
             }
 
             await _itemsRepository.RemoveAsync(existingItem.Id);
+
+            await _publishEndpoint.Publish(new CatalogItemDeleted(id));
 
             return Ok("Item Deleted");
         }

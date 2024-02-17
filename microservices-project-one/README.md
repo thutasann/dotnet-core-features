@@ -48,6 +48,12 @@ cd src
 dotnet new classlib -n Play.Common
 ```
 
+**Reference project (P2P) **
+
+```bash
+dotnet add reference ../Play.Catalog.Contracts/Play.Catalog.Contracts.csproj
+```
+
 **Publish in Local**
 
 ```bash
