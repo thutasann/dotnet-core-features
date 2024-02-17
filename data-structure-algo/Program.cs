@@ -34,6 +34,10 @@ DictionarySample dictionarySample = new();
 dictionarySample.DynamicObjectSample();
 dictionarySample.DynamicKeySample();
 
+// ------ Find Object with Key
+FindObjectWithKeySample findObjectWithKeySample = new();
+findObjectWithKeySample.SampleOneUsingReflection();
+findObjectWithKeySample.SampleTwoWithListOfObject("Age");
 
 // ------ Abstract Data Types
 List<Pokemon> pokemons = new();

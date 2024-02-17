@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Play.Catalog.Service.Dtos;
 using Play.Common.Interfaces;
-using Play.Inventory.Service.Clients;
 using Play.Inventory.Service.Entities;
 
 namespace Play.Inventory.Service.Controllers
@@ -11,12 +10,12 @@ namespace Play.Inventory.Service.Controllers
     public class ItemsController : ControllerBase
     {
         private readonly IRepository<InventoryItem> _itemsRepository;
-        private readonly CatalogClient _catalogClient;
+        private readonly IRepository<CatalogItem> _catalogItemRepository;
 
-        public ItemsController(IRepository<InventoryItem> itemsRepository, CatalogClient catalogClient)
+        public ItemsController(IRepository<InventoryItem> itemsRepository, IRepository<CatalogItem> catalogItemRepository)
         {
             _itemsRepository = itemsRepository;
-            _catalogClient = catalogClient;
+            _catalogItemRepository = catalogItemRepository;
         }
 
         [HttpGet]
@@ -27,13 +26,14 @@ namespace Play.Inventory.Service.Controllers
                 return BadRequest("Invalid User Id");
             }
 
-            var catalogItems = await _catalogClient.GetCatalogItemsAsync();
             var inventoryItemEntities = await _itemsRepository.GetAllAsync(item => item.UserId == userId);
+            var itemIds = inventoryItemEntities.Select(item => item.CatalogItemId);
+            var catalogItemEntities = await _catalogItemRepository.GetAllAsync(item => itemIds.Contains(item.Id));
 
             // Bind catalogItems + inventoryItemEntities => to become Dto
             var inventoryItemDto = inventoryItemEntities.Select(inventoryItem =>
             {
-                var catalogItem = catalogItems.Single(catalogItem => catalogItem.Id == inventoryItem.CatalogItemId);
+                var catalogItem = catalogItemEntities.Single(catalogItem => catalogItem.Id == inventoryItem.CatalogItemId);
                 return inventoryItem.AsDto(catalogItem.Name, catalogItem.Description);
             });
 
