@@ -5,6 +5,9 @@ namespace Play.Common.Interfaces
     /// </summary>
     public interface IEntity
     {
+        /// <summary>
+        /// IEntity ID
+        /// </summary>
         Guid Id { get; set; }
     }
 }
