@@ -16,7 +16,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.1" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="MongoDB.Driver" Version="2.23.1" />
-    <PackageReference Include="Thuta.Play.Common" Version="1.0.6" />
   </ItemGroup>
 
 </Project>
