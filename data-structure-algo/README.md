@@ -1,6 +1,6 @@
 # Data Structure and Algorithms
 
-In this section, C# DSA will be included days by days.
+In this section, C# DSA will be included.
 
 ## Topics Included
 

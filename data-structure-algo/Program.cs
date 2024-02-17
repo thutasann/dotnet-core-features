@@ -124,4 +124,4 @@ selectionSortSample.SampleOne();
 
 // -------- Merge Sort
 MergeSortSample mergeSortSample = new();
-mergeSortSample.SampleOne();
+// mergeSortSample.SampleOne();
