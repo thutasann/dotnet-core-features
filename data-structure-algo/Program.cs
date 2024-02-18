@@ -25,6 +25,11 @@ string str = "12345";
 int num = str.IntegerExtension();
 Console.WriteLine("Extended num " + num);
 
+// ------ Recursion
+RecursionSample recursionSample = new();
+recursionSample.SampleOne();
+
+
 // ------ With Expression
 WithSample withSample = new();
 withSample.SampleOne();
@@ -87,14 +92,6 @@ QueueFundamental queueFundamental = new();
 queueFundamental.SampleOne();
 queueFundamental.EcommerceOrderSample();
 
-// ------ Leet Codes
-Console.WriteLine("------>> Leet Codes");
-TwoSum twoSum = new();
-int[] nums = { 2, 11, 7, 15 };
-twoSum.TwoSumSolution(nums, 9);
-twoSum.TwoSumSolutionTwo(nums, 9);
-twoSum.TwoSumSolutionThree(nums, 9);
-
 // -------- LinkedList 
 Console.WriteLine("------->> LinkedList");
 #pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
@@ -125,3 +122,16 @@ selectionSortSample.SampleOne();
 // -------- Merge Sort
 MergeSortSample mergeSortSample = new();
 // mergeSortSample.SampleOne();
+
+// ------ Two Sum (Leet Codes) 
+Console.WriteLine("------>> Two Sum(LeetCode)");
+TwoSum twoSum = new();
+int[] nums = { 2, 11, 7, 15 };
+twoSum.TwoSumSolution(nums, 9);
+twoSum.TwoSumSolutionTwo(nums, 9);
+twoSum.TwoSumSolutionThree(nums, 9);
+
+// ------ LongestSubstringWithoutRepeatingCharacters (Leet Codes) 
+Console.WriteLine("------>> Longest SubString without repeating Characters (LeetCode)");
+LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters = new();
+LongestSubstringWithoutRepeatingCharacters.SampleOne("abcabcbb");
