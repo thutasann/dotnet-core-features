@@ -1,6 +1,7 @@
 ﻿using data_structure_algo.src.AbstractDataType;
 using data_structure_algo.src.Arrays;
 using data_structure_algo.src.Basics;
+using data_structure_algo.src.Basics.Generic;
 using data_structure_algo.src.BigONotation;
 using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
@@ -51,6 +52,16 @@ Pokemon pokemonTwo = new("Pokemon Two", 11);
 pokemons.Add(pokemonOne);
 pokemons.Add(pokemonTwo);
 Console.WriteLine("------->> Pokemons ADT " + pokemons.ToList());
+
+// ------ Generic
+GenericFunctionSample genericFunctionSample = new();
+genericFunctionSample.SampleOne();
+
+#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
+GenericLinkedList<string> genericNode1 = new("John", null);
+#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
+GenericLinkedList<string> genricNode2 = new("Matt", genericNode1!);
+
 
 // ------ BigONotation
 BigOSampleOne bigOSample = new();
