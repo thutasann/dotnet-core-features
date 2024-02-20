@@ -7,6 +7,7 @@ using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
+using data_structure_algo.src.Searchings;
 using data_structure_algo.src.Sortings;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
@@ -130,9 +131,15 @@ bubbleSortSample.SampleOne();
 SelectionSortSample selectionSortSample = new();
 selectionSortSample.SampleOne();
 
+SelectionSortSampleTwo selectionSortSampleTwo = new();
+selectionSortSampleTwo.SampleOne();
+
 // -------- Merge Sort
 MergeSortSample mergeSortSample = new();
-// mergeSortSample.SampleOne();
+
+// -------- Sequential Search
+SequentialSearchSample sequentialSearchSample = new();
+sequentialSearchSample.SampleOne();
 
 // ------ Two Sum (Leet Codes) 
 Console.WriteLine("------>> Two Sum(LeetCode)");
