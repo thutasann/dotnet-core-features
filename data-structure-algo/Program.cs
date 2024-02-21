@@ -5,6 +5,7 @@ using data_structure_algo.src.Basics.Generic;
 using data_structure_algo.src.BigONotation;
 using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
+using data_structure_algo.src.Interviews;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.Searchings;
@@ -141,6 +142,14 @@ MergeSortSample mergeSortSample = new();
 SequentialSearchSample sequentialSearchSample = new();
 sequentialSearchSample.SampleOne();
 
+// -------- Binary Search
+BinarySearchSample binarySearchSample = new();
+binarySearchSample.SampleOne();
+binarySearchSample.SampleTwo();
+
+RecursiveBinarySearchSample recursiveBinarySearchSample = new();
+recursiveBinarySearchSample.SampleOne();
+
 // ------ Two Sum (Leet Codes) 
 Console.WriteLine("------>> Two Sum(LeetCode)");
 TwoSum twoSum = new();
@@ -153,3 +162,7 @@ twoSum.TwoSumSolutionThree(nums, 9);
 Console.WriteLine("------>> Longest SubString without repeating Characters (LeetCode)");
 LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters = new();
 LongestSubstringWithoutRepeatingCharacters.SampleOne("abcabcbb");
+
+// ------ Prime Numbers (Interview) 
+PrimeNumbers primeNumbers = new();
+primeNumbers.SampleOne();
