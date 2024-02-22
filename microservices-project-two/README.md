@@ -28,3 +28,17 @@ cd Services
 
 dotnet new webapi -o <project-name>
 ```
+
+### EF Database Migration
+
+```bash
+dotnet tool install --global dotnet-ef --version 7.*
+```
+
+```bash
+dotnet ef migrations add init
+```
+
+```bash
+dotnet ef database update
+```
