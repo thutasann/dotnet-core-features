@@ -1,0 +1,54 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: ['master']
+  pull_request:
+    branches: ['master']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # --------- Microservice project One
+      - name: Build and Test Game Play MicroService Project (Catalog)
+        run: |
+          cd microservices-project-one
+          cd Play.Catalog
+          cd src
+          cd Play.Catalog.Service
+          dotnet restore
+          dotnet build
+          dotnet test
+      - name: Build and Test Game Play MicroService Project (Inventory)
+        run: |
+          cd microservices-project-one
+          cd Play.Inventory
+          cd src
+          cd Play.Inventory.Service
+          dotnet restore
+          dotnet build
+          dotnet test
+      - name: Build and Test Game Play MicroService Common Lib
+        run: |
+          cd microservices-project-one
+          cd Play.Common
+          cd src
+          cd Play.Common
+          dotnet restore
+          dotnet build
+          dotnet test
+
+      # --------- Microservice project Two
+      - name: Build and Test Ecommerce MicroService Project
+        run: |
+          cd microservices-project-two
+          dotnet restore
+          dotnet build
+          dotnet test
