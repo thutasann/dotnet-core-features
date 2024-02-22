@@ -20,3 +20,11 @@ This Project is from the [Introduction to .NET Microservices ](https://www.youtu
 ```bash
 dotnet new sln -n Mango
 ```
+
+### Createing API Service
+
+```bash
+cd Services
+
+dotnet new webapi -o <project-name>
+```
