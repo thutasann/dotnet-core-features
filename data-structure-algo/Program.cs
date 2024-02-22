@@ -13,6 +13,8 @@ using data_structure_algo.src.Sortings;
 
 Console.WriteLine("WELCOME TO C# DSA & ALGO.... 🚀");
 
+// ---------------------------- Basic Concepts 🚀 ----------------------------
+
 // ------ Lambda Expression
 LambdaExpression lambdaExpression = new();
 lambdaExpression.SampleOne();
@@ -64,6 +66,8 @@ GenericLinkedList<string> genericNode1 = new("John", null);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 GenericLinkedList<string> genricNode2 = new("Matt", genericNode1!);
 
+// ---------------------------- Data Structures 🚀 ----------------------------
+
 
 // ------ BigONotation
 BigOSampleOne bigOSample = new();
@@ -86,7 +90,6 @@ collectionSample.Remove("Python");
 Console.WriteLine("Number of courses : " + collectionSample.Count());
 collectionSample.Clear();
 Console.WriteLine("Number of courses : " + collectionSample.Count());
-
 
 collectionSample.DirectAccessCollection();
 
@@ -123,6 +126,9 @@ Console.WriteLine("------->> Jagged Array");
 JaggedArraySample jaggedArraySample = new();
 jaggedArraySample.SampleOne();
 
+// ---------------------------- Sorting/Searching 🚀 ----------------------------
+
+
 // -------- Bubble Sort
 Console.WriteLine("------>> Bubble Sort Sample One");
 BubbleSortSample bubbleSortSample = new();
@@ -150,6 +156,9 @@ binarySearchSample.SampleTwo();
 RecursiveBinarySearchSample recursiveBinarySearchSample = new();
 recursiveBinarySearchSample.SampleOne();
 
+// ---------------------------- Leet Codes 🚀 ----------------------------
+
+
 // ------ Two Sum (Leet Codes) 
 Console.WriteLine("------>> Two Sum(LeetCode)");
 TwoSum twoSum = new();
@@ -163,6 +172,19 @@ Console.WriteLine("------>> Longest SubString without repeating Characters (Leet
 LongestSubstringWithoutRepeatingCharacters longestSubstringWithoutRepeatingCharacters = new();
 LongestSubstringWithoutRepeatingCharacters.SampleOne("abcabcbb");
 
+// ---------------------------- Interviews 🚀 ----------------------------
+
 // ------ Prime Numbers (Interview) 
 PrimeNumbers primeNumbers = new();
 primeNumbers.SampleOne();
+
+// ------ Reverse String/Number (Interview) 
+ReverseString reverseString = new();
+reverseString.SampleOne();
+
+ReverseNumber reverseNumber = new();
+reverseNumber.SampleOne();
+reverseNumber.SampleTwo();
+
+StringLength stringLength = new();
+stringLength.SampleOne();
