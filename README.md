@@ -2,12 +2,13 @@
 
 This is the collection of C# Fundamentals & DOTNET CORE API Features Collection. <br>
 
-## Tech Stacks
+## Tech Stacks / Tools
 
 - .NET Core
 - EF Core
 - Mysql
-- ShadcnUI
+- MongoDB
+- Docker
 
 ## Features
 

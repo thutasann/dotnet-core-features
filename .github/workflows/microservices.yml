@@ -49,6 +49,8 @@ jobs:
       - name: Build and Test Ecommerce MicroService Project
         run: |
           cd microservices-project-two
+          cd Services
+          cd Mango.Services.CouponAPI
           dotnet restore
           dotnet build
           dotnet test
