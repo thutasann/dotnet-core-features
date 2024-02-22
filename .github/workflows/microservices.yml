@@ -46,9 +46,9 @@ jobs:
           dotnet test
 
       # --------- Microservice project Two
-    #   - name: Build and Test Ecommerce MicroService Project
-    #     run: |
-    #       cd microservices-project-two
-    #       dotnet restore
-    #       dotnet build
-    #       dotnet test
+      - name: Build and Test Ecommerce MicroService Project
+        run: |
+          cd microservices-project-two
+          dotnet restore
+          dotnet build
+          dotnet test
