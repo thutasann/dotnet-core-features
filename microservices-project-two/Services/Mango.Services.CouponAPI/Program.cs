@@ -27,4 +27,17 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+ApplyMigration();
 app.Run();
+
+// Apply Migration for Pending Migration
+void ApplyMigration()
+{
+    using var scope = app.Services.CreateScope();
+    var _db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    if (_db.Database.GetPendingMigrations().Any())
+    {
+        _db.Database.Migrate();
+    }
+}
