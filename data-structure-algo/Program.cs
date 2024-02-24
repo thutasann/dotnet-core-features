@@ -188,3 +188,7 @@ reverseNumber.SampleTwo();
 
 StringLength stringLength = new();
 stringLength.SampleOne();
+
+// ------ BubbleSort (Interview) 
+BubbleSortInterview bubbleSortInterview = new();
+bubbleSortInterview.SampleOne();
