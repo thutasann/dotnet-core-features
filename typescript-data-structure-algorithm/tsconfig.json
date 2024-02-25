@@ -1,25 +1,26 @@
 {
-  "compilerOptions": {
-    "target": "ESNext", // Set the target ECMAScript version
-    "module": "CommonJS", // Specify module system (CommonJS, ESNext, etc.)
-    "outDir": "./dist", // Output directory for compiled files
-    "strict": true, // Enable strict type-checking
-    "esModuleInterop": true, // Allow default imports from ES modules in CommonJS
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
-    "declaration": true, // Generate declaration files (.d.ts)
-    "resolveJsonModule": true, // Enable importing JSON files as modules
-    "rootDir": "./src", // Specify the root directory of your source code
-    "baseUrl": "./", // Base URL for module resolution
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": [
-    "src/**/*.ts", // Specify the files to include in compilation
-    "src/**/*.d.ts" // Include declaration files from source
-  ],
-  "exclude": [
-    "node_modules" // Exclude node_modules from compilation
-  ]
+    "compilerOptions": {
+        "target": "ESNext", // Set the target ECMAScript version
+        "module": "CommonJS", // Specify module system (CommonJS, ESNext, etc.)
+        "outDir": "./dist", // Output directory for compiled files
+        "strict": true, // Enable strict type-checking
+        "esModuleInterop": true, // Allow default imports from ES modules in CommonJS
+        "skipLibCheck": true, // Skip type checking of declaration files
+        "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
+        "declaration": true, // Generate declaration files (.d.ts)
+        "resolveJsonModule": true, // Enable importing JSON files as modules
+        "rootDir": "./src", // Specify the root directory of your source code
+        "baseUrl": "./", // Base URL for module resolution
+        "noImplicitAny": true,
+        "paths": {
+            "*": ["src/*"] // Path mapping for custom module resolution
+        }
+    },
+    "include": [
+        "src/**/*.ts", // Specify the files to include in compilation
+        "src/**/*.d.ts" // Include declaration files from source
+    ],
+    "exclude": [
+        "node_modules" // Exclude node_modules from compilation
+    ]
 }

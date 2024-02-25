@@ -197,3 +197,11 @@ bubbleSortInterview.SampleOne();
 // ------ Factorial (Interview) 
 FactorialLogic factorialLogic = new();
 factorialLogic.SampleOne();
+
+// ------ FibonacciSeries (Interview) 
+FibonacciSeries fibonacciSeries = new();
+fibonacciSeries.SampleOne();
+
+// ------ Swap Number (Interview) 
+SwapNumber swapNumber = new();
+swapNumber.SampleOne();
