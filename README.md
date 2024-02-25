@@ -1,6 +1,7 @@
 # C# & .NET CORE API FEATURES COLLECTION
 
-This is the collection of C# Fundamentals & DOTNET CORE API Features Collection. <br>
+This is the collection of C# Fundamentals & DOTNET CORE API Features Collection. <br/>
+Typescript Data Structure and Algorithms are also included to compare DSA between C# and Typescript.
 
 ## Tech Stacks / Tools
 
@@ -9,6 +10,7 @@ This is the collection of C# Fundamentals & DOTNET CORE API Features Collection.
 - Mysql
 - MongoDB
 - Docker
+- Typescript
 
 ## Features
 

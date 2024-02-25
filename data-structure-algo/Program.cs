@@ -186,9 +186,14 @@ ReverseNumber reverseNumber = new();
 reverseNumber.SampleOne();
 reverseNumber.SampleTwo();
 
+// ------ String Length  (Interview) 
 StringLength stringLength = new();
 stringLength.SampleOne();
 
 // ------ BubbleSort (Interview) 
 BubbleSortInterview bubbleSortInterview = new();
 bubbleSortInterview.SampleOne();
+
+// ------ Factorial (Interview) 
+FactorialLogic factorialLogic = new();
+factorialLogic.SampleOne();

@@ -65,6 +65,26 @@ namespace Mango.Services.CouponAPI.Controllers
             return Ok(_response);
         }
 
+        [HttpGet("GetByCode/{code}")]
+        public async Task<ActionResult<ResponseDto<CouponDto>>> GetCouponByCode([FromRoute] string code)
+        {
+            try
+            {
+                Coupon? coupon = await _db.Coupons.FirstOrDefaultAsync(c => c.CouponCode.ToLower() == code.ToLower());
+                if (coupon == null)
+                {
+                    return NotFound(_response.Message = "Coupon Not Found");
+                }
+                return Ok(_response.Data = _mapper.Map<CouponDto>(coupon));
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return Ok(_response);
+        }
+
     }
 
 }
