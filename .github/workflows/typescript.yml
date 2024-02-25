@@ -1,29 +1,24 @@
-name: Node.js TypeScript CI
+name: Node.js CI
 
 on:
   push:
-    branches: ['master']
+    branches: [master]
   pull_request:
-    branches: ['master']
+    branches: [master]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    strategy:
+      matrix:
+        node-version: [18.x]
 
-      - name: Setup Node.js
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 18.x
         uses: actions/setup-node@v1
         with:
           node-version: '18.x'
-
-      - name: Change Dir
-        run: cd typescript-data-structure-algorithm
-
-      - name: Install dependencies
-        run: yarn install --ignore-engines
-
-      - name: Build TypeScript
-        run: yarn build
+      - run: yarn install --ignore-engines
+      - run: yarn build
