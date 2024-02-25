@@ -154,4 +154,24 @@ export class ArrayBasic {
         })
         console.log('(Reduce) maxDate', maxDate)
     }
+
+    /**
+     * In Operator
+     */
+    public InOperatorSample(): void {
+        console.log('------>> `In` Operator Sample')
+        const person = {
+            name: 'John',
+            age: 30,
+            city: 'New York',
+        }
+        console.log('name' in person) // true;
+        console.log('gender' in person) // false
+
+        const arr = [1, 2, 3]
+        console.log('1 in car ', 1 in arr) // arr[1] exists
+        console.log('length in arr', 'length' in arr) // arr has 'length' property
+        console.log(arr.hasOwnProperty(1)) // true '1' is an own property
+        console.log(arr.hasOwnProperty('length')) // true, 'length' is an own property
+    }
 }

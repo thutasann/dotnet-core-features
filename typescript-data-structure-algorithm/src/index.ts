@@ -2,6 +2,7 @@ import { RecursiveBasic } from './Basics/RecursiveBasic'
 import { ArrayBasic } from './Basics/ArrayBasic'
 import { ObjectBasic } from './Basics/ObjectBasic'
 import { Interviews } from './Interviews/Interviews'
+import { LeetCodeSolutions } from './LeetCodes'
 
 console.log('TYPESCRIPT DATA STRUCTURE AND ALGORITHMS..... 🚀')
 
@@ -15,6 +16,7 @@ arrayBasic.FlatAndReverse()
 arrayBasic.WhileSample()
 arrayBasic.UnshiftSample()
 arrayBasic.ReduceSample()
+arrayBasic.InOperatorSample()
 
 // ------------ Object Basics  🚀 ------------
 const objectBasic = new ObjectBasic()
@@ -25,25 +27,26 @@ objectBasic.NestedObjectSample()
 
 // ------------ Recursive Basics  🚀 ------------
 const recursiveBasic = new RecursiveBasic()
-const dinner = recursiveBasic.GoToDinner(1)
-console.log('------>> Recursive dinnerResult', dinner)
-const multipliedResult = recursiveBasic.Multiply([1, 2, 3])
-console.log('------>> Recursive multipliedResult', multipliedResult)
 recursiveBasic.AllEmployeesRecursive()
-const reversedString = recursiveBasic.ReverseString('hello')
-console.log('------>> Reverse String Recursive Sample ', reversedString)
-const factorialAnswer = recursiveBasic.FactorialLogic(5)
-console.log('------>> Factorial Logic Recursive Sample ', factorialAnswer)
-const fiboAnswer = recursiveBasic.FibonacciSeries(10)
-console.log('------>> FibonacciSeries Recursive Sample ', fiboAnswer.join(', '))
-const rangeOfNums = recursiveBasic.RangeOfNumbers(1, 5)
-console.log('------>> Range of Numbers Recursive Sample ', rangeOfNums)
+console.log('------>> Recursive dinnerResult', recursiveBasic.GoToDinner(1))
+console.log('------>> Recursive multipliedResult', recursiveBasic.Multiply([1, 2, 3]))
+console.log('------>> Reverse String Recursive Sample ', recursiveBasic.ReverseString('hello'))
+console.log('------>> Factorial Logic Recursive Sample ', recursiveBasic.FactorialLogic(5))
+console.log('------>> FibonacciSeries Recursive Sample ', recursiveBasic.FibonacciSeries(10).join(', '))
+console.log('------>> Range of Numbers Recursive Sample ', recursiveBasic.RangeOfNumbers(1, 5))
 
 // ------------ Interviews Questions and Answers 🚀   ------------
 const interviews = new Interviews()
-const secondLargest = interviews.getSecondLargest([12, 35, 1, 10, 34, 1])
-console.log('------>> Get Second Largest (Interview) ', secondLargest)
-const removeDuplicateAnswer = interviews.RemoveDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4])
-console.log('------>> Remove Duplicates (Interview) ', removeDuplicateAnswer)
-const rotateAnswer = interviews.RotateArrayByK([1, 2, 3, 4, 5, 6, 7], 3)
-console.log('------>> Rotate Array By K (Interview) ', rotateAnswer)
+console.log('------>> Get Second Largest (Interview) ', interviews.getSecondLargest([12, 35, 1, 10, 34, 1]))
+console.log('------>> Remove Duplicates (Interview) ', interviews.RemoveDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
+console.log('------>> Rotate Array By K (Interview) ', interviews.RotateArrayByK([1, 2, 3, 4, 5, 6, 7], 3))
+
+// ------------ LeetCodes 🚀   ------------
+const leetCodes = new LeetCodeSolutions()
+leetCodes.SwapNumber(2, 4)
+console.log('twoSumAnswer ', leetCodes.TwoSum([2, 7, 11, 15], 18))
+console.log('binarySearch ', leetCodes.BinarySearch([1, 2, 3, 4, 5, 6, 7, 8], 19))
+console.log('linearSearch', leetCodes.LinearSearch([-5, 2, 10, 4, 6], 10))
+console.log('bubbleSort ', leetCodes.BubbleSort([30, 10, -90, -40, 50, 25, 70, -54, -80, 38]))
+console.log('selectionSort ', leetCodes.SelectionSort([30, 10, -90, -40, 50, 25, 70, -54, -80, 38]))
+console.log('insertionSort ', leetCodes.InsertionSort([30, 10, -90, -40, 50, 25, 70, -54, -80, 38]))
