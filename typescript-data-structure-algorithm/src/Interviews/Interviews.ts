@@ -58,4 +58,54 @@ export class Interviews {
 
         return nums
     }
+
+    /**
+     * Sum of a Number
+     */
+    public SumOfNumber(): void {
+        console.log('------>> Sum of a Number (Interview)')
+        let number = 234
+        let temp
+        let sumofNum = 0
+
+        // @ts-ignore
+        while (number !== 0) {
+            temp = number % 10
+            number /= 10
+            sumofNum += Math.floor(temp)
+        }
+        console.log('sumofNum', sumofNum)
+    }
+
+    /**
+     * Reverse String
+     */
+    public ReverseString(): void {
+        console.log('------>> Reverse String (Interview)')
+        const sourceString = 'abcdefg'
+        let reverseString: string = ''
+
+        for (let i = sourceString.length - 1; i >= 0; i--) {
+            reverseString += sourceString[i]
+        }
+        console.log('reverseString', reverseString)
+    }
+
+    /**
+     * Reverse Number
+     */
+    public ReverseNumber(): void {
+        console.log('------>> Reverse Number (Interview)')
+        let sourceNumber = 1234567
+        let reverseNum = 0
+        let remainder: number
+
+        // @ts-ignore
+        while (sourceNumber !== 0) {
+            remainder = sourceNumber % 10 // Get the last digit
+            reverseNum = reverseNum * 10 + remainder // Append the last digit to reversed number
+            sourceNumber = Math.floor(sourceNumber / 10) // Remove the last digit from original number
+        }
+        console.log('reverseNum', reverseNum)
+    }
 }

@@ -12,6 +12,20 @@ export class LeetCodeSolutions {
     }
 
     /**
+     * Swap Number With Index
+     */
+    public SwapNumberWithIndex(arr: string[], index1: number, index2: number): void {
+        console.log('------>> Swap Numbers with Index (LeetCodes) ')
+        if (index1 < 0 || index1 >= arr.length || index2 < 0 || index2 >= arr.length) {
+            throw new Error('Invalid indices provides.')
+        }
+        const temp = arr[index1]
+        arr[index1] = arr[index2]
+        arr[index2] = temp
+        console.log('swapped ', arr)
+    }
+
+    /**
      * Two Sum Solution
      */
     public TwoSum(nums: number[], target: number): number[] {
