@@ -1,11 +1,9 @@
-using System.Data;
-
 namespace data_structure_algo.src.Interviews
 {
     /// <summary>
     /// <h1> FIBONACCI SERRIES </h1> <br/>
     /// Series of numbers in which each number is the sume of two preceeding numbers <br/>
-    /// <i> P(receding number means number just before a number. Example: In a counting from 1 to 10, 9 is preceding number of 10, 8 is preceding number of 9 and so on) </i> <br/>
+    /// <i> (Preceding number means number just before a number. Example: In a counting from 1 to 10, 9 is preceding number of 10, 8 is preceding number of 9 and so on) </i> <br/>
     /// Examples : <br/>
     /// 0, 1, 1, 2, 3, 5, 8... <br/>
     /// 0 + 1 => 1, 1 + 1 => 2, 2 + 3 => 5, 3 + 5 => 8

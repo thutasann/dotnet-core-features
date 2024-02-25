@@ -8,7 +8,6 @@
         "skipLibCheck": true, // Skip type checking of declaration files
         "forceConsistentCasingInFileNames": true, // Ensure consistent file name casing
         "declaration": true, // Generate declaration files (.d.ts)
-        "resolveJsonModule": true, // Enable importing JSON files as modules
         "rootDir": "./src", // Specify the root directory of your source code
         "baseUrl": "./", // Base URL for module resolution
         "noImplicitAny": true,

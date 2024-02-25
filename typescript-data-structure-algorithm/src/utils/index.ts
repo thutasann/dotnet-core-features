@@ -1,3 +1,5 @@
+import { NestedObject } from './types'
+
 /**
  * Util Functions
  */
@@ -36,5 +38,25 @@ export class UtilFunctions {
             }
         }
         return arrayOfStrings
+    }
+
+    /**
+     * Find Nested Object Value By Key
+     */
+    public FindNestedObjectValueByKey(obj: NestedObject, key: string): any | undefined {
+        if (obj.hasOwnProperty(key)) {
+            return obj[key]
+        }
+
+        for (const nestedKey in obj) {
+            if (typeof obj[nestedKey] === 'object') {
+                const nestedResult = this.FindNestedObjectValueByKey(obj[nestedKey], key)
+                if (nestedResult !== undefined) {
+                    return nestedResult
+                }
+            }
+        }
+
+        return undefined
     }
 }

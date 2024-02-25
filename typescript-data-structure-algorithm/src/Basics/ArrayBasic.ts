@@ -72,4 +72,36 @@ export class ArrayBasic {
         const splittedChunks = chunkArray(strArr, 2)
         console.log('splittedChunks', splittedChunks)
     }
+
+    /**
+     * While Sample
+     */
+    public WhileSample(): void {
+        console.log('------>> While Sample')
+        type Stock = {
+            [key: string]: number
+        }
+
+        let stock: Stock = {
+            cola: 3,
+            lemonade: 3,
+            water: 3,
+        }
+
+        function DispenseBeverage(beverage: string): void {
+            if (stock[beverage] && stock[beverage] > 0) {
+                console.log(`Dispensing ${beverage}...`)
+                stock[beverage]--
+            } else {
+                console.log(`Sorry. ${beverage} is out of stock`)
+            }
+        }
+
+        while (Object.values(stock).some((quantity) => quantity > 0)) {
+            DispenseBeverage('cola')
+            DispenseBeverage('lemonade')
+            DispenseBeverage('water')
+        }
+        console.log('All beverages are sold out')
+    }
 }

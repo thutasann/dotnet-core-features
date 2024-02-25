@@ -1,3 +1,4 @@
+import { NestedObject } from '../utils/types'
 import { UtilFunctions } from '../utils'
 
 export class ObjectBasic {
@@ -52,8 +53,12 @@ export class ObjectBasic {
     public HashMapSample(userInput: string): void {
         console.log('------>> HashMap Sample')
 
+        type HashMapType = {
+            [key: string]: boolean
+        }
+
         const arrString = this.utils.CreateArrayOfString(100, 5)
-        const hashMap: any = {}
+        const hashMap: HashMapType = {}
 
         arrString.forEach((arr) => {
             hashMap[arr] = true
@@ -62,6 +67,32 @@ export class ObjectBasic {
             console.log('string exist')
         } else {
             console.log("string doesn't exist")
+        }
+    }
+
+    /**
+     * Nested Object
+     */
+    public NestedObjectSample(): void {
+        const nestedObject: NestedObject = {
+            a: 1,
+            b: {
+                c: 2,
+                d: {
+                    e: 3,
+                },
+            },
+            f: {
+                g: 4,
+            },
+        }
+
+        const keyToFind = 'g'
+        const value = this.utils.FindNestedObjectValueByKey(nestedObject, keyToFind)
+        if (value !== undefined) {
+            console.log(`Value for key ${keyToFind} is ${value}`)
+        } else {
+            console.log(`Key ${keyToFind} not found in nested object`)
         }
     }
 }

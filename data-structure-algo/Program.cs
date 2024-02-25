@@ -205,3 +205,11 @@ fibonacciSeries.SampleOne();
 // ------ Swap Number (Interview) 
 SwapNumber swapNumber = new();
 swapNumber.SampleOne();
+
+// ------ Sum Of Number (Interview) 
+SumOfNumber sumOfNumber = new();
+sumOfNumber.SampleOne();
+
+// ------ Find Even or Odd Number (Interview) 
+FindEvenOrOddNumber findEvenOrOddNumber = new();
+findEvenOrOddNumber.SampleOne();
