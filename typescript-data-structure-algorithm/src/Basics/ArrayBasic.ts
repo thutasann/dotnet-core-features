@@ -104,4 +104,54 @@ export class ArrayBasic {
         }
         console.log('All beverages are sold out')
     }
+
+    /**
+     * Unshift Sample
+     */
+    public UnshiftSample(): void {
+        console.log('------>> Unshift Sample')
+
+        let todoList: string[] = ['Buy groceries', 'Pay bills', 'Finish homework']
+        function AddTaskToTop(task: string) {
+            todoList.unshift(task)
+        }
+
+        AddTaskToTop('Call mom')
+        console.log('todoList ', todoList)
+    }
+
+    /**
+     * Reduce Sample
+     */
+    public ReduceSample(): void {
+        console.log('------>> Reduce Sample')
+        const numArras: number[] = [1, 2, 3, 4, 5, 6, 7, 8]
+        const reducedArr = numArras.reduce((acc, item) => {
+            return acc + item
+        }, 0)
+        console.log('reducedArr', reducedArr)
+
+        // -------- Remove duplicate items from array.
+        const ageGroup: number[] = [18, 21, 1, 51, 18, 21, 5, 18, 7, 10]
+        const uniqueAgeGroup: number[] = ageGroup.reduce(function (acc: number[], currentValue: number) {
+            if (acc.indexOf(currentValue)) {
+                acc.push(currentValue)
+            }
+            return acc
+        }, [])
+        console.log('(Reduce) uniqueAgeGroup ', uniqueAgeGroup)
+
+        // -------- Get max date;
+        const DATES = [
+            '01/08/2022',
+            '02/08/2022',
+            '04/08/2022', // THis is the most recent date
+            '04/07/2022',
+        ].map((val: string) => new Date(val))
+
+        const maxDate = DATES.reduce((max, d) => {
+            return d > max ? d : max
+        })
+        console.log('(Reduce) maxDate', maxDate)
+    }
 }
