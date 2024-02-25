@@ -10,19 +10,21 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 - Mysql
 - MongoDB
 - Docker
+- Nodejs
 - Typescript
 
 ## Features
 
-| Topic                                 | Source                                                                                            | Type             |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------- |
-| Data Structure and Algorithm          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)       | DSA              |
-| JWT Authentication                    | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                  | Auth             |
-| Practical SingalR                     | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)     | WebSocket        |
-| SignalR Nextjs Simple Chat app        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)       | WebSocket        |
-| Send Email With MailKit & SMTP        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)        | Email            |
-| Game System MicroService Project      | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one) | MicroService ⭐️ |
-| Ecommerce System MicroService Project | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-two) | MicroService ⭐️ |
+| Topic                                   | Source                                                                                                      | Type             |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------- |
+| Data Structure and Algorithm            | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)                 | C# DSA           |
+| TypeScript Data Structure and Algorithm | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/typescript-data-structure-algorithm) | TypeScript DSA   |
+| JWT Authentication                      | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                            | Auth             |
+| Practical SingalR                       | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)               | WebSocket        |
+| SignalR Nextjs Simple Chat app          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)                 | WebSocket        |
+| Send Email With MailKit & SMTP          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)                  | Email            |
+| Game System MicroService Project        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)           | MicroService ⭐️ |
+| Ecommerce System MicroService Project   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-two)           | MicroService ⭐️ |
 
 ## Scripts
 
