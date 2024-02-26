@@ -5,6 +5,7 @@ import { PromiseBasic } from './Basics/PromiseBasic'
 import { Interviews } from './Interviews/Interviews'
 import { LeetCodeSolutions } from './LeetCodes'
 import { LinkedList } from './DSA/LinkedList'
+import { FunctionsBasic } from './Basics/FunctionsBasic'
 
 console.log('TYPESCRIPT DATA STRUCTURE AND ALGORITHMS..... 🚀')
 
@@ -35,11 +36,21 @@ objectBasic.SymbolSample()
 objectBasic.ObjectFreeze()
 objectBasic.OOPProptotype()
 
+// ------------ Functions Basic  🚀 ------------
+const functionBasics = new FunctionsBasic()
+functionBasics.GeneratorFunction()
+// functionBasics.GeneratorFunctionRealLifeSample()
+functionBasics.ImmediatelyInvokeSample()
+
 // ------------ Promise Basics  🚀 ------------
 const promiseBasic = new PromiseBasic()
 setTimeout(() => {
     console.log('------>> Promise Basic')
 }, 400)
+
+promiseBasic.PromiseAllSample()
+promiseBasic.DelayResolvedInterview()
+
 promiseBasic
     .WalkDog()
     .then((val) => {
@@ -55,8 +66,6 @@ promiseBasic
         console.log('You Finished all the chores!')
     })
     .catch((err) => console.error('error ', err))
-
-promiseBasic.PromiseAllSample()
 
 // ------------ Recursive Basics  🚀 ------------
 const recursiveBasic = new RecursiveBasic()

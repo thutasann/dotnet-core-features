@@ -51,4 +51,31 @@ export class PromiseBasic {
             console.log(values) // 3, 42, 'foo'
         })
     }
+
+    /**
+     * ## Delayed Resolve
+     *  Question: Write a function delayedResolve that returns a promise that resolves after a given delay in milliseconds.
+     */
+    public DelayResolvedInterview(): void {
+        setTimeout(() => {
+            console.log('------>> Delay Resolved Promise Interview Q and A')
+        }, 190)
+
+        /** delayed resolved fnc */
+        function delayedResolve(delay: number) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(`Promise reolsved after ${delay} milliseconds`)
+                }, delay)
+            })
+        }
+
+        delayedResolve(200)
+            .then((result) => {
+                console.log(result)
+            })
+            .catch((err) => {
+                console.error('err', err)
+            })
+    }
 }
