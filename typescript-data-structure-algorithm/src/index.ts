@@ -26,10 +26,20 @@ objectBasic.ShallowCopySample()
 objectBasic.DeepCopySample()
 objectBasic.HashMapSample('h7wC3')
 objectBasic.NestedObjectSample()
+objectBasic.PrototypalInheritance()
+objectBasic.ObjectComposition()
+objectBasic.FactorialFunction()
+objectBasic.PropertyDescriptors()
+objectBasic.GettersAndSetters()
+objectBasic.SymbolSample()
+objectBasic.ObjectFreeze()
+objectBasic.OOPProptotype()
 
 // ------------ Promise Basics  🚀 ------------
 const promiseBasic = new PromiseBasic()
-console.log('------>> Promise Basic')
+setTimeout(() => {
+    console.log('------>> Promise Basic')
+}, 400)
 promiseBasic
     .WalkDog()
     .then((val) => {
@@ -47,7 +57,6 @@ promiseBasic
     .catch((err) => console.error('error ', err))
 
 promiseBasic.PromiseAllSample()
-console.log('------>> Promise Basic')
 
 // ------------ Recursive Basics  🚀 ------------
 const recursiveBasic = new RecursiveBasic()
@@ -86,3 +95,5 @@ linkedList.add(1)
 linkedList.add(2)
 linkedList.add(3)
 linkedList.print()
+console.log('linkedlist size ', linkedList.getSize())
+console.log('linkedlist isEmpty ', linkedList.isEmpty())

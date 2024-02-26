@@ -95,4 +95,149 @@ export class ObjectBasic {
             console.log(`Key ${keyToFind} not found in nested object`)
         }
     }
+
+    /**
+     * Prototypes and Prototypal Inheritance:
+     */
+    public PrototypalInheritance(): void {
+        console.log('------>>  Prototypes and Prototypal Inheritance:')
+        const Animal = {
+            name: '',
+            speak() {
+                console.log(`${this.name} makes a sound`)
+            },
+        }
+        const Dog = Object.create(Animal)
+        Dog.name = 'Dog'
+        Dog.speak()
+    }
+
+    /**
+     * Object Composition
+     */
+    public ObjectComposition(): void {
+        console.log('------>>  Object Composition:')
+        const swimmer = {
+            swim() {
+                // @ts-ignore
+                console.log(`${this.name} swims.`)
+            },
+        }
+
+        const walker = {
+            walk() {
+                // @ts-ignore
+                console.log(`${this.name} walks`)
+            },
+        }
+
+        const amphibian = {
+            name: 'Frog',
+            ...swimmer,
+            ...walker,
+        }
+
+        amphibian.swim()
+        amphibian.walk()
+    }
+
+    /**
+     * Factory Functions and Object Creation Patterns:
+     */
+    public FactorialFunction(): void {
+        console.log('------>>  Factory Functions and Object Creation Patterns::')
+        function CreatePerson(name: string, age: number) {
+            return {
+                name,
+                age,
+                greet() {
+                    console.log(`Hello My name is ${this.name} and I am ${this.age} year old`)
+                },
+            }
+        }
+
+        const person = CreatePerson('Thuta Sann', 22)
+        person.greet()
+    }
+
+    /**
+     * Property Descriptors and Property Attributes:
+     */
+    public PropertyDescriptors(): void {
+        console.log('------>>  Property Descriptors and Property Attributes:')
+        const obj = {
+            name: 'Thuta Sann',
+        }
+        const descriptor = Object.getOwnPropertyDescriptor(obj, 'name')
+        console.log('descriptor', descriptor)
+    }
+
+    /**
+     * Getters and Setters
+     */
+    public GettersAndSetters(): void {
+        console.log('------>>  Getters and Setterss:')
+        const obj = {
+            _name: 'Thuta',
+            get() {
+                return this._name.toUpperCase()
+            },
+            set(val: string) {
+                this._name = val
+            },
+        }
+        console.log(obj._name)
+        obj._name = 'Thuta Sann'
+        console.log('obj', obj._name)
+    }
+
+    /**
+     * Symbol
+     */
+    public SymbolSample(): void {
+        console.log('------>>  Symbol Sample')
+        const key = Symbol('description')
+
+        const obj = {
+            [key]: 'here is value',
+        }
+        console.log('obj', obj[key])
+    }
+
+    /**
+     * Object Freeze
+     *
+     */
+    public ObjectFreeze(): void {
+        console.log('------>>  Object Freeze')
+        const obj = {
+            prop: 42,
+        }
+        Object.freeze(obj)
+        // obj.prop = 100 // this will not have any effect
+        console.log('obj.prop', obj.prop)
+    }
+
+    /**
+     * Object-oriented Programming (OOP) Patterns:
+     */
+    public OOPProptotype(): void {
+        console.log('Object-oriented Programming (OOP) Patterns:')
+        class Person {
+            name: string
+            age: number
+
+            constructor(name: string, age: number) {
+                this.name = name
+                this.age = age
+            }
+
+            greet(): void {
+                console.log(`Name is ${this.name} and Age is ${this.age}`)
+            }
+        }
+
+        const person = new Person('Thuta', 22)
+        person.greet()
+    }
 }
