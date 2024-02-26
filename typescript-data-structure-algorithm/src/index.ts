@@ -4,6 +4,7 @@ import { ObjectBasic } from './Basics/ObjectBasic'
 import { PromiseBasic } from './Basics/PromiseBasic'
 import { Interviews } from './Interviews/Interviews'
 import { LeetCodeSolutions } from './LeetCodes'
+import { LinkedList } from './DSA/LinkedList'
 
 console.log('TYPESCRIPT DATA STRUCTURE AND ALGORITHMS..... 🚀')
 
@@ -46,6 +47,7 @@ promiseBasic
     .catch((err) => console.error('error ', err))
 
 promiseBasic.PromiseAllSample()
+console.log('------>> Promise Basic')
 
 // ------------ Recursive Basics  🚀 ------------
 const recursiveBasic = new RecursiveBasic()
@@ -76,3 +78,11 @@ console.log('linearSearch', leetCodes.LinearSearch([-5, 2, 10, 4, 6], 10))
 console.log('bubbleSort ', leetCodes.BubbleSort([30, 10, -90, -40, 50, 25, 70, -54, -80, 38]))
 console.log('selectionSort ', leetCodes.SelectionSort([30, 10, -90, -40, 50, 25, 70, -54, -80, 38]))
 console.log('insertionSort ', leetCodes.InsertionSort([30, 10, -90, -40, 50, 25, 70, -54, -80, 38]))
+
+// ------------ Data Structures 🚀   ------------
+const linkedList = new LinkedList<number>()
+console.log('------>> LinkedList (Data Structure) ')
+linkedList.add(1)
+linkedList.add(2)
+linkedList.add(3)
+linkedList.print()

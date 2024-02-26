@@ -11,6 +11,7 @@
         "rootDir": "./src", // Specify the root directory of your source code
         "baseUrl": "./", // Base URL for module resolution
         "noImplicitAny": true,
+        "strictPropertyInitialization": false,
         "paths": {
             "*": ["src/*"] // Path mapping for custom module resolution
         }
