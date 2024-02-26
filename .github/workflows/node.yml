@@ -15,7 +15,7 @@ jobs:
                 working-directory: ./typescript-data-structure-algorithm
 
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v4
             # - name: Change directory
             #   run: cd typescript-data-structure-algorithm
             - name: Use Node.js 18.x
