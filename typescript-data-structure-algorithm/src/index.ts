@@ -6,6 +6,7 @@ import { Interviews } from './Interviews/Interviews'
 import { LeetCodeSolutions } from './LeetCodes'
 import { LinkedList } from './DSA/LinkedList'
 import { FunctionsBasic } from './Basics/FunctionsBasic'
+import { HashTableSampleOne, HashTableSampleTwo } from './DSA/HashTable'
 
 console.log('TYPESCRIPT DATA STRUCTURE AND ALGORITHMS..... 🚀')
 
@@ -106,3 +107,21 @@ linkedList.add(3)
 linkedList.print()
 console.log('linkedlist size ', linkedList.getSize())
 console.log('linkedlist isEmpty ', linkedList.isEmpty())
+
+console.log('------>> HashTable Sample One (Data Structure) ')
+const hashTableOne = new HashTableSampleOne<string | number>(50)
+hashTableOne.set('name', 'bruce')
+hashTableOne.set('age', 25)
+hashTableOne.display()
+console.log(hashTableOne.get('name'))
+hashTableOne.display()
+
+console.log('------>> HashTable Sample Two (Data Structure) ')
+const hashTableTwo = new HashTableSampleTwo<number>()
+hashTableTwo.set('one', 1)
+hashTableTwo.set('two', 2)
+hashTableTwo.set('three', 3)
+console.log('one => ', hashTableTwo.get('one'))
+console.log('two => ', hashTableTwo.get('two'))
+hashTableTwo.remove('three')
+console.log('three => ', hashTableTwo.get('three'))
