@@ -4,53 +4,61 @@
 name: .NET
 
 on:
-  push:
-    branches: ['master']
-  pull_request:
-    branches: ['master']
+    push:
+        branches: ['master']
+    pull_request:
+        branches: ['master']
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      # --------- Microservice project One
-      - name: Build and Test Game Play MicroService Project (Catalog)
-        run: |
-          cd microservices-project-one
-          cd Play.Catalog
-          cd src
-          cd Play.Catalog.Service
-          dotnet restore
-          dotnet build
-          dotnet test
-      - name: Build and Test Game Play MicroService Project (Inventory)
-        run: |
-          cd microservices-project-one
-          cd Play.Inventory
-          cd src
-          cd Play.Inventory.Service
-          dotnet restore
-          dotnet build
-          dotnet test
-      - name: Build and Test Game Play MicroService Common Lib
-        run: |
-          cd microservices-project-one
-          cd Play.Common
-          cd src
-          cd Play.Common
-          dotnet restore
-          dotnet build
-          dotnet test
+            # --------- Microservice project One
+            - name: Build and Test Game Play MicroService Project (Catalog)
+              run: |
+                  cd microservices-project-one
+                  cd Play.Catalog
+                  cd src
+                  cd Play.Catalog.Service
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test Game Play MicroService Project (Inventory)
+              run: |
+                  cd microservices-project-one
+                  cd Play.Inventory
+                  cd src
+                  cd Play.Inventory.Service
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test Game Play MicroService Common Lib
+              run: |
+                  cd microservices-project-one
+                  cd Play.Common
+                  cd src
+                  cd Play.Common
+                  dotnet restore
+                  dotnet build
+                  dotnet test
 
-      # --------- Microservice project Two
-      - name: Build and Test Ecommerce MicroService Project
-        run: |
-          cd microservices-project-two
-          cd Services
-          cd Mango.Services.CouponAPI
-          dotnet restore
-          dotnet build
-          dotnet test
+            # --------- Microservice project Two
+            - name: Build and Test Ecommerce MicroService Coupon Service
+              run: |
+                  cd microservices-project-two
+                  cd Services
+                  cd Mango.Services.CouponAPI
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test Ecommerce MicroService Frontend Web
+              run: |
+                  cd microservices-project-two
+                  cd Frontend
+                  cd Mango.Web
+                  dotnet restore
+                  dotnet build
+                  dotnet test

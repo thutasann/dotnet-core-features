@@ -4,9 +4,9 @@ This Project is from the [Introduction to .NET Microservices ](https://www.youtu
 
 ## TechStacks
 
-- EF Core
-- MySql
-- Azure Message Bus
+-   EF Core
+-   MySql
+-   Azure Message Bus
 
 ## Overview / Microservice Application Flow
 
@@ -27,6 +27,14 @@ dotnet new sln -n Mango
 cd Services
 
 dotnet new webapi -o <project-name>
+```
+
+### Createing MVS
+
+```bash
+cd Frontend
+
+dotnet new mvc -o Mango.Web
 ```
 
 ### EF Database Migration
