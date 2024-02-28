@@ -6,6 +6,11 @@
  * It has two importants characteristics
  * - it is expressed in terms of the input
  * - it focuses on the bigger picture without getting caught up in the minute details
+ *
+ * ## BigO Guide
+ * - Loop - O(n)
+ * - Nested Loop - O(n^2)
+ * - Input size reduced by half - O(logn)
  */
 export class BigONotation {}
 
