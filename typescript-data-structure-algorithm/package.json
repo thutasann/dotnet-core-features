@@ -6,7 +6,8 @@
     "main": "src/index.ts",
     "scripts": {
         "build": "tsc",
-        "dev": "nodemon src/index.ts"
+        "dev": "nodemon src/index.ts",
+        "dev:jsalgo": "nodemon js-algo-playlist/index.ts"
     },
     "keywords": [],
     "author": "",
