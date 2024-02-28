@@ -30,7 +30,7 @@ namespace Mango.Services.CouponAPI.Controllers
             try
             {
                 IEnumerable<Coupon> coupons = await _db.Coupons.ToListAsync();
-                return Ok(_response.Data = _mapper.Map<IEnumerable<CouponDto>>(coupons));
+                _response.Data = _mapper.Map<IEnumerable<CouponDto>>(coupons);
             }
             catch (Exception ex)
             {
@@ -85,6 +85,77 @@ namespace Mango.Services.CouponAPI.Controllers
             return Ok(_response);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<ResponseDto<CouponDto>>> CreateCoupon([FromBody] CouponDto couponDto)
+        {
+            try
+            {
+                Coupon coupon = _mapper.Map<Coupon>(couponDto);
+                await _db.Coupons.AddAsync(coupon);
+                await _db.SaveChangesAsync();
+                _response.Data = _mapper.Map<CouponDto>(coupon);
+                _response.Message = "Coupon Created successfully";
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return Ok(_response);
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task<ActionResult<ResponseDto<CouponDto>>> UpdateCoupon([FromRoute] int id, [FromBody] CouponDto couponDto)
+        {
+            try
+            {
+                var existingCoupon = await _db.Coupons.FirstOrDefaultAsync(c => c.CouponId == id);
+
+                if (existingCoupon == null)
+                {
+                    _response.Message = "Coupon not found";
+                    return NotFound();
+                }
+
+                existingCoupon.CouponCode = couponDto.CouponCode;
+                existingCoupon.DiscountAmount = couponDto.DiscountAmount;
+                existingCoupon.MinAmount = couponDto.MinAmount;
+
+                await _db.SaveChangesAsync();
+
+                _response.Data = _mapper.Map<CouponDto>(existingCoupon);
+                _response.Message = "Coupon Updated successfully";
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.Message = ex.Message;
+            }
+            return Ok(_response);
+        }
+
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> DeleteCoupon([FromRoute] int id)
+        {
+            try
+            {
+                Coupon? coupon = await _db.Coupons.FirstOrDefaultAsync(c => c.CouponId == id);
+
+                if (coupon == null)
+                {
+                    return NotFound("Coupon Not found");
+                }
+
+                _db.Coupons.Remove(coupon);
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation("Coupon Delete Exception ", ex.Message);
+            }
+            return Ok("Coupon Deleted");
+        }
     }
 
 }
