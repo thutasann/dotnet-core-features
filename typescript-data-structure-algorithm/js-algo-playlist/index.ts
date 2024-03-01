@@ -1,7 +1,13 @@
 import { BigONotation } from './src/BigONotation'
 import { FactorialNumber, FibonacciSeries, PowerOfTwo, PrimeNumber } from './src/MathAlgorithms'
-import { RecursiveEcommerceSample, RecursiveFibonacci } from './src/Recursion'
-import { category } from './src/utils/constants'
+import {
+    RecursiveEcommerceSample,
+    RecursiveFactorial,
+    RecursiveFibonacci,
+    RecursiveNestedObject,
+    RecursiveSearch,
+} from './src/Recursion'
+import { category, flatNestedObj, nestedObj } from './src/utils/constants'
 
 console.log('JAVASCRIPT ALGORITHMS PLAYLIST ..... 🚀')
 
@@ -26,3 +32,9 @@ const recursiveEcommerce = new RecursiveEcommerceSample()
 console.log('recursive ecommerce => ', recursiveEcommerce.GetTotalProducts(category))
 const recursiveFibonacci = new RecursiveFibonacci()
 console.log('recursive fibonacci => ', recursiveFibonacci.SolutionOne(7).join(', '))
+const recursiveFactorial = new RecursiveFactorial()
+console.log('recursive factorial => ', recursiveFactorial.SolutionOne(6))
+const recursiveSearch = new RecursiveSearch()
+console.log('recursive search => ', recursiveSearch.SampleOne(nestedObj, 5))
+const recursiveNestedObj = new RecursiveNestedObject()
+console.log('recursive nested obj => ', recursiveNestedObj.FlattenNestedObject(flatNestedObj))

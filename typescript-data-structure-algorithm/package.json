@@ -7,7 +7,8 @@
     "scripts": {
         "build": "tsc",
         "dev": "nodemon src/index.ts",
-        "dev:jsalgo": "nodemon js-algo-playlist/index.ts"
+        "dev:jsalgo": "nodemon js-algo-playlist/index.ts",
+        "dev:nama": "nodemon namaste-js/index.ts"
     },
     "keywords": [],
     "author": "",

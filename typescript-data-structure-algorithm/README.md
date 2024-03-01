@@ -5,6 +5,7 @@ This section includes Javasript/Typescript Basics, Data Structures and Algorithm
 ## Sources
 
 -   [Javascript Algorithms](https://www.youtube.com/watch?v=coqQwbDezUA&list=PLC3y8-rFHvwiRYB4-HHKHblh3_bQNJTMa)
+-   [Namaste Javascript](https://www.youtube.com/watch?v=6nv3qy3oNkc&list=PLlasXeu85E9eWOpw9jxHOQyGMRiBZ60aX&index=6)
 
 ## Scripts
 
@@ -18,4 +19,10 @@ yarn dev
 
 ```bash
 yarn dev:jsalgo
+```
+
+### Namaste Javascript Playlist Index
+
+```bash
+yarn dev:nama
 ```

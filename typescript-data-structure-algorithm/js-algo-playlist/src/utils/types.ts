@@ -4,3 +4,7 @@ export interface ICategory {
     subcategories?: ICategory[]
     products?: number // Number of products in the category
 }
+
+export interface INestedObject {
+    [key: string]: any
+}

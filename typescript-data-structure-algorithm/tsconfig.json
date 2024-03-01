@@ -13,7 +13,7 @@
         "noImplicitAny": true,
         "strictPropertyInitialization": false,
         "paths": {
-            "*": ["src/*", "js-algo-playlist/*"] // Path mapping for custom module resolution
+            "*": ["src/*", "js-algo-playlist/*", "namaste-js/*"] // Path mapping for custom module resolution
         }
     },
     "include": [

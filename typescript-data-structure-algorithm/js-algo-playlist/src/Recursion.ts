@@ -1,4 +1,4 @@
-import { ICategory } from './utils/types'
+import { ICategory, INestedObject } from './utils/types'
 
 /**
  * # Recursion
@@ -25,9 +25,6 @@ export class RecursiveEcommerceSample {
     }
 }
 
-/**
- * Recursive Fibonacci
- */
 export class RecursiveFibonacci {
     /**
      * ## Recursive Fibonacci BigO
@@ -46,5 +43,51 @@ export class RecursiveFibonacci {
     private RecursiveFibo(n: number): number {
         if (n < 2) return n
         return this.RecursiveFibo(n - 1) + this.RecursiveFibo(n - 2)
+    }
+}
+
+export class RecursiveFactorial {
+    /**
+     * ### Recursive Factorial BigO
+     * - O(n)
+     * - n! = n * (n-1)
+     */
+    public SolutionOne(n: number): number {
+        if (n === 0) return 1
+        return n * this.SolutionOne(n - 1)
+    }
+}
+
+export class RecursiveSearch {
+    public SampleOne(obj: INestedObject, target: any): boolean {
+        for (const key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                if (obj[key] === target) {
+                    return true // Value found
+                } else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+                    // Recursively search nested object if it's not an array
+                    if (this.SampleOne(obj[key], target)) {
+                        return true // Value found in nested object
+                    }
+                }
+            }
+        }
+        return false // Value not found
+    }
+}
+
+export class RecursiveNestedObject {
+    public FlattenNestedObject(obj: INestedObject, parentKey: string = ''): INestedObject {
+        return Object.keys(obj).reduce((acc: INestedObject, key: string): INestedObject => {
+            const prefixedKey = parentKey ? `${parentKey}.${key}` : key
+
+            if (typeof obj[key] === 'object' && obj[key] !== null) {
+                const flattenedChild = this.FlattenNestedObject(obj[key], prefixedKey)
+                Object.assign(acc, flattenedChild)
+            } else {
+                acc[prefixedKey] = obj[key]
+            }
+            return acc
+        }, {})
     }
 }
