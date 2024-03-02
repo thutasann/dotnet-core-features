@@ -22,7 +22,7 @@ namespace Mango.Web.Service
             _logger = logger;
         }
 
-        public async Task<ResponseDto<object>?> SendAsync(RequestDto<object> requestDto)
+        public async Task<ResponseDto> SendAsync(RequestDto<object> requestDto)
         {
             try
             {
@@ -58,14 +58,14 @@ namespace Mango.Web.Service
                         return new() { IsSuccess = false, Message = "Internal Server Error" };
                     default:
                         var apiContent = await apiResponse.Content.ReadAsStringAsync();
-                        var apiResponseDto = JsonConvert.DeserializeObject<ResponseDto<object>>(apiContent);
-                        return apiResponseDto;
+                        var apiResponseDto = JsonConvert.DeserializeObject<ResponseDto>(apiContent);
+                        return apiResponseDto!;
                 }
             }
             catch (Exception ex)
             {
                 _logger.LogError("Something went wrong in Base Service", ex.Message);
-                var dto = new ResponseDto<object>
+                var dto = new ResponseDto
                 {
                     Message = ex.Message.ToString(),
                     IsSuccess = false

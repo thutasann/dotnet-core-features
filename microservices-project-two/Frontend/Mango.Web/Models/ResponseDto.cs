@@ -4,9 +4,9 @@ namespace Mango.Web.Models
     /// Response Format DTO
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class ResponseDto<T>
+    public class ResponseDto
     {
-        public T? Data { get; set; }
+        public object? Data { get; set; }
         public bool IsSuccess { get; set; } = true;
         public string? Message { get; set; } = "";
     }

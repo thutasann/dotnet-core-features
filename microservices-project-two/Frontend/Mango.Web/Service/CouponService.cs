@@ -13,32 +13,32 @@ namespace Mango.Web.Service
             _baseService = baseService;
         }
 
-        public Task<ResponseDto<CouponDto>> CreateCouponAsync(CouponDto couponDto)
+        public Task<ResponseDto> CreateCouponAsync(CouponDto couponDto)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto<object>> DeleteCouponAsync(int id)
+        public Task<ResponseDto> DeleteCouponAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto<IEnumerable<CouponDto>>?> GetAllCouponsAsync()
+        public Task<ResponseDto> GetAllCouponsAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto<CouponDto>?> GetCouponAsync(string couponCode)
+        public Task<ResponseDto> GetCouponAsync(string couponCode)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto<CouponDto>?> GetCouponByIdAsync(int id)
+        public Task<ResponseDto> GetCouponByIdAsync(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ResponseDto<CouponDto>?> UpdateCouponAsync(CouponDto couponDto)
+        public Task<ResponseDto?> UpdateCouponAsync(CouponDto couponDto)
         {
             throw new NotImplementedException();
         }
