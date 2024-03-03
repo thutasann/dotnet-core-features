@@ -1,4 +1,5 @@
 import { AsyncAwait } from './src/AsyncAwait'
+import { MethodChainingCalculator } from './src/MethodChaining'
 import {
     AbstractCircle,
     AccessModifierCar,
@@ -59,3 +60,8 @@ currentAccount.deposit(1000)
 currentAccount.withdraw(2500)
 console.log('Current Account Balance:', currentAccount.getBalance())
 console.log('Current Account status:', currentAccount.getStatus())
+
+// ------------ Method Chaining  🚀 ------------
+console.log('------>> Method Chaining  🚀 ')
+const calculatorResult = new MethodChainingCalculator(10).add(5).substract(3).multiply(2).divide(4).getValue()
+console.log('calculatorResult ', calculatorResult)
