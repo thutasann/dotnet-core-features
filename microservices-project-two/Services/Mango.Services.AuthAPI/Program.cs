@@ -1,16 +1,21 @@
 using Mango.Services.AuthAPI.Data;
+using Mango.Services.AuthAPI.Middleware;
 using Mango.Services.AuthAPI.Models;
+using Mango.Services.AuthAPI.Service;
+using Mango.Services.AuthAPI.Service.IService;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 // DataContext
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!);
 });
+
+// JWT Options
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"));
 
 // Identity framework
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
@@ -19,7 +24,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Reigster Scope
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 var app = builder.Build();
+
+app.UseMiddleware<ResponseTimeMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

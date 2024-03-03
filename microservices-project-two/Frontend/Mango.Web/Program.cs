@@ -12,7 +12,7 @@ builder.Services.AddHttpClient<ICouponService, CouponService>();
 
 SD.CouponAPIBase = builder.Configuration["ServiceUrls:CouponAPI"];
 
-// Registere
+// Register Scope
 builder.Services.AddScoped<IBaseService, BaseService>();
 builder.Services.AddScoped<ICouponService, CouponService>();
 
