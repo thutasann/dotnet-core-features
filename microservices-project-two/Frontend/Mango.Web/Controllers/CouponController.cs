@@ -26,6 +26,10 @@ namespace Mango.Web.Controllers
             {
                 coupons = JsonConvert.DeserializeObject<List<CouponDto>>(Convert.ToString(response.Data)!);
             }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
 
             return View(coupons);
         }
@@ -43,7 +47,12 @@ namespace Mango.Web.Controllers
                 ResponseDto? response = await _couponService.CreateCouponAsync(model);
                 if (response != null && response.IsSuccess)
                 {
+                    TempData["success"] = "Coupon Created";
                     return RedirectToAction(nameof(CouponIndex));
+                }
+                else
+                {
+                    TempData["error"] = response?.Message;
                 }
             }
             return View(model);
