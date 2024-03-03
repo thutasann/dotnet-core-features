@@ -22,7 +22,7 @@ namespace Mango.Web.Service
             _logger = logger;
         }
 
-        public async Task<ResponseDto> SendAsync(RequestDto<object> requestDto)
+        public async Task<ResponseDto> SendAsync(RequestDto requestDto)
         {
             try
             {
