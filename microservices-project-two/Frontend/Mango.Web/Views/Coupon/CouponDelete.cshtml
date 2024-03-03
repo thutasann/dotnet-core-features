@@ -1,49 +1,47 @@
 @{
-    ViewData["Title"] = "Coupon Create";
+    ViewData["Title"] = "Coupon Delete";
 }
+
 
 @model CouponDto
 
-<form asp-action="CouponCreate">
+<form asp-action="CouponDelete">
     <br />
     <div class="container border p-3">
-        <h1 class="text-white text-center">Create Coupon</h1>
-
+        <h1 class="text-white text-center">Delete Coupon</h1>
+        <input asp-for="CouponId" hidden />
         <hr />
         <div class="row">
             <div class="col-2">
                 <label class="control-label pt-2" style="font-size:20px;"> Coupon Code</label>
             </div>
             <div class="col-10 pb-3">
-                <input asp-for="CouponCode" class="form-control" />
-                <span asp-validation-for="CouponCode" class="text-danger"></span>
+                <input asp-for="CouponCode" disabled class="form-control" />
             </div>
             <div class="col-2">
                 <label class="control-label pt-2" style="font-size:20px;">Discount Amount</label>
             </div>
             <div class="col-10 pb-3">
-                <input asp-for="DiscountAmount" class="form-control" />
-                <span asp-validation-for="DiscountAmount" class="text-danger"></span>
+                <input asp-for="DiscountAmount" disabled class="form-control" />
             </div>
             <div class="col-2">
                 <label class="control-label pt-2" style="font-size:20px;">Minimum Amount</label>
             </div>
             <div class="col-10 pb-3">
-                <input asp-for="MinAmount" class="form-control" />
-                <span asp-validation-for="MinAmount" class="text-danger"></span>
+                <input asp-for="MinAmount" disabled class="form-control" />
             </div>
 
             <div class="col-5 offset-2">
                 <a asp-action="CouponIndex" class="btn-primary btn form-control ">Back to List</a>
             </div>
-            
             <div class="col-5">
-                <input type="submit" value="Create" class="btn btn-success form-control" />
+                <input type="submit" value="Delete" class="btn btn-danger form-control" />
             </div>
+
+        </div>
+
+        <div>
         </div>
     </div>
 </form>
 
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}

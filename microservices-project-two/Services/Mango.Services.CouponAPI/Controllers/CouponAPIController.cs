@@ -53,7 +53,7 @@ namespace Mango.Services.CouponAPI.Controllers
                 {
                     return NotFound(_response.Message = "Coupon Not Found");
                 }
-                return Ok(_response.Data = _mapper.Map<CouponDto>(coupon));
+                _response.Data = _mapper.Map<CouponDto>(coupon);
             }
             catch (Exception ex)
             {
@@ -61,6 +61,7 @@ namespace Mango.Services.CouponAPI.Controllers
                 _response.Message = ex.Message;
                 _logger.LogError("Exception in Get All Coupons ", ex.Message);
             }
+            _logger.LogInformation("Coupon Detail " + _response.Data);
 
             return Ok(_response);
         }
@@ -135,8 +136,9 @@ namespace Mango.Services.CouponAPI.Controllers
         }
 
 
-        [HttpDelete("{id:int}")]
-        public async Task<ActionResult> DeleteCoupon([FromRoute] int id)
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<ResponseDto<object>> DeleteCoupon([FromRoute] int id)
         {
             try
             {
@@ -144,7 +146,8 @@ namespace Mango.Services.CouponAPI.Controllers
 
                 if (coupon == null)
                 {
-                    return NotFound("Coupon Not found");
+                    _response.Message = "Coupon Not Found";
+                    return _response;
                 }
 
                 _db.Coupons.Remove(coupon);
@@ -154,7 +157,7 @@ namespace Mango.Services.CouponAPI.Controllers
             {
                 _logger.LogInformation("Coupon Delete Exception ", ex.Message);
             }
-            return Ok("Coupon Deleted");
+            return _response;
         }
     }
 

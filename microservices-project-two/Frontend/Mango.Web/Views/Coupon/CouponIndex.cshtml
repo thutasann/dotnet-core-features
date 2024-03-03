@@ -8,7 +8,7 @@
 	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
 		<div class="row">
 			<div class="col-12 text-center">
-				<h1 class="text-white">Coupons List</h1>
+				<h1 class="text-white text-md">Coupons</h1>
 			</div>
 		</div>
 	</div>
@@ -43,9 +43,9 @@
                         <td>@((item.DiscountAmount).ToString("c"))</td>
                         <td>@((item.MinAmount).ToString("c"))</td>
                         <td>
-							<a class="btn btn-danger">
-							<i class="bi bi-trash"></i>
-						</a>
+							<a asp-action="CouponDelete" asp-route-couponId="@item.CouponId" class="btn btn-danger">
+								<i class="bi bi-trash"></i>
+							</a>
 					</td>
                     </tr>
                 }
