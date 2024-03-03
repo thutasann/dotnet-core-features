@@ -7,6 +7,7 @@ This Project is from the [Introduction to .NET Microservices ](https://www.youtu
 -   EF Core
 -   MySql
 -   Azure Message Bus
+-   Identity Framwork Core
 
 ## Overview / Microservice Application Flow
 
