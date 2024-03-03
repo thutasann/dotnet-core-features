@@ -29,7 +29,7 @@ cd Services
 dotnet new webapi -o <project-name>
 ```
 
-### Createing MVS
+### Createing MVC
 
 ```bash
 cd Frontend
