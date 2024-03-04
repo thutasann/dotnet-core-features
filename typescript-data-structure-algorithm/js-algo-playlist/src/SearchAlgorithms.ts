@@ -139,6 +139,10 @@ export class BinarySearch {
  * # Recursive Binary Search
  */
 export class RecursiveBinarySearch {
+    /**
+     * ### Recursive Binary Search BigO
+     * - O(logn)
+     */
     public SolutionOne(array: number[], target: number): number {
         return this.search(array, target, 0, array.length - 1)
     }
@@ -152,5 +156,26 @@ export class RecursiveBinarySearch {
         } else {
             return this.search(array, target, middleIndex + 1, rightIndex)
         }
+    }
+}
+
+/**
+ * # Search String
+ * - Loop over the longer string
+ * - Loop over the shorter string
+ * - if the characters don't match, break out the inner loop
+ * - if the characters match, keep going
+ * - if you complete the inner loop and find a match and increate the count of matches
+ */
+export class StringSearch {
+    public SolutionOne(sentence: string, word: string): number {
+        var count = 0
+        for (let i = 0; i < sentence.length; i++) {
+            for (let j = 0; j < word.length; j++) {
+                if (word[j] !== sentence[i + j]) break
+                if (j === word.length - 1) count++
+            }
+        }
+        return count
     }
 }
