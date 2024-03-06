@@ -15,12 +15,18 @@ import {
     SearchAlgorithmFundamentals,
     StringSearch,
 } from './src/SearchAlgorithms'
+import { MapDataStructure } from './src/data-structure/MapStructure'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
 
 console.log('JAVASCRIPT ALGORITHMS PLAYLIST ..... 🚀')
 
 // ------------ BigO Notation  🚀 ------------
 const bigORelateds = new BigONotation()
+
+// ------------ Map Data Structure  🚀 ------------
+console.log('------>> Map Data Structure  🚀 ')
+const mapStructure = new MapDataStructure()
+mapStructure.SampleOne()
 
 // ------------ Math Algorithms  🚀 ------------
 console.log('------>> Math Algorithms  🚀 ')

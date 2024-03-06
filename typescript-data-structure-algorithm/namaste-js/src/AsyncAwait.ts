@@ -4,13 +4,12 @@
  * - await is a keyword that can only be used inside a async function
  * @link
  * [Asyn Await from Namaste Javascript](https://www.youtube.com/watch?v=6nv3qy3oNkc&list=PLlasXeu85E9eWOpw9jxHOQyGMRiBZ60aX&index=6)
- * @example
- * ## Interviews
- * -
+ * ## Async/Await vs Promise.Then
+ * - Async/Await is just a `syntactic sugar` over `.then` and `.catch`
+ * - Its just a syntax play
+ * - Basically, Behind the scene, its already using the normal Promise things
  */
 export class AsyncAwait {
-    API_URL: string = 'https://api.github.com/users/thutasann'
-
     public async SampleOne() {
         const promiseString = new Promise<string>((resolve, reject) => {
             setTimeout(() => {
@@ -69,5 +68,40 @@ export class AsyncAwait {
             console.log('Async await val 2 => ', val2)
         }
         handlePromise()
+    }
+
+    public async ImageProcessingSample() {
+        /**
+         * # Upload and Process Image
+         * - We define two asynchronous functions processImage and saveOriginalImage, each simulating a time-consuming task (processing and saving an image, respectively).
+         * - Inside uploadAndProcessImage, we use Promise.all to run both tasks concurrently.
+         * - This ensures that both tasks are started simultaneously and that the function awaits their completion before proceeding.
+         * - The await keyword is used to wait for the completion of Promise.all, and the function does not continue until both tasks have finished executing.
+         * - Once both tasks are completed, we log a message indicating that the upload and processing are completed.
+         */
+        async function uploadAndProcessImage(originalImage: string): Promise<void> {
+            async function processImage(image: string): Promise<void> {
+                return new Promise<void>((resolve) => {
+                    setTimeout(() => {
+                        console.log('🚀 processing image and generating thumbnails.....')
+                        resolve()
+                    }, 2000)
+                })
+            }
+
+            async function saveOriginalImage(image: string): Promise<void> {
+                return new Promise<void>((resolve) => {
+                    setTimeout(() => {
+                        console.log('🚀 saving original image....')
+                        resolve()
+                    }, 1000)
+                })
+            }
+
+            await Promise.all([processImage(originalImage), saveOriginalImage(originalImage)])
+
+            console.log('✅ Upload and processing completed!')
+        }
+        await uploadAndProcessImage('image_path')
     }
 }

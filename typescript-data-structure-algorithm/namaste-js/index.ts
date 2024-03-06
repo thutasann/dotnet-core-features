@@ -6,7 +6,9 @@ import {
     CurrentAccount,
     InterfaceCircle,
     SavingsAccount,
-} from './src/OOP/Abstraction'
+} from './src/OOP/Abstraction/Abstraction'
+import { AbstractOrderService, CreditCardPayment, abstractOrder } from './src/OOP/Abstraction/EcommerceSample'
+import { testRepositoryPattern } from './src/OOP/Abstraction/RepositoryPattern'
 import {
     DatabaseService,
     InventoryService,
@@ -14,7 +16,9 @@ import {
     LoggingService,
     NotificationService,
     UserService,
-} from './src/OOP/DepedencyInjection'
+} from './src/OOP/DI/DepedencyInjection'
+import { DIContainer, OrderService, ShoppingCart } from './src/OOP/DI/EcommerceSample'
+import { TicketDIService, TicketImpl, TicketRepository, TicketService } from './src/OOP/DI/TicketManagementSample'
 import { product } from './src/utils/constants'
 
 console.log('NAMASTE JAVASCRIPT PLAYLIST ..... 🚀')
@@ -22,7 +26,7 @@ console.log('NAMASTE JAVASCRIPT PLAYLIST ..... 🚀')
 // ------------ Async Await  🚀 ------------
 console.log('------>> Async Await  🚀 ')
 const asyncAwait = new AsyncAwait()
-asyncAwait.SampleOne()
+// asyncAwait.ImageProcessingSample()
 
 // ------------ Depedency Injection  🚀 ------------
 console.log('------>> Depedency Injection Sample  🚀 ')
@@ -31,6 +35,7 @@ const userService = new UserService(logger)
 const user = userService.getUser('001')
 console.log('USER: ', user)
 
+// ------------ Depedency Injection RealLife Sample  🚀 ------------
 console.log('------>> Depedency Injection RealLife Sample 🚀 ')
 const databaseService = new DatabaseService()
 const loggingService = new LoggingService()
@@ -38,6 +43,34 @@ const notifiService = new NotificationService()
 
 const inventoryService = new InventoryService(databaseService, loggingService, notifiService)
 inventoryService.addItemToInventory(product)
+
+// ------------ Depedency Injection Ecommerce Sample 🚀 ------------
+console.log('------>> Depedency Injection Ecommerce Sample 🚀 ')
+const diContainer = new DIContainer()
+diContainer.register('ShoppingCart', new ShoppingCart())
+diContainer.register('OrderService', new OrderService(diContainer.resolve<ShoppingCart>('ShoppingCart')))
+
+const orderService = diContainer.resolve<OrderService>('OrderService')
+orderService.placeOrder()
+
+console.log('------>> Depedency Injection Ticket Management Sample 🚀 ')
+TicketDIService.register('TicketRepository', new TicketRepository())
+TicketDIService.register(
+    'TicketService',
+    new TicketService(TicketDIService.resolve<TicketRepository>('TicketRepository'))
+)
+
+const ticketService = TicketDIService.resolve<TicketService>('TicketService')
+const newTicket = new TicketImpl(1, 'Issue 1', 'This is Issue 1', 'Open')
+ticketService.createTicket(newTicket)
+console.log('All Tickets ', ticketService.getAllTickets())
+
+const ticketToUpdate = ticketService.getTicketById(1)
+if (ticketToUpdate) {
+    ticketToUpdate.status = 'Done'
+    ticketService.updateTicket(ticketToUpdate)
+}
+console.log('After updated, Tickets ', ticketService.getAllTickets())
 
 // ------------ Abstraction  🚀 ------------
 console.log('------>> Abstraction  🚀 ')
@@ -60,6 +93,15 @@ currentAccount.deposit(1000)
 currentAccount.withdraw(2500)
 console.log('Current Account Balance:', currentAccount.getBalance())
 console.log('Current Account status:', currentAccount.getStatus())
+
+// ------------ Abstraction Ecommerce Sample  🚀 ------------
+console.log('------>> Abstraction Ecommerce Sample  🚀 ')
+const creditCardPayment = new CreditCardPayment()
+const abstractOrderService = new AbstractOrderService(creditCardPayment)
+abstractOrderService.checkout(abstractOrder)
+
+// ------------ Repository Pattern  🚀 ------------
+testRepositoryPattern()
 
 // ------------ Method Chaining  🚀 ------------
 console.log('------>> Method Chaining  🚀 ')
