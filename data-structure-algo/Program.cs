@@ -8,6 +8,7 @@ using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.Interviews;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
+using data_structure_algo.src.OOP.DependcyInjection;
 using data_structure_algo.src.Searchings;
 using data_structure_algo.src.Sortings;
 
@@ -213,3 +214,30 @@ sumOfNumber.SampleOne();
 // ------ Find Even or Odd Number (Interview) 
 FindEvenOrOddNumber findEvenOrOddNumber = new();
 findEvenOrOddNumber.SampleOne();
+
+
+// ---------------------------- OOP 🚀 ----------------------------
+Console.WriteLine("------>> Depedency Injection");
+Logger logger = new();
+UserService userService = new(logger);
+userService.GetUser("123");
+
+DatabaseService<IProduct> databaseService = new();
+LoggingService loggingService = new();
+NotificationService notificationService = new();
+InventoryService inventoryService = new(databaseService, loggingService, notificationService);
+inventoryService.AdditemToInvendotry(new IProduct()
+{
+    Name = "Product one",
+    Quantity = 12
+});
+
+ShoppingCart shoppingCart = new();
+shoppingCart.AddItems(new IEcommerceProduct()
+{
+    Id = 1,
+    Name = "Product one",
+    Price = 12,
+});
+OrderService orderService = new(shoppingCart);
+orderService.PlaceOrder();
