@@ -8,6 +8,7 @@ using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.Interviews;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
+using data_structure_algo.src.OOP.Abstraction;
 using data_structure_algo.src.OOP.DependcyInjection;
 using data_structure_algo.src.Searchings;
 using data_structure_algo.src.Sortings;
@@ -66,6 +67,11 @@ genericFunctionSample.SampleOne();
 GenericLinkedList<string> genericNode1 = new("John", null);
 #pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 GenericLinkedList<string> genricNode2 = new("Matt", genericNode1!);
+
+// ------ Async Await
+Console.WriteLine("------->> Async Await Sample");
+AsyncAwaitSample asyncAwaitSample = new();
+AsyncAwaitFetchAPIs asyncAwaitFetchAPIs = new();
 
 // ---------------------------- Data Structures 🚀 ----------------------------
 
@@ -241,3 +247,7 @@ shoppingCart.AddItems(new IEcommerceProduct()
 });
 OrderService orderService = new(shoppingCart);
 orderService.PlaceOrder();
+
+Console.WriteLine("------>> Static Keyword Sample Usage");
+StaticDatabaseUsage staticDatabaseUsage = new();
+staticDatabaseUsage.SampleOne();
