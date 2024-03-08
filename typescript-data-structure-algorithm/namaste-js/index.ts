@@ -19,6 +19,7 @@ import {
 } from './src/OOP/DI/DepedencyInjection'
 import { DIContainer, OrderService, ShoppingCart } from './src/OOP/DI/EcommerceSample'
 import { TicketDIService, TicketImpl, TicketRepository, TicketService } from './src/OOP/DI/TicketManagementSample'
+import { PolyCircle, PolyRectangle, getPolyTotalArea } from './src/OOP/Polymorphism/PolymorphismSample'
 import { product } from './src/utils/constants'
 
 console.log('NAMASTE JAVASCRIPT PLAYLIST ..... 🚀')
@@ -99,6 +100,13 @@ console.log('------>> Abstraction Ecommerce Sample  🚀 ')
 const creditCardPayment = new CreditCardPayment()
 const abstractOrderService = new AbstractOrderService(creditCardPayment)
 abstractOrderService.checkout(abstractOrder)
+
+// ------------ Polymorphism Sample  🚀 ------------
+console.log('------>> Polymorphism Sample  🚀 ')
+const polyCircle = new PolyCircle('Circle', 8)
+const polyRectange = new PolyRectangle('Rectangle', 4, 8)
+const totalArea = getPolyTotalArea([polyCircle, polyRectange])
+console.log('Total Poly Area => ', totalArea)
 
 // ------------ Repository Pattern  🚀 ------------
 testRepositoryPattern()

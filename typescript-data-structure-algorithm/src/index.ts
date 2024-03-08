@@ -86,6 +86,7 @@ console.log('------>> Rotate Array By K (Interview) ', interviews.RotateArrayByK
 interviews.SumOfNumber()
 interviews.ReverseString()
 interviews.ReverseNumber()
+interviews.CatagorizeDataByDate([])
 
 // ------------ LeetCodes 🚀   ------------
 const leetCodes = new LeetCodeSolutions()

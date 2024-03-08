@@ -108,4 +108,25 @@ export class Interviews {
         }
         console.log('reverseNum', reverseNum)
     }
+
+    /**
+     * Catagorize Data with `createdAt`. by Date
+     */
+    public CatagorizeDataByDate(arr: any[]): void {
+        console.log('------>> Catagorize Data by Date (Interview)')
+        let imagesByMonth: Record<string, any> = {}
+
+        arr.forEach((image) => {
+            const createdAt = new Date(image.createdAt)
+            const month = createdAt.toLocaleDateString('default', { month: 'long', year: 'numeric' })
+
+            if (!imagesByMonth[month]) {
+                imagesByMonth[month] = [image]
+            } else {
+                imagesByMonth[month].push(image)
+            }
+        })
+
+        console.log('catagorized data => ', imagesByMonth)
+    }
 }

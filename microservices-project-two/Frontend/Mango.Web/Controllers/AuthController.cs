@@ -1,8 +1,11 @@
 using Mango.Web.Models;
 using Mango.Web.Service.IService;
 using Mango.Web.Utils;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace Mango.Web.Controllers
 {
@@ -10,11 +13,13 @@ namespace Mango.Web.Controllers
     {
         private readonly ILogger<AuthController> _logger;
         private readonly IAuthService _authService;
+        private readonly ITokenProvider _tokenProvider;
 
-        public AuthController(ILogger<AuthController> logger, IAuthService authService)
+        public AuthController(ILogger<AuthController> logger, IAuthService authService, ITokenProvider tokenProvider)
         {
             _logger = logger;
             _authService = authService;
+            _tokenProvider = tokenProvider;
         }
 
         public IActionResult Login()
@@ -32,6 +37,24 @@ namespace Mango.Web.Controllers
             };
             ViewBag.RoleList = roleList;
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginRequestDto obj)
+        {
+            ResponseDto result = await _authService.LoginAsync(obj);
+
+            if (result != null && result.IsSuccess)
+            {
+                LoginResponseDto? loginResponseDto = JsonConvert.DeserializeObject<LoginResponseDto>(Convert.ToString(result.Data)!);
+                _tokenProvider.SetToken(loginResponseDto?.Token!);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("CustomError", result!.Message!);
+                return View(obj);
+            }
         }
 
         [HttpPost]
@@ -78,5 +101,6 @@ namespace Mango.Web.Controllers
         {
             return View("Error!");
         }
+
     }
 }
