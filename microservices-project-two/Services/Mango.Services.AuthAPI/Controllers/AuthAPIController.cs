@@ -20,8 +20,9 @@ namespace Mango.Services.AuthAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult> Register([FromForm] RegisterationRequestDto model)
+        public async Task<ActionResult> Register([FromBody] RegisterationRequestDto model)
         {
+            _logger.LogInformation("Register API Calling...");
             string? errorMessage = await _authService.Register(model);
             if (!string.IsNullOrEmpty(errorMessage))
             {
@@ -35,7 +36,7 @@ namespace Mango.Services.AuthAPI.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult> Login([FromForm] LoginRequestDto loginResponseDto)
+        public async Task<ActionResult> Login([FromBody] LoginRequestDto loginResponseDto)
         {
             var loginResponse = await _authService.Login(loginResponseDto);
             if (loginResponse.User == null)
@@ -49,7 +50,7 @@ namespace Mango.Services.AuthAPI.Controllers
         }
 
         [HttpPost("AssignRole")]
-        public async Task<ActionResult> AssignRole([FromForm] RegisterationRequestDto model)
+        public async Task<ActionResult> AssignRole([FromBody] RegisterationRequestDto model)
         {
             var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role!.ToUpper());
             if (!assignRoleSuccessful)
@@ -58,6 +59,20 @@ namespace Mango.Services.AuthAPI.Controllers
                 _response.Message = "Error encounter when assigning role";
                 return BadRequest(_response);
             }
+            return Ok(_response);
+        }
+
+        [HttpGet("Users")]
+        public async Task<ActionResult> GetAllUsers()
+        {
+            var users = await _authService.GetAllUsers();
+            if (users == null)
+            {
+                _response.IsSuccess = true;
+                _response.Data = users;
+                _response.Message = "No Users Found";
+            }
+            _response.Data = users;
             return Ok(_response);
         }
 

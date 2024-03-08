@@ -1,5 +1,4 @@
 using Mango.Web.Models;
-using Mango.Web.Models.Auth;
 
 namespace Mango.Web.Service.IService
 {

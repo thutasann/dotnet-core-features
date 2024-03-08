@@ -41,6 +41,12 @@ namespace Mango.Services.AuthAPI.Service
             return false;
         }
 
+        public async Task<List<ApplicationUser>> GetAllUsers()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            return users;
+        }
+
         public async Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto)
         {
             var user = await _db.ApplicationUsers.FirstOrDefaultAsync(u => u.UserName!.ToLower() == loginRequestDto.UserName.ToLower());
@@ -90,6 +96,8 @@ namespace Mango.Services.AuthAPI.Service
             try
             {
                 var result = await _userManager.CreateAsync(user, registerationRequestDto.Password);
+
+                Console.WriteLine("register result " + result);
 
                 if (result != null)
                 {
