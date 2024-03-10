@@ -46,7 +46,7 @@ jobs:
                   dotnet test
 
             # --------- Microservice project Two
-            - name: Build and Test Ecommerce MicroService Coupon Service
+            - name: Build and Test Ecommerce MicroService Coupon API Service
               run: |
                   cd microservices-project-two
                   cd Services
@@ -54,11 +54,19 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
-            - name: Build and Test Ecommerce MicroService Auth Service
+            - name: Build and Test Ecommerce MicroService Auth API Service
               run: |
                   cd microservices-project-two
                   cd Services
                   cd Mango.Services.AuthAPI
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test Ecommerce MicroService Product API Service
+              run: |
+                  cd microservices-project-two
+                  cd Services
+                  cd Mango.Services.ProductAPI
                   dotnet restore
                   dotnet build
                   dotnet test

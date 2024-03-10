@@ -30,7 +30,15 @@ cd Services
 dotnet new webapi -o <project-name>
 ```
 
-### Createing MVC
+### Dotnet Restore
+
+```bash
+bash <dir>
+
+dotnet restore
+```
+
+### Creating MVC
 
 ```bash
 cd Frontend

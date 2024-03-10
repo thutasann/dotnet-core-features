@@ -1,19 +1,16 @@
-using System.Text;
 using AutoMapper;
-using Mango.Services.CouponAPI;
-using Mango.Services.CouponAPI.Data;
-using Mango.Services.CouponAPI.Extensions;
-using Mango.Services.CouponAPI.Middleware;
+using Mango.Services.ProductAPI;
+using Mango.Services.ProductAPI.Data;
+using Mango.Services.ProductAPI.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddControllers();
 
-// DataContext
+// Data Context
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!);
@@ -41,23 +38,23 @@ builder.Services.AddSwaggerGen(option =>
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
+                Reference= new OpenApiReference
                 {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = JwtBearerDefaults.AuthenticationScheme
+                    Type=ReferenceType.SecurityScheme,
+                    Id=JwtBearerDefaults.AuthenticationScheme
                 }
             }, Array.Empty<string>()
         }
     });
 });
 
-builder.AddAppAuthentication();
+// Authentication / Authorization
+builder.AddAppAuthetication();
 builder.Services.AddAuthorization();
 
-
 var app = builder.Build();
-app.UseMiddleware<ResponseTimeMiddleware>();
 
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -70,7 +67,7 @@ app.MapControllers();
 ApplyMigration();
 app.Run();
 
-// Apply Migration for Pending Migration
+// Apply Migraion for Pending Migrations
 void ApplyMigration()
 {
     using var scope = app.Services.CreateScope();
