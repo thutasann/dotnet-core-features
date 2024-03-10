@@ -85,6 +85,7 @@ namespace Mango.Web.Controllers
             else
             {
                 TempData["error"] = result?.Message;
+                return View(registerRequestDto);
             }
 
             var roleList = new List<SelectListItem>()
