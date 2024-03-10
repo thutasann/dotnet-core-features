@@ -36,7 +36,6 @@ Console.WriteLine("Extended num " + num);
 RecursionSample recursionSample = new();
 recursionSample.SampleOne();
 
-
 // ------ With Expression
 WithSample withSample = new();
 withSample.SampleOne();
@@ -51,6 +50,10 @@ FindObjectWithKeySample findObjectWithKeySample = new();
 findObjectWithKeySample.SampleOneUsingReflection();
 findObjectWithKeySample.SampleTwoWithListOfObject("Age");
 
+// ------ Nested Object
+NestedObjectUsage nestedObjectUsage = new();
+nestedObjectUsage.SampleOne();
+
 // ------ Abstract Data Types
 List<Pokemon> pokemons = new();
 Pokemon pokemonOne = new("Pokemon One", 11);
@@ -63,9 +66,7 @@ Console.WriteLine("------->> Pokemons ADT " + pokemons.ToList());
 GenericFunctionSample genericFunctionSample = new();
 genericFunctionSample.SampleOne();
 
-#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
 GenericLinkedList<string> genericNode1 = new("John", null);
-#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 GenericLinkedList<string> genricNode2 = new("Matt", genericNode1!);
 
 // ------ Async Await

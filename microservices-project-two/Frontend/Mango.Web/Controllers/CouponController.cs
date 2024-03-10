@@ -1,5 +1,7 @@
 using Mango.Web.Models;
 using Mango.Web.Service.IService;
+using Mango.Web.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
@@ -17,6 +19,7 @@ namespace Mango.Web.Controllers
             _couponService = couponService;
         }
 
+        [Authorize(Roles = SD.RoleAdmin)]
         public async Task<IActionResult> CouponIndex()
         {
             List<CouponDto>? coupons = new();

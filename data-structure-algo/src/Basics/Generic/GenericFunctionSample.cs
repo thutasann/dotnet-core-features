@@ -37,9 +37,9 @@ namespace data_structure_algo.src.Basics.Generic
     public class GenericLinkedList<T>
     {
         public T Data { get; set; }
-        public GenericLinkedList<T?> Link { get; set; }
+        public GenericLinkedList<T?>? Link { get; set; }
 
-        public GenericLinkedList(T Data, GenericLinkedList<T?> Link)
+        public GenericLinkedList(T Data, GenericLinkedList<T?>? Link)
         {
             this.Data = Data;
             this.Link = Link;
