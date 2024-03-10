@@ -19,7 +19,6 @@ namespace Mango.Web.Controllers
             _couponService = couponService;
         }
 
-        [Authorize(Roles = SD.RoleAdmin)]
         public async Task<IActionResult> CouponIndex()
         {
             List<CouponDto>? coupons = new();
