@@ -160,7 +160,7 @@ namespace Mango.Services.ProductAPI.Controllers
                     if (!string.IsNullOrEmpty(product.ImageLocalPath))
                     {
                         var oldFilePathDirectory = Path.Combine(Directory.GetCurrentDirectory(), product.ImageLocalPath);
-                        FileInfo file = new FileInfo(oldFilePathDirectory);
+                        FileInfo file = new(oldFilePathDirectory);
                         if (file.Exists)
                         {
                             file.Delete();

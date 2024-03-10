@@ -60,6 +60,74 @@ namespace Mango.Web.Controllers
             return View(productDto);
         }
 
+        public async Task<IActionResult> ProductDelete(int productId)
+        {
+            ResponseDto? response = await _productService.GetProductByIdAsync(productId);
+            if (response != null && response.IsSuccess)
+            {
+                ProductDto? productDto = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Data)!);
+                return View(productDto);
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductDelete(ProductDto productDto)
+        {
+            ResponseDto? response = await _productService.DeleteProductAsync(productDto.ProductId);
+
+            if (response != null && response.IsSuccess)
+            {
+                TempData["success"] = "Product deleted successfully";
+                return RedirectToAction(nameof(ProductIndex));
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return View(productDto);
+        }
+
+        public async Task<ActionResult> ProductEdit(int productId)
+        {
+            ResponseDto? response = await _productService.GetProductByIdAsync(productId);
+
+            if (response != null && response.IsSuccess)
+            {
+                ProductDto? productDto = JsonConvert.DeserializeObject<ProductDto>(Convert.ToString(response.Data)!);
+                return View(productDto);
+            }
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ProductEdit(ProductDto productDto)
+        {
+            if (ModelState.IsValid)
+            {
+                ResponseDto? response = await _productService.UpdateProductAsync(productDto);
+
+                if (response != null && response.IsSuccess)
+                {
+                    TempData["success"] = "Product updated successfully";
+                    return RedirectToAction(nameof(ProductIndex));
+                }
+                else
+                {
+                    TempData["error"] = response?.Message;
+                }
+            }
+            return View(productDto);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
