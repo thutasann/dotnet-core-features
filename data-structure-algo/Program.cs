@@ -2,6 +2,7 @@
 using data_structure_algo.src.Arrays;
 using data_structure_algo.src.Basics;
 using data_structure_algo.src.Basics.Generic;
+using data_structure_algo.src.Basics.ThreadSample;
 using data_structure_algo.src.BigONotation;
 using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
@@ -252,3 +253,12 @@ orderService.PlaceOrder();
 Console.WriteLine("------>> Static Keyword Sample Usage");
 StaticDatabaseUsage staticDatabaseUsage = new();
 staticDatabaseUsage.SampleOne();
+
+// ---------------------------- Thread 🚀 ----------------------------
+Console.WriteLine("------>> ThreadSample 🚀 ");
+ThreadSample threadSample = new();
+// threadSample.SampleOne();
+// threadSample.RealLifeSampleOne();
+
+ThreadEcommerceSample threadEcommerceSample = new();
+threadEcommerceSample.SampleOne();
