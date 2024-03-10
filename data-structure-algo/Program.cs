@@ -254,6 +254,9 @@ Console.WriteLine("------>> Static Keyword Sample Usage");
 StaticDatabaseUsage staticDatabaseUsage = new();
 staticDatabaseUsage.SampleOne();
 
+AbstractionVehicleSample abstractionVehicleSample = new();
+abstractionVehicleSample.SampleOne();
+
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
 ThreadSample threadSample = new();
