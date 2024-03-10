@@ -19,6 +19,12 @@ import {
 } from './src/OOP/DI/DepedencyInjection'
 import { DIContainer, OrderService, ShoppingCart } from './src/OOP/DI/EcommerceSample'
 import { TicketDIService, TicketImpl, TicketRepository, TicketService } from './src/OOP/DI/TicketManagementSample'
+import {
+    ContractEmployee,
+    FullTimeEmployee,
+    PartTimeEmployee,
+    getPolyTotalSalary,
+} from './src/OOP/Polymorphism/PolyEmployees'
 import { PolyCircle, PolyRectangle, getPolyTotalArea } from './src/OOP/Polymorphism/PolymorphismSample'
 import { product } from './src/utils/constants'
 
@@ -27,7 +33,6 @@ console.log('NAMASTE JAVASCRIPT PLAYLIST ..... 🚀')
 // ------------ Async Await  🚀 ------------
 console.log('------>> Async Await  🚀 ')
 const asyncAwait = new AsyncAwait()
-// asyncAwait.ImageProcessingSample()
 
 // ------------ Depedency Injection  🚀 ------------
 console.log('------>> Depedency Injection Sample  🚀 ')
@@ -107,6 +112,13 @@ const polyCircle = new PolyCircle('Circle', 8)
 const polyRectange = new PolyRectangle('Rectangle', 4, 8)
 const totalArea = getPolyTotalArea([polyCircle, polyRectange])
 console.log('Total Poly Area => ', totalArea)
+
+// Polymorphism Employee sample
+const fullTimeEmployee = new FullTimeEmployee(1, 'John Doe', 5000)
+const partTimeEmployee = new PartTimeEmployee(2, 'Jane Smith', 40, 15)
+const contractEmployee = new ContractEmployee(3, 'Alice Johnson', 6, 1000)
+const polyTotalSalary = getPolyTotalSalary([fullTimeEmployee, partTimeEmployee, contractEmployee])
+console.log('polyTotalSalary => ', polyTotalSalary)
 
 // ------------ Repository Pattern  🚀 ------------
 testRepositoryPattern()
