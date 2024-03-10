@@ -30,7 +30,18 @@ namespace Mango.Web.Service
             {
                 HttpClient client = _httpClientFactory.CreateClient("MangoAPI");
                 HttpRequestMessage message = new();
-                message.Headers.Add("Accept", "application/json");
+
+                Console.WriteLine("content type => " + requestDto.ContentType);
+
+                // content-type
+                if (requestDto.ContentType == SD.ContentType.MultipartFormData)
+                {
+                    message.Headers.Add("Accept", "*/*");
+                }
+                else
+                {
+                    message.Headers.Add("Accept", "application/json");
+                }
 
                 // token
                 if (withBearer)
@@ -39,11 +50,40 @@ namespace Mango.Web.Service
                     message.Headers.Add("Authorization", $"Bearer {token}");
                 }
 
+                // uri
                 message.RequestUri = new Uri(requestDto.Url);
-                if (requestDto.Data != null)
+
+                // multipart form data
+                if (requestDto.ContentType == SD.ContentType.MultipartFormData)
                 {
-                    message.Content = new StringContent(JsonConvert.SerializeObject(requestDto.Data), Encoding.UTF8, "application/json");
+                    var content = new MultipartFormDataContent();
+
+                    foreach (var prop in requestDto.Data!.GetType().GetProperties())
+                    {
+                        var value = prop.GetValue(requestDto.Data);
+                        if (value is FormFile file)
+                        {
+                            if (file != null)
+                            {
+                                content.Add(new StreamContent(file.OpenReadStream()), prop.Name, file.FileName);
+                            }
+                        }
+                        else
+                        {
+                            content.Add(new StringContent(value == null ? "" : value.ToString()!), prop.Name);
+                        }
+                    }
+                    message.Content = content;
                 }
+                else
+                {
+                    // normal json data
+                    if (requestDto.Data != null)
+                    {
+                        message.Content = new StringContent(JsonConvert.SerializeObject(requestDto.Data), Encoding.UTF8, "application/json");
+                    }
+                }
+
                 HttpResponseMessage? apiResponse = null;
 
                 message.Method = requestDto.ApiType switch

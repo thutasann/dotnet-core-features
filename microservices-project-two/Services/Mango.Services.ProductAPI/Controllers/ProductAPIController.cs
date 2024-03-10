@@ -15,12 +15,14 @@ namespace Mango.Services.ProductAPI.Controllers
         private readonly AppDbContext _db;
         private readonly ResponseDto<object> _response;
         private readonly IMapper _mapper;
+        private readonly ILogger<ProductAPIController> _logger;
 
-        public ProductAPIController(AppDbContext db, IMapper mapper)
+        public ProductAPIController(AppDbContext db, IMapper mapper, ILogger<ProductAPIController> logger)
         {
             _db = db;
             _response = new ResponseDto<object>(); ;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -68,6 +70,8 @@ namespace Mango.Services.ProductAPI.Controllers
             try
             {
                 Product product = _mapper.Map<Product>(productDto);
+                _logger.LogInformation("Name => " + product.Name);
+
                 if (productDto.Image != null)
                 {
                     if (!string.IsNullOrEmpty(product.ImageLocalPath))
@@ -143,9 +147,9 @@ namespace Mango.Services.ProductAPI.Controllers
         }
 
 
-        [HttpPut("id:int")]
+        [HttpPut]
         [Authorize(Roles = "ADMIN")]
-        public async Task<ActionResult<ResponseDto<ProductDto>>> UpdateProduct([FromRoute] int id, [FromBody] ProductDto productDto)
+        public async Task<ActionResult<ResponseDto<ProductDto>>> UpdateProduct([FromBody] ProductDto productDto)
         {
             try
             {

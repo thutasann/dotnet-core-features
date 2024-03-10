@@ -1,33 +1,67 @@
 using Mango.Web.Models;
 using Mango.Web.Service.IService;
+using Mango.Web.Utils;
 
 namespace Mango.Web.Service
 {
     public class ProductService : IProductService
     {
-        public Task<ResponseDto?> CreateProductAsync(ProductDto productDto)
+
+        private readonly IBaseService _baseService;
+
+        public ProductService(IBaseService baseService)
         {
-            throw new NotImplementedException();
+            _baseService = baseService;
         }
 
-        public Task<ResponseDto?> DeleteProductAsync(int id)
+        public async Task<ResponseDto?> CreateProductAsync(ProductDto productDto)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Name => " + productDto.Name);
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = APITypeEnum.POST,
+                Data = productDto,
+                Url = SD.ProductAPIBase + "/api/product",
+                ContentType = SD.ContentType.MultipartFormData
+            });
         }
 
-        public Task<ResponseDto?> GetAllProductsAsync()
+        public async Task<ResponseDto?> DeleteProductAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = APITypeEnum.DELETE,
+                Url = SD.ProductAPIBase + "/api/product/" + id
+            });
         }
 
-        public Task<ResponseDto?> GetProductByIdAsync(int id)
+        public async Task<ResponseDto?> GetAllProductsAsync()
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = APITypeEnum.GET,
+                Url = SD.ProductAPIBase + "/api/product"
+            });
         }
 
-        public Task<ResponseDto?> UpdateProductAsync(ProductDto productDto)
+        public async Task<ResponseDto?> GetProductByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = APITypeEnum.GET,
+                Url = SD.ProductAPIBase + "/api/product/" + id
+            });
+        }
+
+        public async Task<ResponseDto?> UpdateProductAsync(ProductDto productDto)
+        {
+            return await _baseService.SendAsync(new RequestDto()
+            {
+                ApiType = APITypeEnum.POST,
+                Data = productDto,
+                Url = SD.ProductAPIBase + "/api/product",
+                ContentType = SD.ContentType.MultipartFormData
+            });
         }
     }
 }
