@@ -257,8 +257,11 @@ staticDatabaseUsage.SampleOne();
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
 ThreadSample threadSample = new();
-// threadSample.SampleOne();
-// threadSample.RealLifeSampleOne();
-
 ThreadEcommerceSample threadEcommerceSample = new();
-threadEcommerceSample.SampleOne();
+EventSchedulingWithThread eventSchedulingWithThread = new();
+eventSchedulingWithThread.SampleOne();
+
+LockKeywordSample lockKeywordSample = new();
+
+DataProcessingSample dataProcessingSample = new();
+dataProcessingSample.SampleOne();

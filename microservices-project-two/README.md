@@ -33,7 +33,7 @@ dotnet new webapi -o <project-name>
 ### Dotnet Restore
 
 ```bash
-bash <dir>
+cd <dir>
 
 dotnet restore
 ```
