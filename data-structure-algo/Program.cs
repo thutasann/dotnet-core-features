@@ -7,6 +7,7 @@ using data_structure_algo.src.BigONotation;
 using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.Interviews;
+using data_structure_algo.src.Keywords;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.OOP.Abstraction;
@@ -281,6 +282,23 @@ foreach (var item in shapes)
 {
     item.Draw();
 }
+
+Console.WriteLine("------>> Polymorphism banking Sample");
+PolyAccount checkingsAccount = new CheckingAccount("1232312312");
+checkingsAccount.Deposit(1000);
+checkingsAccount.WithDraw(500);
+
+PolyAccount savingsAccount = new SavingsAccount("0987654321");
+savingsAccount.Deposit(2000);
+savingsAccount.WithDraw(1500);
+
+// ---------------------------- Keywords Samples 🚀 ----------------------------
+
+Console.WriteLine("------>> Partial Keyword Sample");
+PartialKeyword partialKeyword = new();
+partialKeyword.Method1();
+partialKeyword.Method2();
+
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
