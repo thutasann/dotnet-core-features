@@ -44,7 +44,7 @@ builder.Services.AddSwaggerGen(option =>
                     Type=ReferenceType.SecurityScheme,
                     Id=JwtBearerDefaults.AuthenticationScheme
                 }
-            }, Array.Empty<string>()
+            }, new string[]{}
         }
     });
 });
@@ -64,6 +64,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 app.MapControllers();
 ApplyMigration();
 app.Run();

@@ -254,8 +254,26 @@ Console.WriteLine("------>> Static Keyword Sample Usage");
 StaticDatabaseUsage staticDatabaseUsage = new();
 staticDatabaseUsage.SampleOne();
 
+Console.WriteLine("------>> Abstraction Vehicle Sample");
 AbstractionVehicleSample abstractionVehicleSample = new();
 abstractionVehicleSample.SampleOne();
+
+Console.WriteLine("------>> Abstraction HR System Sample");
+var fullTimeEmployee = new FullTimeEmployee("FT001", "John Doe", 5000);
+var partTimeEmployee = new PartTimeEmployee("PT001", "Jane Smith", 15, 20);
+var contractEmployee = new ContractEmployee("CE001", "Alice Johnson", 400);
+
+DisplayEmployeeInfo(fullTimeEmployee);
+DisplayEmployeeInfo(partTimeEmployee);
+DisplayEmployeeInfo(contractEmployee);
+
+static void DisplayEmployeeInfo(BaseEmployee employee)
+{
+    Console.WriteLine($"Employee ID: {employee.EmployeeId}");
+    Console.WriteLine($"Employee Full Name: {employee.FullName}");
+    Console.WriteLine($"Salary: {employee.CalculateSalary():C}");
+    Console.WriteLine();
+}
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");

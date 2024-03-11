@@ -31,6 +31,7 @@ namespace Mango.Services.ProductAPI.Controllers
             try
             {
                 IEnumerable<Product> products = await _db.Products.ToListAsync();
+                _logger.LogInformation("Products Response => " + products.First().Name);
                 _response.Data = _mapper.Map<IEnumerable<ProductDto>>(products);
             }
             catch (Exception ex)
