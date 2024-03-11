@@ -11,6 +11,7 @@ using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.OOP.Abstraction;
 using data_structure_algo.src.OOP.DependcyInjection;
+using data_structure_algo.src.OOP.Polymorphism;
 using data_structure_algo.src.Searchings;
 using data_structure_algo.src.Sortings;
 
@@ -76,7 +77,6 @@ AsyncAwaitSample asyncAwaitSample = new();
 AsyncAwaitFetchAPIs asyncAwaitFetchAPIs = new();
 
 // ---------------------------- Data Structures 🚀 ----------------------------
-
 
 // ------ BigONotation
 BigOSampleOne bigOSample = new();
@@ -273,6 +273,13 @@ static void DisplayEmployeeInfo(BaseEmployee employee)
     Console.WriteLine($"Employee Full Name: {employee.FullName}");
     Console.WriteLine($"Salary: {employee.CalculateSalary():C}");
     Console.WriteLine();
+}
+
+Console.WriteLine("------>> Polymorphism Sample");
+PolyShape[] shapes = { new PolyShape(), new Circle(), new Rectangle() };
+foreach (var item in shapes)
+{
+    item.Draw();
 }
 
 // ---------------------------- Thread 🚀 ----------------------------
