@@ -3,7 +3,8 @@ using System.Text;
 namespace data_structure_algo.src.Basics
 {
     /// <summary>
-    /// Async/Await Sample
+    /// Async/Await Sample <br/>
+    /// <a href="https://blog.ndepend.com/c-async-await-explained/">Source</a>
     /// </summary>
     public class AsyncAwaitSample
     {
@@ -48,6 +49,31 @@ namespace data_structure_algo.src.Basics
                 sb.Append(stringInput[i]);
             }
             return sb.ToString();
+        }
+    }
+
+    /// <summary>
+    /// <h1> I/O-Bound </h1> <br/>
+    /// They also encompass I/O-Bound operations  <br/>
+    /// like reading file content and downloading a resource from the website <br/>
+    /// the `await` keyword is used to pause the execution while waiting for a method marked as `async` <br/>
+    /// - The code after `await` statement - which is return `stringResult`; here - is resumed once the time-consuming job ends. <br/>
+    /// - The `async` method returns immediately once the `await` keyword is met. <br/>
+    /// - That's why asynchronous methods are said to be `non-blocking`.
+    /// </summary>
+    public class IOBoundAsyncAwait
+    {
+        // Method declared as `async` and returns a `Task<string>`
+        public async Task<string> DownloadAsync()
+        {
+            using var httpClient = new HttpClient();
+            string url = "https://jsonplaceholder.typicode.com/todos/1";
+
+            // Use the `await` keyword to execute a non-blocking GET request
+            string stringResult = await httpClient.GetStringAsync(url);
+
+            // Return the result obtained when the request is completed.
+            return stringResult;
         }
     }
 
@@ -97,4 +123,5 @@ namespace data_structure_algo.src.Basics
             return await responseMessage.Content.ReadAsStringAsync();
         }
     }
+
 }

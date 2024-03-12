@@ -72,12 +72,16 @@ genericFunctionSample.SampleOne();
 GenericLinkedList<string> genericNode1 = new("John", null);
 GenericLinkedList<string> genricNode2 = new("Matt", genericNode1!);
 
-// ------ Async Await
+// ---------------------------- Async Await 🚀 ----------------------------
+
 Console.WriteLine("------->> Async Await Sample");
 AsyncAwaitSample asyncAwaitSample = new();
 AsyncAwaitFetchAPIs asyncAwaitFetchAPIs = new();
 CPUBoundAsyncAwait cPUBoundAsyncAwait = new();
 Console.WriteLine("CPU Bound Result => " + await cPUBoundAsyncAwait.CalculateResultAsync("thutasann"));
+IOBoundAsyncAwait iOBoundAsyncAwait = new();
+var result = await iOBoundAsyncAwait.DownloadAsync();
+Console.WriteLine("IO Bound Result => " + result);
 
 // ---------------------------- Data Structures 🚀 ----------------------------
 
@@ -300,6 +304,9 @@ PartialKeyword partialKeyword = new();
 partialKeyword.Method1();
 partialKeyword.Method2();
 
+Console.WriteLine("------>> Using Keyword Sample");
+UsingKeywordSample usingKeywordSample = new();
+usingKeywordSample.SampleOne();
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
