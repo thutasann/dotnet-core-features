@@ -306,7 +306,10 @@ partialKeyword.Method2();
 
 Console.WriteLine("------>> Using Keyword Sample");
 UsingKeywordSample usingKeywordSample = new();
-usingKeywordSample.SampleOne();
+
+Console.WriteLine("------>> Base Keyword Sample");
+DerivedClassMethod derivedClassMethod = new();
+derivedClassMethod.BaseMethod();
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
