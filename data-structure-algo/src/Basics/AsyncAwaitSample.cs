@@ -24,6 +24,31 @@ namespace data_structure_algo.src.Basics
     }
 
     /// <summary>
+    /// <h1> CPU Bound </h1>
+    /// To execute a CPU-bound operation on a background thread, 
+    /// you initiate it using the Task.Run() method. 
+    /// This method returns a task object that can be awaited through the await C# keyword.
+    /// </summary>
+    public class CPUBound()
+    {
+        public async Task<string> CalculateResultAsync(string stringInput)
+        {
+            string stringResult = await Task.Run(() => CalculateComplexOutput(stringInput));
+            return stringResult;
+        }
+
+        private string CalculateComplexOutput(string stringInput)
+        {
+            StringBuilder sb = new StringBuilder();
+            for(int i = stringInput.Length - 1; i >= 0; i --)
+            {
+                sb.Append(stringInput[i]);
+            }
+            return sb.ToString();
+        }
+    }
+
+    /// <summary>
     /// Async/Await Complex Usage
     /// </summary>
     public class AsyncAwaitFetchAPIs
