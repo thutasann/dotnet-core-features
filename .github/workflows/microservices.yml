@@ -70,6 +70,14 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
+            - name: Build and Test Ecommerce MicroService Product API Service
+              run: |
+                  cd microservices-project-two
+                  cd Services
+                  cd Mango.Services.ShoppingCartAPI
+                  dotnet restore
+                  dotnet build
+                  dotnet test
             - name: Build and Test Ecommerce MicroService Frontend Web
               run: |
                   cd microservices-project-two
