@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace data_structure_algo.src.Basics
 {
     /// <summary>
@@ -29,10 +31,11 @@ namespace data_structure_algo.src.Basics
     /// you initiate it using the Task.Run() method. 
     /// This method returns a task object that can be awaited through the await C# keyword.
     /// </summary>
-    public class CPUBound()
+    public class CPUBoundAsyncAwait
     {
         public async Task<string> CalculateResultAsync(string stringInput)
         {
+            Console.WriteLine("------>> Async/Await CPU Bound");
             string stringResult = await Task.Run(() => CalculateComplexOutput(stringInput));
             return stringResult;
         }
@@ -40,7 +43,7 @@ namespace data_structure_algo.src.Basics
         private string CalculateComplexOutput(string stringInput)
         {
             StringBuilder sb = new StringBuilder();
-            for(int i = stringInput.Length - 1; i >= 0; i --)
+            for (int i = stringInput.Length - 1; i >= 0; i--)
             {
                 sb.Append(stringInput[i]);
             }

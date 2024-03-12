@@ -76,6 +76,8 @@ GenericLinkedList<string> genricNode2 = new("Matt", genericNode1!);
 Console.WriteLine("------->> Async Await Sample");
 AsyncAwaitSample asyncAwaitSample = new();
 AsyncAwaitFetchAPIs asyncAwaitFetchAPIs = new();
+CPUBoundAsyncAwait cPUBoundAsyncAwait = new();
+Console.WriteLine("CPU Bound Result => " + await cPUBoundAsyncAwait.CalculateResultAsync("thutasann"));
 
 // ---------------------------- Data Structures 🚀 ----------------------------
 
@@ -137,7 +139,6 @@ JaggedArraySample jaggedArraySample = new();
 jaggedArraySample.SampleOne();
 
 // ---------------------------- Sorting/Searching 🚀 ----------------------------
-
 
 // -------- Bubble Sort
 Console.WriteLine("------>> Bubble Sort Sample One");
