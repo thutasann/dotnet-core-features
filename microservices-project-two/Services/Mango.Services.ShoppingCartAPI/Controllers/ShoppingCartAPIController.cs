@@ -4,7 +4,6 @@ using Mango.Services.ShoppingCartAPI.Dtos;
 using Mango.Services.ShoppingCartAPI.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Mysqlx.Resultset;
 
 namespace Mango.Services.ShoppingCartAPI.Controllers
 {
@@ -57,8 +56,8 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
                     {
                         // update count in cart details
                         cartDto.CartDetails!.First().Count += cartDetailsFromDb.Count;
-                        cartDto.CartDetails!.First().CartHeaderId += cartDetailsFromDb.CartHeaderId;
-                        cartDto.CartDetails!.First().CartDetailsId += cartDetailsFromDb.CartDetailsId;
+                        cartDto.CartDetails!.First().CartHeaderId = cartDetailsFromDb.CartHeaderId;
+                        cartDto.CartDetails!.First().CartDetailsId = cartDetailsFromDb.CartDetailsId;
                         _db.CartDetails.Update(_mapper.Map<CartDetails>(cartDto.CartDetails!.First()));
                         await _db.SaveChangesAsync();
                     }
