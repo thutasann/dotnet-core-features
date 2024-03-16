@@ -3,6 +3,9 @@ using Mango.Services.ShoppingCartAPI;
 using Mango.Services.ShoppingCartAPI.Data;
 using Mango.Services.ShoppingCartAPI.Extensions;
 using Mango.Services.ShoppingCartAPI.Middleware;
+using Mango.Services.ShoppingCartAPI.Services;
+using Mango.Services.ShoppingCartAPI.Services.IService;
+using Mango.Services.ShoppingCartAPI.Utils;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -48,6 +51,14 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
+
+// Register Scope
+builder.Services.AddScoped<IProductService, ProductService>();
+
+// HTTP Client
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddHttpClient("Product", u => u.BaseAddress =
+new Uri(builder.Configuration["ServiceUrls:ProductAPI"]!)).AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
 
 // Authentication / Authorization
 builder.AddAppAuthetication();
