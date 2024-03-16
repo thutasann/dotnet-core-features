@@ -54,11 +54,14 @@ builder.Services.AddSwaggerGen(option =>
 
 // Register Scope
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICouponService, CouponService>();
 
-// HTTP Client
+// HTTP Clients
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddHttpClient("Product", u => u.BaseAddress =
 new Uri(builder.Configuration["ServiceUrls:ProductAPI"]!)).AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
+builder.Services.AddHttpClient("Coupon", u => u.BaseAddress =
+new Uri(builder.Configuration["ServiceUrls:CouponAPI"]!)).AddHttpMessageHandler<BackendApiAuthenticationHttpClientHandler>();
 
 // Authentication / Authorization
 builder.AddAppAuthetication();
