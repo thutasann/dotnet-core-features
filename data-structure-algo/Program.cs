@@ -12,6 +12,7 @@ using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.OOP.Abstraction;
 using data_structure_algo.src.OOP.DependcyInjection;
+using data_structure_algo.src.OOP.Encapsulation;
 using data_structure_algo.src.OOP.Polymorphism;
 using data_structure_algo.src.Searchings;
 using data_structure_algo.src.Sortings;
@@ -173,7 +174,6 @@ recursiveBinarySearchSample.SampleOne();
 
 // ---------------------------- Leet Codes 🚀 ----------------------------
 
-
 // ------ Two Sum (Leet Codes) 
 Console.WriteLine("------>> Two Sum(LeetCode)");
 TwoSum twoSum = new();
@@ -281,6 +281,10 @@ static void DisplayEmployeeInfo(BaseEmployee employee)
     Console.WriteLine();
 }
 
+Console.WriteLine("------>> Abstraction Bank System Sample");
+BankingSystemUsage bankingSystemUsage = new();
+bankingSystemUsage.SampleOne();
+
 Console.WriteLine("------>> Polymorphism Sample");
 PolyShape[] shapes = { new PolyShape(), new Circle(), new Rectangle() };
 foreach (var item in shapes)
@@ -296,6 +300,12 @@ checkingsAccount.WithDraw(500);
 PolyAccount savingsAccount = new SavingsAccount("0987654321");
 savingsAccount.Deposit(2000);
 savingsAccount.WithDraw(1500);
+
+Console.WriteLine("------>> Encapsulation Sample");
+EnCar enCar = new("Toyota", "Camry", 2002);
+enCar.SartEngine();
+EnBankUsage enBank = new();
+enBank.SampleOne();
 
 // ---------------------------- Keywords Samples 🚀 ----------------------------
 
@@ -322,3 +332,6 @@ LockKeywordSample lockKeywordSample = new();
 
 DataProcessingSample dataProcessingSample = new();
 dataProcessingSample.SampleOne();
+
+ThreadAndAsyncAwait threadAndAsyncAwait = new();
+threadAndAsyncAwait.SampleOne();
