@@ -17,10 +17,10 @@ namespace data_structure_algo.src.LinkedList
         /// </summary>
         public LinkedListSample<T> Link { get; set; }
 
-        public LinkedListSample(T Data, LinkedListSample<T> Link)
+        public LinkedListSample(T Data, LinkedListSample<T>? Link)
         {
             this.Data = Data;
-            this.Link = Link;
+            this.Link = Link!;
         }
     }
 }

@@ -128,9 +128,7 @@ queueFundamental.EcommerceOrderSample();
 
 // -------- LinkedList 
 Console.WriteLine("------->> LinkedList");
-#pragma warning disable CS8625 // Cannot convert null literal to non-nullable reference type.
 LinkedListSample<string?> node1 = new("John", null);
-#pragma warning restore CS8625 // Cannot convert null literal to non-nullable reference type.
 LinkedListSample<string?> node2 = new("Mall", node1);
 LinkedListSample<string?> obj = node2.Link;
 Console.WriteLine("Node1 Data " + node1.Data);
@@ -342,6 +340,14 @@ delegateEventSample.SampleOne();
 Console.WriteLine("------>> Delegate Trading Strategy Sample");
 DelegateTradingStrategyUsage delegateTradingStrategyUsage = new();
 delegateTradingStrategyUsage.SampleOne();
+
+Console.WriteLine("------>> Delegate Calculator Sample");
+DelgateCalculatorUsage delgateCalculatorUsage = new();
+delgateCalculatorUsage.SampleOne();
+
+Console.WriteLine("------>> Delegate Callback Mechanism Sample");
+DelegateCallbackUsage delegateCallbackUsage = new();
+delegateCallbackUsage.SampleOne();
 
 
 // ---------------------------- Thread 🚀 ----------------------------
