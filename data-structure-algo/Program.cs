@@ -8,6 +8,7 @@ using data_structure_algo.src.Collections;
 using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.Interviews;
 using data_structure_algo.src.Keywords;
+using data_structure_algo.src.Keywords.Delegate;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.OOP.Abstraction;
@@ -325,6 +326,23 @@ UsingKeywordSample usingKeywordSample = new();
 Console.WriteLine("------>> Base Keyword Sample");
 DerivedClassMethod derivedClassMethod = new();
 derivedClassMethod.BaseMethod();
+
+Console.WriteLine("------>> NameOf Keyword Sample");
+NameOfKeywordSampleTwo nameOfKeywordSampleTwo = new();
+nameOfKeywordSampleTwo.SampleOne();
+
+Console.WriteLine("------>> Delegate Keyword Sample");
+DelegateKeywrodUsage delegateKeywrodUsage = new();
+delegateKeywrodUsage.SampleOne();
+
+Console.WriteLine("------>> Delegate Event Sample");
+DelegateEventSample delegateEventSample = new();
+delegateEventSample.SampleOne();
+
+Console.WriteLine("------>> Delegate Trading Strategy Sample");
+DelegateTradingStrategyUsage delegateTradingStrategyUsage = new();
+delegateTradingStrategyUsage.SampleOne();
+
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
