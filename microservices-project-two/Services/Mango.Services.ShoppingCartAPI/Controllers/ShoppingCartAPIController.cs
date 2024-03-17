@@ -12,18 +12,18 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
     [ApiController]
     public class CartAPIController : ControllerBase
     {
-        private ResponseDto _response;
-        private IMapper _mapper;
+        private readonly ResponseDto _response;
+        private readonly IMapper _mapper;
         private readonly AppDbContext _db;
-        private IProductService _productService;
-        private ICouponService _couponService;
-        private IConfiguration _configuration;
+        private readonly IProductService _productService;
+        private readonly ICouponService _couponService;
+        private readonly IConfiguration _configuration;
         public CartAPIController(AppDbContext db,
             IMapper mapper, IProductService productService, ICouponService couponService, IConfiguration configuration)
         {
             _db = db;
             _productService = productService;
-            this._response = new ResponseDto();
+            _response = new ResponseDto();
             _mapper = mapper;
             _couponService = couponService;
             _configuration = configuration;
