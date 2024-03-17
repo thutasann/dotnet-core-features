@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dotnet_ms_ecommerce_coupon_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dotnet_ms_ecommerce_coupon_db`;
 -- MySQL dump 10.13  Distrib 8.0.34, for macos13 (arm64)
 --
 -- Host: localhost    Database: dotnet_ms_ecommerce_coupon_db
@@ -37,7 +35,7 @@ CREATE TABLE `__EFMigrationsHistory` (
 
 LOCK TABLES `__EFMigrationsHistory` WRITE;
 /*!40000 ALTER TABLE `__EFMigrationsHistory` DISABLE KEYS */;
-INSERT INTO `__EFMigrationsHistory` VALUES ('20240222163147_addCoupon','7.0.2'),('20240223150331_CouponDataSeed','7.0.2'),('20240303073908_IdentityTablesAdd','7.0.2');
+INSERT INTO `__EFMigrationsHistory` VALUES ('20240222163147_addCoupon','7.0.2'),('20240223150331_CouponDataSeed','7.0.2'),('20240303073908_IdentityTablesAdd','7.0.2'),('20240303080612_AddNameColumn','7.0.2'),('20240310065401_ProductTable','7.0.2'),('20240310074940_ProductColumAdd','7.0.2'),('20240312131737_ShoppingCartTable','7.0.2');
 /*!40000 ALTER TABLE `__EFMigrationsHistory` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-03 15:46:25
+-- Dump completed on 2024-03-17 19:45:47

@@ -16,29 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Coupons`
+-- Table structure for table `CartDetails`
 --
 
-DROP TABLE IF EXISTS `Coupons`;
+DROP TABLE IF EXISTS `CartDetails`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Coupons` (
-  `CouponId` int NOT NULL AUTO_INCREMENT,
-  `CouponCode` longtext NOT NULL,
-  `DiscountAmount` double NOT NULL,
-  `MinAmount` int NOT NULL,
-  PRIMARY KEY (`CouponId`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `CartDetails` (
+  `CartDetailsId` int NOT NULL AUTO_INCREMENT,
+  `CartHeaderId` int NOT NULL,
+  `ProductId` int NOT NULL,
+  `Count` int NOT NULL,
+  PRIMARY KEY (`CartDetailsId`),
+  KEY `IX_CartDetails_CartHeaderId` (`CartHeaderId`),
+  CONSTRAINT `FK_CartDetails_CartHeaders_CartHeaderId` FOREIGN KEY (`CartHeaderId`) REFERENCES `CartHeaders` (`CartHeaderId`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Coupons`
+-- Dumping data for table `CartDetails`
 --
 
-LOCK TABLES `Coupons` WRITE;
-/*!40000 ALTER TABLE `Coupons` DISABLE KEYS */;
-INSERT INTO `Coupons` VALUES (1,'COUPON1',10,20),(2,'COUPON2',20,40),(8,'COUPON7',700,500),(12,'COUPON9',900,500),(14,'COUPON10',900,400),(15,'COUPON11',800,100);
-/*!40000 ALTER TABLE `Coupons` ENABLE KEYS */;
+LOCK TABLES `CartDetails` WRITE;
+/*!40000 ALTER TABLE `CartDetails` DISABLE KEYS */;
+INSERT INTO `CartDetails` VALUES (2,3,1,3);
+/*!40000 ALTER TABLE `CartDetails` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

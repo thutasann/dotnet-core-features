@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dotnet_ms_ecommerce_coupon_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dotnet_ms_ecommerce_coupon_db`;
 -- MySQL dump 10.13  Distrib 8.0.34, for macos13 (arm64)
 --
 -- Host: localhost    Database: dotnet_ms_ecommerce_coupon_db
@@ -40,6 +38,7 @@ CREATE TABLE `AspNetUserRoles` (
 
 LOCK TABLES `AspNetUserRoles` WRITE;
 /*!40000 ALTER TABLE `AspNetUserRoles` DISABLE KEYS */;
+INSERT INTO `AspNetUserRoles` VALUES ('b84de3fb-57e9-4941-a8aa-a0cc6e5536ca','79ab6b4d-f9b6-4677-ad57-f4f28053ac08'),('5c8f78c5-400f-45ef-b83b-8f0fb217c71e','c1278e70-ae79-46dc-9816-b5b98f196c4f');
 /*!40000 ALTER TABLE `AspNetUserRoles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-03-03 15:46:25
+-- Dump completed on 2024-03-17 19:45:47

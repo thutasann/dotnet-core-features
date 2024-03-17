@@ -18,8 +18,10 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
         private readonly IProductService _productService;
         private readonly ICouponService _couponService;
         private readonly IConfiguration _configuration;
-        public CartAPIController(AppDbContext db,
-            IMapper mapper, IProductService productService, ICouponService couponService, IConfiguration configuration)
+        public CartAPIController(
+            AppDbContext db,
+            IMapper mapper, IProductService productService, ICouponService couponService, IConfiguration configuration
+        )
         {
             _db = db;
             _productService = productService;
@@ -141,8 +143,6 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
             return _response;
         }
 
-
-
         [HttpPost("RemoveCart")]
         public async Task<ResponseDto> RemoveCart([FromBody] int cartDetailsId)
         {
@@ -153,6 +153,7 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
 
                 int totalCountofCartItem = _db.CartDetails.Where(u => u.CartHeaderId == cartDetails.CartHeaderId).Count();
                 _db.CartDetails.Remove(cartDetails);
+
                 if (totalCountofCartItem == 1)
                 {
                     var cartHeaderToRemove = await _db.CartHeaders

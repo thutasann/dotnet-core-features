@@ -285,6 +285,11 @@ Console.WriteLine("------>> Abstraction Bank System Sample");
 BankingSystemUsage bankingSystemUsage = new();
 bankingSystemUsage.SampleOne();
 
+Console.WriteLine("------>> Abstraction Course Sample");
+CourseUsage courseUsage = new();
+courseUsage.SampleOne();
+
+
 Console.WriteLine("------>> Polymorphism Sample");
 PolyShape[] shapes = { new PolyShape(), new Circle(), new Rectangle() };
 foreach (var item in shapes)
