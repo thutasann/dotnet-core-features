@@ -11,7 +11,9 @@ builder.Services.AddHttpContextAccessor();
 
 // HTTP Client
 builder.Services.AddHttpClient();
+builder.Services.AddHttpClient<IProductService, ProductService>();
 builder.Services.AddHttpClient<ICouponService, CouponService>();
+builder.Services.AddHttpClient<ICartService, CartService>();
 builder.Services.AddHttpClient<IAuthService, AuthService>();
 
 // API Endpoints

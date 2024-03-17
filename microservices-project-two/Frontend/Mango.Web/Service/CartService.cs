@@ -1,5 +1,6 @@
 using Mango.Web.Models;
 using Mango.Web.Service.IService;
+using Mango.Web.Utils;
 
 namespace Mango.Web.Service
 {
@@ -12,29 +13,53 @@ namespace Mango.Web.Service
             _baseService = baseService;
         }
 
-        public Task<ResponseDto> ApplyCouponAsync(CartDto cartDto)
+        public async Task<ResponseDto> ApplyCouponAsync(CartDto cartDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new()
+            {
+                ApiType = APITypeEnum.POST,
+                Data = cartDto,
+                Url = SD.ShoppingCartAPIBase + "/api/cart/ApplyCoupon"
+            });
         }
 
-        public Task<ResponseDto> EmailCart(CartDto cartDto)
+        public async Task<ResponseDto> EmailCart(CartDto cartDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new()
+            {
+                ApiType = APITypeEnum.POST,
+                Data = cartDto,
+                Url = SD.ShoppingCartAPIBase + "/api/cart/EmailCartRequest"
+            });
         }
 
-        public Task<ResponseDto> GetCartByUserIdAsync(string userId)
+        public async Task<ResponseDto> GetCartByUserIdAsync(string userId)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new()
+            {
+                ApiType = APITypeEnum.GET,
+                Url = SD.ShoppingCartAPIBase + "/api/cart/GetCart" + userId
+            });
         }
 
-        public Task<ResponseDto> RemoveFromCartAsync(int cartDetailsId)
+        public async Task<ResponseDto> RemoveFromCartAsync(int cartDetailsId)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new()
+            {
+                ApiType = APITypeEnum.POST,
+                Data = cartDetailsId,
+                Url = SD.ShoppingCartAPIBase + "/api/cart/RemoveCart"
+            });
         }
 
-        public Task<ResponseDto> UpsertCartAsync(CartDto cartDto)
+        public async Task<ResponseDto> UpsertCartAsync(CartDto cartDto)
         {
-            throw new NotImplementedException();
+            return await _baseService.SendAsync(new()
+            {
+                ApiType = APITypeEnum.POST,
+                Data = cartDto,
+                Url = SD.ShoppingCartAPIBase + "/api/cart/CartUpsert"
+            });
         }
     }
 }

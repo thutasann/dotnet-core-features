@@ -17,14 +17,16 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
         private readonly AppDbContext _db;
         private readonly IProductService _productService;
         private readonly ICouponService _couponService;
+        private readonly ILogger<ShoppingCartAPIController> _logger;
 
-        public ShoppingCartAPIController(AppDbContext db, IMapper mapper, IProductService productService, ICouponService couponService)
+        public ShoppingCartAPIController(AppDbContext db, IMapper mapper, IProductService productService, ICouponService couponService, ILogger<ShoppingCartAPIController> logger)
         {
             _db = db;
             _response = new ResponseDto();
             _mapper = mapper;
             _productService = productService;
             _couponService = couponService;
+            _logger = logger;
         }
 
         [HttpGet("GetCart/{userId}")]
@@ -115,6 +117,7 @@ namespace Mango.Services.ShoppingCartAPI.Controllers
                 _response.Message = ex.Message.ToString();
                 _response.IsSuccess = false;
             }
+
             return _response;
         }
 
