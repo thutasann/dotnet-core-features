@@ -61,25 +61,24 @@ public class HomeController : Controller
     [ActionName("ProductDetails")]
     public async Task<IActionResult> ProductDetails(ProductDto productDto)
     {
-        CartDto cartDto = new()
+        CartDto cartDto = new CartDto()
         {
-            CartHeader = new()
+            CartHeader = new CartHeaderDto
             {
                 UserId = User.Claims.Where(u => u.Type == JwtClaimTypes.Subject)?.FirstOrDefault()?.Value
             }
         };
 
-        CartDetailsDto cartDetails = new()
+        CartDetailsDto cartDetails = new CartDetailsDto()
         {
             Count = productDto.Count,
-            ProductId = productDto.ProductId
+            ProductId = productDto.ProductId,
         };
 
         List<CartDetailsDto> cartDetailsDtos = new() { cartDetails };
         cartDto.CartDetails = cartDetailsDtos;
 
         ResponseDto? response = await _cartService.UpsertCartAsync(cartDto);
-        _logger.LogInformation("Cart Upsert Response => " + response.IsSuccess);
 
         if (response != null && response.IsSuccess)
         {
@@ -90,6 +89,7 @@ public class HomeController : Controller
         {
             TempData["error"] = response?.Message;
         }
+
         return View(productDto);
     }
 
