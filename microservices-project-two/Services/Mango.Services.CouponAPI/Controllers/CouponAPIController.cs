@@ -78,7 +78,7 @@ namespace Mango.Services.CouponAPI.Controllers
                 {
                     return NotFound(_response.Message = "Coupon Not Found");
                 }
-                return Ok(_response.Data = _mapper.Map<CouponDto>(coupon));
+                _response.Data = _mapper.Map<CouponDto>(coupon);
             }
             catch (Exception ex)
             {

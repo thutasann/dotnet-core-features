@@ -9,6 +9,7 @@ using data_structure_algo.src.Fundamentals;
 using data_structure_algo.src.Interviews;
 using data_structure_algo.src.Keywords;
 using data_structure_algo.src.Keywords.Delegate;
+using data_structure_algo.src.Keywords.EventKeyword;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.OOP.Abstraction;
@@ -349,6 +350,13 @@ Console.WriteLine("------>> Delegate Callback Mechanism Sample");
 DelegateCallbackUsage delegateCallbackUsage = new();
 delegateCallbackUsage.SampleOne();
 
+Console.WriteLine("------>> Event Keyword Sample");
+EventButtonUsage eventButtonUsage = new();
+eventButtonUsage.SampleOne();
+
+Console.WriteLine("------>> Event Subscriber Publisher Sample");
+EventSubscriberPublisherUsage eventSubscriberPublisherUsage = new();
+eventSubscriberPublisherUsage.SampleOne();
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
