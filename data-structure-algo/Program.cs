@@ -229,6 +229,9 @@ sumOfNumber.SampleOne();
 FindEvenOrOddNumber findEvenOrOddNumber = new();
 findEvenOrOddNumber.SampleOne();
 
+// ------ Cache Data (Interview) 
+CacheManagerUsage cacheManager = new();
+cacheManager.SampleOne();
 
 // ---------------------------- OOP 🚀 ----------------------------
 Console.WriteLine("------>> Depedency Injection");
@@ -357,6 +360,10 @@ eventButtonUsage.SampleOne();
 Console.WriteLine("------>> Event Subscriber Publisher Sample");
 EventSubscriberPublisherUsage eventSubscriberPublisherUsage = new();
 eventSubscriberPublisherUsage.SampleOne();
+
+Console.WriteLine("------>> Out Keyword Sample");
+OutKeywrdSampleUsage outKeywrdSampleUsage = new();
+outKeywrdSampleUsage.SampleOne();
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");
