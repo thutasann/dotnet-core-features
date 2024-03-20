@@ -4,46 +4,52 @@
 name: .NET
 
 on:
-  push:
-    branches: ['master']
-  pull_request:
-    branches: ['master']
+    push:
+        branches: ['master']
+    pull_request:
+        branches: ['master']
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Build and Test DataStructure and Algorithms
-        run: |
-          cd data-structure-algo
-          dotnet restore
-          dotnet build
-          dotnet test
-      - name: Build and Test JWT-AUTH
-        run: |
-          cd jwt-auth
-          dotnet restore
-          dotnet build
-          dotnet test
-      - name: Build and Test Practical SignalR
-        run: |
-          cd practical-signalR-mvc
-          dotnet restore
-          dotnet build
-          dotnet test
-      - name: Build and Test SignalR Chat app
-        run: |
-          cd signalR-nextjs-chat
-          cd chat-backend
-          dotnet restore
-          dotnet build
-          dotnet test
-      - name: Build and Test Mailkit & SMTP
-        run: |
-          cd email-mailkit-smtp
-          dotnet restore
-          dotnet build
-          dotnet test
+            - name: Build and Test DataStructure and Algorithms
+              run: |
+                  cd data-structure-algo
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test Advanced C# Concepts
+              run: |
+                  cd advanced-c#
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test JWT-AUTH
+              run: |
+                  cd jwt-auth
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test Practical SignalR
+              run: |
+                  cd practical-signalR-mvc
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test SignalR Chat app
+              run: |
+                  cd signalR-nextjs-chat
+                  cd chat-backend
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test Mailkit & SMTP
+              run: |
+                  cd email-mailkit-smtp
+                  dotnet restore
+                  dotnet build
+                  dotnet test

@@ -5,19 +5,20 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 
 ## Tech Stacks / Tools
 
-- .NET Core
-- EF Core
-- Mysql
-- MongoDB
-- Docker
-- Nodejs
-- Typescript
+-   .NET Core
+-   EF Core
+-   Mysql
+-   MongoDB
+-   Docker
+-   Nodejs
+-   Typescript
 
 ## Features
 
 | Topic                                   | Source                                                                                                      | Type             |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------- |
 | Data Structure and Algorithm            | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)                 | C# DSA           |
+| Advanced C#                             | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/advanced-c#)                         | Advanced C#      |
 | TypeScript Data Structure and Algorithm | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/typescript-data-structure-algorithm) | TypeScript DSA   |
 | JWT Authentication                      | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                            | Auth             |
 | Practical SingalR                       | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)               | WebSocket        |
@@ -60,7 +61,7 @@ dotnet watch run
 
 ### EF Database Migration
 
-- Replace `DefaultConnection` in `ConnectionStrings` with your real one.
+-   Replace `DefaultConnection` in `ConnectionStrings` with your real one.
 
 ```bash
 dotnet tool install --global dotnet-ef --version 7.*
