@@ -10,6 +10,7 @@ using data_structure_algo.src.Interviews;
 using data_structure_algo.src.Keywords;
 using data_structure_algo.src.Keywords.Delegate;
 using data_structure_algo.src.Keywords.EventKeyword;
+using data_structure_algo.src.Keywords.OutKeyword;
 using data_structure_algo.src.LeetCodes;
 using data_structure_algo.src.LinkedList;
 using data_structure_algo.src.OOP.Abstraction;
@@ -364,6 +365,10 @@ eventSubscriberPublisherUsage.SampleOne();
 Console.WriteLine("------>> Out Keyword Sample");
 OutKeywrdSampleUsage outKeywrdSampleUsage = new();
 outKeywrdSampleUsage.SampleOne();
+
+Console.WriteLine("------>> Out Keyword Ecommerce Sample");
+OutEcommerceUsage outEcommerceUsage = new();
+outEcommerceUsage.SampleOne();
 
 // ---------------------------- Thread 🚀 ----------------------------
 Console.WriteLine("------>> ThreadSample 🚀 ");

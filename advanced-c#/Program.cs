@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using advanced_c_.src.Abstraction;
+
+Console.WriteLine("WELCOME TO C# ADVANCED CONCEPTS.... 🚀");
+
+AbstractEmployeeUsage.SampleOne();
