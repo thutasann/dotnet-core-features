@@ -1,28 +1,12 @@
-namespace advanced_c_.src.Abstraction
+using advanced_c_.src.SchoolHRAdministration.Interfaces;
+
+namespace advanced_c_.src.SchoolHRAdministration
 {
-    public interface IEmployee
-    {
-        int Id { get; set; }
-        string FirstName { get; set; }
-        string LastName { get; set; }
-        decimal Salary { get; set; }
-    }
-
-    public enum EmployeeType
-    {
-        Teacher,
-        HeadOfDepartment,
-        HeadMaster
-    }
-
-    /// <summary>
-    /// Employee Base
-    /// </summary>
     public class EmployeeBase : IEmployee
     {
         public int Id { get; set; }
-        public required string FirstName { get; set; }
-        public required string LastName { get; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
         public virtual decimal Salary { get; set; }
     }
 
@@ -41,38 +25,13 @@ namespace advanced_c_.src.Abstraction
         public override decimal Salary { get => base.Salary + (base.Salary * 0.1m); }
     }
 
-    /// <summary>
-    /// Factoray pattern
-    /// </summary>
-    public static class EmployeeFactory
-    {
-        public static IEmployee GetEmployeeInstance(EmployeeType employeeType, int id, string FirstName, string LastName, decimal Salary)
-        {
-            IEmployee? employee = null;
-
-            switch (employeeType)
-            {
-                case EmployeeType.Teacher:
-                    employee = new Teacher { Id = id, FirstName = FirstName, LastName = LastName, Salary = Salary };
-                    break;
-                case EmployeeType.HeadOfDepartment:
-                    employee = new HeadOfDepartment { Id = id, FirstName = FirstName, LastName = LastName, Salary = Salary };
-                    break;
-                case EmployeeType.HeadMaster:
-                    employee = new HeadMaster { Id = id, FirstName = FirstName, LastName = LastName, Salary = Salary };
-                    break;
-            }
-
-            return employee!;
-        }
-    }
 
     // ------------------------- USAGE -------------------------
-    public class AbstractEmployeeUsage
+    public class SchoolHRSystem
     {
         public static void SampleOne()
         {
-            Console.WriteLine("------>>  Abstract Employee Sample ");
+            Console.WriteLine("------>> School HR System ");
             decimal totalSalaries = 0;
             List<IEmployee> employees = new();
 

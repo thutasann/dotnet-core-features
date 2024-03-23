@@ -25,6 +25,7 @@ jobs:
             - name: Build and Test Advanced C# Concepts
               run: |
                   cd advanced-c#
+                  cd HR-System
                   dotnet restore
                   dotnet build
                   dotnet test
