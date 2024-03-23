@@ -21,7 +21,7 @@ namespace advanced_c_.src.Delegates
     {
         public static void SampleOne()
         {
-            Console.WriteLine("------>> Delegate Reference to static method and Instance method");
+            Console.WriteLine("------>> Delegate Reference to static method and Instance method 🚀");
             LogDel logDel1 = new(LogTextToScreen);
             LogDel logDel2 = new(Log.LogTextToFile);
             logDel1.Invoke("This is Text Mesage");
