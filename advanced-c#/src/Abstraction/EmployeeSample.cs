@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace advanced_c_.src.Abstraction
 {
     public interface IEmployee
@@ -8,6 +6,13 @@ namespace advanced_c_.src.Abstraction
         string FirstName { get; set; }
         string LastName { get; set; }
         decimal Salary { get; set; }
+    }
+
+    public enum EmployeeType
+    {
+        Teacher,
+        HeadOfDepartment,
+        HeadMaster
     }
 
     /// <summary>
@@ -36,6 +41,32 @@ namespace advanced_c_.src.Abstraction
         public override decimal Salary { get => base.Salary + (base.Salary * 0.1m); }
     }
 
+    /// <summary>
+    /// Factoray pattern
+    /// </summary>
+    public static class EmployeeFactory
+    {
+        public static IEmployee GetEmployeeInstance(EmployeeType employeeType, int id, string FirstName, string LastName, decimal Salary)
+        {
+            IEmployee? employee = null;
+
+            switch (employeeType)
+            {
+                case EmployeeType.Teacher:
+                    employee = new Teacher { Id = id, FirstName = FirstName, LastName = LastName, Salary = Salary };
+                    break;
+                case EmployeeType.HeadOfDepartment:
+                    employee = new HeadOfDepartment { Id = id, FirstName = FirstName, LastName = LastName, Salary = Salary };
+                    break;
+                case EmployeeType.HeadMaster:
+                    employee = new HeadMaster { Id = id, FirstName = FirstName, LastName = LastName, Salary = Salary };
+                    break;
+            }
+
+            return employee!;
+        }
+    }
+
     // ------------------------- USAGE -------------------------
     public class AbstractEmployeeUsage
     {
@@ -58,45 +89,17 @@ namespace advanced_c_.src.Abstraction
         public static void SeedData(List<IEmployee> employees)
         {
 
-            IEmployee teacher1 = new Teacher
-            {
-                Id = 1,
-                FirstName = "Bob",
-                LastName = "Fisher",
-                Salary = 4000
-            };
-
+            IEmployee teacher1 = EmployeeFactory.GetEmployeeInstance(EmployeeType.Teacher, 1, "Teacher", "One", 4000);
             employees.Add(teacher1);
 
-            IEmployee teacher2 = new Teacher
-            {
-                Id = 2,
-                FirstName = "Jenny",
-                LastName = "Thomas",
-                Salary = 4000
-            };
-
+            IEmployee teacher2 = EmployeeFactory.GetEmployeeInstance(EmployeeType.Teacher, 2, "Teacher", "Two", 5000);
             employees.Add(teacher2);
 
-            IEmployee headOfDepartment = new HeadOfDepartment
-            {
-                Id = 3,
-                FirstName = "Breddy",
-                LastName = "Thomas",
-                Salary = 9000
-            };
-
+            IEmployee headOfDepartment = EmployeeFactory.GetEmployeeInstance(EmployeeType.HeadOfDepartment, 3, "Head Department", "one", 10000);
             employees.Add(headOfDepartment);
 
-
-            IEmployee headMaster = new HeadMaster
-            {
-                Id = 4,
-                FirstName = "Head",
-                LastName = "Master",
-                Salary = 90000
-            };
-
+            IEmployee headMaster = EmployeeFactory.GetEmployeeInstance(EmployeeType.HeadMaster, 4, "Head Master", "One", 20000);
+            employees.Add(headMaster);
 
         }
     }
