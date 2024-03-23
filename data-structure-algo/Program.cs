@@ -76,6 +76,11 @@ genericFunctionSample.SampleOne();
 GenericLinkedList<string> genericNode1 = new("John", null);
 GenericLinkedList<string> genricNode2 = new("Matt", genericNode1!);
 
+// ------ Factory Pattern
+Console.WriteLine("------->> Factory Pattern Sample ");
+FactoryShapeUsage factorySample = new();
+factorySample.SampleOne();
+
 // ---------------------------- Async Await 🚀 ----------------------------
 
 Console.WriteLine("------->> Async Await Sample");
