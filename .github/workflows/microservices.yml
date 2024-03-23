@@ -86,3 +86,11 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
+            # --------- Microservice project Three
+            - name: Build and Test Platform MicroService Platform Service
+              run: |
+                  cd microservices-project-three
+                  cd PlatformService
+                  dotnet restore
+                  dotnet build
+                  dotnet test

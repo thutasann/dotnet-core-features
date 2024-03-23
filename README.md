@@ -26,6 +26,7 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 | Send Email With MailKit & SMTP          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)                  | Email            |
 | Game System MicroService Project        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)           | MicroService ⭐️ |
 | Ecommerce System MicroService Project   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-two)           | MicroService ⭐️ |
+| Playform System MicroService Project    | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-three)         | MicroService ⭐️ |
 
 ## Scripts
 
