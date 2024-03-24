@@ -1,0 +1,40 @@
+version: '3.4'
+
+networks:
+    dev:
+        driver: bridge
+
+services:
+    platform-service:
+        image: docker.io/thutasann/platformservice
+        depends_on:
+            - 'dotnet_ms_platform_db'
+        container_name: platform-service
+        ports:
+            - '8080:80'
+        build:
+            context: .
+            dockerfile: Dockerfile
+        environment:
+            - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=dotnet_ms_platform_db;Port=5432;Database=dotnet_ms_platform_db;IntegratedSecurity=true;
+            - ASPNETCORE_URLS=http://+:80
+        networks:
+            - dev
+
+    dotnet_ms_platform_db:
+        image: postgres:latest
+        container_name: dotnet_ms_platform_db
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=dotnet_ms_platform_db
+        ports:
+            - '5433:5432'
+        restart: always
+        volumes:
+            - app_data:/var/lib/postgresql/data
+        networks:
+            - dev
+
+volumes:
+    app_data:

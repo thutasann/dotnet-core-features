@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Data Context
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!);
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")!);
 });
 
 // Auto Mapper
@@ -26,12 +26,9 @@ var app = builder.Build();
 app.UseMiddleware<ResponseTimeMiddleware>();
 PrepDb.PrepPopulation(app);
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-app.UseHttpsRedirection();
+app.UseSwagger();
+app.UseSwaggerUI();
+// app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
