@@ -53,7 +53,6 @@ builder.Services.AddSwaggerGen(option =>
 builder.AddAppAuthentication();
 builder.Services.AddAuthorization();
 
-
 var app = builder.Build();
 app.UseMiddleware<ResponseTimeMiddleware>();
 

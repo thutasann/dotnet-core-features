@@ -34,7 +34,7 @@ namespace PlatformService.Repositories
             return await _context.Platforms.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<bool> SaveChanges()
+        public async Task<bool> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync() >= 0;
         }
