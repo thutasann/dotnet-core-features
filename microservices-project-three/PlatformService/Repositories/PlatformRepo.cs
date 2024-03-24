@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using PlatformService.Data;
 using PlatformService.Models;
 using PlatformService.Repositories.Interfaces;
@@ -13,19 +14,24 @@ namespace PlatformService.Repositories
             _context = context;
         }
 
-        public void CreatePlatform(Platform platform)
+        public async Task CreatePlatformAsync(Platform platform)
         {
-            throw new NotImplementedException();
+            if (platform == null)
+            {
+                throw new ArgumentNullException(nameof(platform));
+            }
+
+            await _context.Platforms.AddAsync(platform);
         }
 
-        public Task<IEnumerable<Platform>> GetAllPlatformsAsync()
+        public async Task<IEnumerable<Platform>> GetAllPlatformsAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Platforms.ToListAsync();
         }
 
-        public Task<Platform> GetPlatformByIdAsync()
+        public async Task<Platform?> GetPlatformByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Platforms.FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<bool> SaveChanges()

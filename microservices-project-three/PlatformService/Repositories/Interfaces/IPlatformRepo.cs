@@ -6,7 +6,7 @@ namespace PlatformService.Repositories.Interfaces
     {
         Task<bool> SaveChanges();
         Task<IEnumerable<Platform>> GetAllPlatformsAsync();
-        Task<Platform> GetPlatformByIdAsync();
-        void CreatePlatform(Platform platform);
+        Task<Platform?> GetPlatformByIdAsync(int id);
+        Task CreatePlatformAsync(Platform platform);
     }
 }

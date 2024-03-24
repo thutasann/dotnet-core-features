@@ -61,12 +61,12 @@ namespace advanced_c_.src.AsyncAwait
                 Task.Delay(50).Wait();
             }
 
-            ConsoleWriteLine("Wait for taskA termination");
+            Console.WriteLine("Wait for taskA termination");
 
             await taskA;
 
             // Console.WriteLine(new System.Diagnostics.StackTrace());
-            ConsoleWriteLine($"The result of taskA is {taskA.Result}");
+            Console.WriteLine($"The result of taskA is {taskA.Result}");
         }
 
         private static async Task<int> MethodAAsync()

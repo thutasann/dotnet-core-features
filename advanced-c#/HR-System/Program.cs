@@ -1,6 +1,7 @@
 ﻿using advanced_c_.src.AsyncAwait;
 using advanced_c_.src.Delegates;
 using advanced_c_.src.SchoolHRAdministration;
+using advanced_c_.src.Utils;
 
 Console.WriteLine("WELCOME TO C# ADVANCED CONCEPTS.... 🚀");
 
@@ -19,3 +20,12 @@ await AwaitKeywordImpact.Main();
 
 // ---------------------------- Delegates 🚀 ----------------------------
 DelegateReferenceToStaticMethod.SampleOne();
+
+// ---------------------------- Utils 🚀 ----------------------------
+Utils.GetIPAddress();
+Utils.GetDeviceInfo();
+Utils.CreateAndExecuteBashFile();
+Utils.CreateAndReadJsonFile();
+
+Console.WriteLine("Cache Utils ==> ");
+Console.WriteLine(CacheUtil.GetData("key1"));
