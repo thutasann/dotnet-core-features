@@ -31,17 +31,11 @@ It will include two services `Platform service` and `Command service`.
 docker build -t thutasann/platformservice .
 ```
 
-### Docker Run Service
-
-```bash
-docker run -p 8081:80 -e ASPNETCORE_URLS=http://+:80 thutasann/platformservice
-```
-
-###
+### Docker Compose
 
 ```bash
 docker-compose up --build
 ```
 
-> http://localhost:8080/swagger/index.html
-> http://localhost:8080/api/platform
+> http://localhost:5000/swagger/index.html
+> http://localhost:5000/api/platform

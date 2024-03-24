@@ -10,14 +10,21 @@ services:
         depends_on:
             - 'dotnet_ms_platform_db'
         container_name: platform-service
+        build: .
         ports:
-            - '8080:80'
-        build:
-            context: .
-            dockerfile: Dockerfile
+            - '5000:80'
+        command: ['dotnet', 'watch', 'run', -v, '--project', 'PlatformService.csproj', '--urls', 'http://+:80']
         environment:
             - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=dotnet_ms_platform_db;Port=5432;Database=dotnet_ms_platform_db;IntegratedSecurity=true;
+            - ASPNETCORE_ENVIRONMENT=Development
             - ASPNETCORE_URLS=http://+:80
+        volumes:
+            - .:/app
+            - /app/obj/ # <- directory won't be mounted
+            - /app/bin/ # <- directory won't be mounted
+            - /app/PlatformService/obj/ # <- directory won't be mounted
+            - /app/PlatformService/bin/ # <- directory won't be mounted
+            - ~/.aspnet/https:/https:ro
         networks:
             - dev
 
