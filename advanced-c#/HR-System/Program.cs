@@ -29,3 +29,5 @@ Utils.CreateAndReadJsonFile();
 
 Console.WriteLine("Cache Utils ==> ");
 Console.WriteLine(CacheUtil.GetData("key1"));
+
+EncryptionDecryption.UsageSample();

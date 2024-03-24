@@ -31,11 +31,16 @@ It will include two services `Platform service` and `Command service`.
 docker build -t thutasann/platformservice .
 ```
 
+### Docker Push
+
+```bash
+docker push thutasann/platformservice
+```
+
 ### Docker Compose
 
 ```bash
 docker-compose up --build
 ```
 
-> http://localhost:5000/swagger/index.html
-> http://localhost:5000/api/platform
+> http://localhost:5000/swagger/index.html <br/>
