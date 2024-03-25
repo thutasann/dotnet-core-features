@@ -26,6 +26,7 @@ Utils.GetIPAddress();
 Utils.GetDeviceInfo();
 Utils.CreateAndExecuteBashFile();
 Utils.CreateAndReadJsonFile();
+Utils.ReadFromFileWriteToAnotherUsingBuffer();
 
 Console.WriteLine("Cache Utils ==> ");
 Console.WriteLine(CacheUtil.GetData("key1"));

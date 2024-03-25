@@ -88,5 +88,39 @@ namespace advanced_c_.src.Utils
             string jsonFromFile = File.ReadAllText(jsonFilePath);
             Console.WriteLine("jsonFromFile " + jsonFromFile);
         }
+
+        public static void ByteSample()
+        {
+            byte myByte = 100;
+            Console.WriteLine(myByte);
+
+            myByte++;
+            Console.WriteLine(myByte);
+
+            myByte = byte.MaxValue;
+            myByte++;
+            Console.WriteLine(myByte);
+        }
+
+        public static void ReadFromFileWriteToAnotherUsingBuffer()
+        {
+            string sourceFilePath = "source.txt";
+            string targetFilePath = "target.txt";
+            int bufferSize = 1024;
+
+            using (FileStream sourceStream = new(sourceFilePath, FileMode.Open, FileAccess.Read))
+            {
+                using FileStream targetStream = new(targetFilePath, FileMode.Create, FileAccess.Write);
+                byte[] buffer = new byte[bufferSize];
+                int bytesRead;
+
+                while ((bytesRead = sourceStream.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    Console.WriteLine("reading...." + bytesRead);
+                    targetStream.Write(buffer, 0, bytesRead);
+                }
+            }
+            Console.WriteLine("File copies successfully");
+        }
     }
 }
