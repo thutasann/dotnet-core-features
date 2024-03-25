@@ -50,6 +50,12 @@ dotnet new console -n <project-name>
 dotnet new mvc -o <project-name>
 ```
 
+**Lib**
+
+```bash
+dotnet new classlib -n Play.Common
+```
+
 ### Dotnet Watch Run
 
 ```bash
