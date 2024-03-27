@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "38852e86-40a8-4d02-a364-1a64a0f6a4a0",
+		"name": "dotnet-platform-microservice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14049071"
+	},
+	"item": [
+		{
+			"name": "K8S",
+			"item": [
+				{
+					"name": "PlatformService",
+					"item": [
+						{
+							"name": "Get All Platforms",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:32004/api/platform",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "32004",
+									"path": [
+										"api",
+										"platform"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Single Platform",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:32004/api/platform/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "32004",
+									"path": [
+										"api",
+										"platform",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

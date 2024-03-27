@@ -67,14 +67,24 @@ kubectl apply -f platforms-depl.yaml
 kubectl get deployments
 ```
 
-### Delete Deployment / Service
+### Get Services
 
 ```bash
-kubectl delete deployment platforms-depl
+kubectl get services
 ```
 
 ### Get pods
 
 ```bash
 kubectl get pods
+```
+
+### Delete Deployment / Service
+
+```bash
+kubectl delete deployment <deployment-name>
+```
+
+```bash
+kubectl delete service <service-name>
 ```
