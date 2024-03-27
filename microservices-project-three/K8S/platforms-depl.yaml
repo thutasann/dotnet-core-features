@@ -15,14 +15,3 @@ spec:
             containers:
                 - name: platformservice
                   image: thutasann/platformservice:latest
-                  ports:
-                      - containerPort: 80
-                  command:
-                      ['dotnet', 'watch', 'run', '-v', '--project', 'PlatformService.csproj', '--urls', 'http://+:80']
-                  env:
-                      - name: ConnectionStrings__DefaultConnection
-                        value: 'User ID=postgres;Password=postgres;Server=dotnet_ms_platform_db;Port=5432;Database=dotnet_ms_platform_db;IntegratedSecurity=true;'
-                      - name: ASPNETCORE_ENVIRONMENT
-                        value: 'Development'
-                      - name: ASPNETCORE_URLS
-                        value: 'http://+:80'

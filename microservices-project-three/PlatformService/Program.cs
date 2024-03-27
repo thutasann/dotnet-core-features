@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Data Context
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")!);
+    options.UseInMemoryDatabase("InMen");
 });
 
 // Auto Mapper
