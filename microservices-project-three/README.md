@@ -3,6 +3,8 @@
 This Project is from the [.NET Microservices](https://www.youtube.com/watch?v=DgVjEo3OGBI).
 It will include two services `Platform service` and `Command service`.
 
+> This Microservice projects is mostly focused on the `docker`, `k8s`.
+
 ## Tech Stacks
 
 -   Postgres
@@ -18,6 +20,10 @@ It will include two services `Platform service` and `Command service`.
 ## Platform service Architecture
 
 ![Platform service Architecture](examples/platform-service-architecture.png)
+
+## Kubernetes Architecture
+
+![Kubernetes Architecture](examples/kubernetes-architecture.png)
 
 ## Command service Architecture
 
@@ -44,3 +50,31 @@ docker-compose up --build
 ```
 
 > http://localhost:5000/swagger/index.html <br/>
+
+## Kubernetes Commands
+
+### Check version
+
+```bash
+kubectl version
+```
+
+### Create Deploy
+
+```bash
+cd K8S
+
+kubectl apply -f platforms-depl.yaml
+```
+
+### Get Deployments
+
+```bash
+kubectl get deployments
+```
+
+### Get pods
+
+```bsah
+kubectl get pods
+```

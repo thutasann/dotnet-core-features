@@ -91,6 +91,7 @@ namespace advanced_c_.src.Utils
 
         public static void ByteSample()
         {
+            Console.WriteLine("Byte Sample =>");
             byte myByte = 100;
             Console.WriteLine(myByte);
 
