@@ -64,7 +64,7 @@ kubectl version
 ```bash
 cd K8S
 
-kubectl apply -f platforms-depl.yaml
+kubectl apply -f platforms-depl.yaml -f postgres-depl.yaml -f postgres-service.yaml
 ```
 
 ### Get Deployments
@@ -73,8 +73,18 @@ kubectl apply -f platforms-depl.yaml
 kubectl get deployments
 ```
 
+### Delete Deployment / Service
+
+```bash
+kubectl delete deployment platforms-depl
+```
+
+```bash
+kubectl delete service platformservice
+```
+
 ### Get pods
 
-```bsah
+```bash
 kubectl get pods
 ```
