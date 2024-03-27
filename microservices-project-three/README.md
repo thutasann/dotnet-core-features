@@ -43,8 +43,6 @@ docker build -t thutasann/platformservice .
 docker push thutasann/platformservice
 ```
 
-> http://localhost:5000/swagger/index.html <br/>
-
 ## Kubernetes Commands
 
 ### Check version
@@ -78,6 +76,10 @@ kubectl get services
 ```bash
 kubectl get pods
 ```
+
+### Open
+
+> http://localhost:32004/swagger/index.html
 
 ### Delete Deployment / Service
 

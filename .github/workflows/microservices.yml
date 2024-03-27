@@ -94,3 +94,10 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
+            - name: Build and Test Platform MicroService Commands Service
+              run: |
+                  cd microservices-project-three
+                  cd CommandsService
+                  dotnet restore
+                  dotnet build
+                  dotnet test
