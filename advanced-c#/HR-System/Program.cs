@@ -31,4 +31,12 @@ Utils.ReadFromFileWriteToAnotherUsingBuffer();
 Console.WriteLine("Cache Utils ==> ");
 Console.WriteLine(CacheUtil.GetData("key1"));
 
+Console.WriteLine("Random String ==>");
+Console.WriteLine(Utils.RandomString(3));
+
+var value = "Value1";
+var enumValue = Utils.ParseEnum<MyEnum>(value);
+Console.WriteLine("Parse Enum ==>" + enumValue);
+
+
 EncryptionDecryption.UsageSample();

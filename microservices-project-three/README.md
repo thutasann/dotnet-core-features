@@ -29,6 +29,14 @@ It will include two services `Platform service` and `Command service`.
 
 ![Command service Architecture](examples/command-service-architecture.png)
 
+## Synchronous Messaging
+
+![Synchronous Messaging](examples/synchronous-messaging.png)
+
+## Asynchronous Messaging
+
+![Asynchronous Messaging](examples/asynchronous-messaging.png)
+
 ## Docker Commands
 
 ### Docker Build

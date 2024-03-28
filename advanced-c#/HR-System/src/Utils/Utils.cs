@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Net;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 
 namespace advanced_c_.src.Utils
@@ -122,6 +123,30 @@ namespace advanced_c_.src.Utils
                 }
             }
             Console.WriteLine("File copies successfully");
+        }
+
+        public static bool IsNullOrEmpty(object obj)
+        {
+            return obj == null || string.IsNullOrWhiteSpace(obj.ToString());
+        }
+
+        public static Dictionary<string, object> ObjectToDictonary(object obj)
+        {
+            return obj.GetType()
+                .GetProperties()
+                .ToDictionary(prop => prop.Name, prop => prop.GetValue(obj)!);
+        }
+
+        public static string RandomString(int length)
+        {
+            var random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            return new string(Enumerable.Repeat(chars, length).Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+        public static T ParseEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
         }
     }
 }
