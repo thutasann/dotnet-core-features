@@ -79,7 +79,9 @@ kubectl get pods
 
 ### Open
 
-> http://localhost:32004/swagger/index.html
+**_K8S Platforms Service_**
+
+> http://localhost:32569/swagger/index.html
 
 ### Delete Deployment / Service
 

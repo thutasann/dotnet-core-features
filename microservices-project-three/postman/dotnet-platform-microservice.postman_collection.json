@@ -56,6 +56,32 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "Commands Service",
+			"item": [
+				{
+					"name": "Test in bound connection",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5212/api/c/platforms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5212",
+							"path": [
+								"api",
+								"c",
+								"platforms"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
