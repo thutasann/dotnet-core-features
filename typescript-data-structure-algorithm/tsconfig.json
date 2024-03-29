@@ -10,7 +10,7 @@
         "declaration": true, // Generate declaration files (.d.ts)
         "rootDir": "./src", // Specify the root directory of your source code
         "baseUrl": "./", // Base URL for module resolution
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "strictPropertyInitialization": false,
         "paths": {
             "*": ["src/*", "js-algo-playlist/*", "namaste-js/*"] // Path mapping for custom module resolution

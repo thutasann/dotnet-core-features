@@ -1,5 +1,6 @@
 import { BigONotation } from './src/BigONotation'
 import { handleDragStart, handleDragStop, products } from './src/DragAndDrop'
+import { HashTableSampleOne } from './src/HashTable'
 import { FactorialNumber, FibonacciSeries, PowerOfTwo, PrimeNumber } from './src/MathAlgorithms'
 import {
     RecursiveEcommerceSample,
@@ -83,3 +84,12 @@ console.log('recursive binary search result => ', recursiveBinarySearch.Solution
 console.log('------>> String Search  🚀 ')
 const stringSearch = new StringSearch()
 console.log('string search result => ', stringSearch.SolutionOne('search and find', 'an'))
+
+// ------------ Hash Table  🚀 ------------
+console.log('------>> Hash Table Sample One  🚀 ')
+const hashTableSampleOne = new HashTableSampleOne()
+hashTableSampleOne.Intro()
+hashTableSampleOne.setItem('firstName', 'thuta')
+hashTableSampleOne.setItem('lastName', 'Sann')
+console.log('table => ', hashTableSampleOne.table[0])
+console.log('Get Item => ', hashTableSampleOne.getItem('firstName'))

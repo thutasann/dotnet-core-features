@@ -37,6 +37,10 @@ It will include two services `Platform service` and `Command service`.
 
 ![Asynchronous Messaging](examples/asynchronous-messaging.png)
 
+## Message Bus
+
+![Asynchronous Messaging](examples/message-bus.png)
+
 ## Docker Commands
 
 ### Docker Build
