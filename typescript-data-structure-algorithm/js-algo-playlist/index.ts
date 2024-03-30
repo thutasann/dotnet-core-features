@@ -17,6 +17,7 @@ import {
     StringSearch,
 } from './src/SearchAlgorithms'
 import { MapDataStructure } from './src/data-structure/MapStructure'
+import { RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
 
 console.log('JAVASCRIPT ALGORITHMS PLAYLIST ..... 🚀')
@@ -93,3 +94,7 @@ hashTableSampleOne.setItem('firstName', 'thuta')
 hashTableSampleOne.setItem('lastName', 'Sann')
 console.log('table => ', hashTableSampleOne.table[0])
 console.log('Get Item => ', hashTableSampleOne.getItem('firstName'))
+
+// ------------ RecordType  🚀 ------------
+RecordSampleOne.SampleOne()
+RecordEcommerceSample.SampleOne()
