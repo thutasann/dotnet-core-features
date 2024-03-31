@@ -60,6 +60,12 @@ kubectl get services
 kubectl get pods
 ```
 
+### Get namespace
+
+```bash
+kubectl get namespace
+```
+
 ### Delete Deployment / Service
 
 ```bash
@@ -74,4 +80,8 @@ kubectl delete service <service-name>
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
+```
+
+```bash
+kubectl get pods --namespace=ingress-nginx
 ```

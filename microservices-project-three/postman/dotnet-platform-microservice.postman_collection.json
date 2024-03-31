@@ -18,12 +18,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:32004/api/platform",
+									"raw": "http://localhost:32569/api/platform",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "32004",
+									"port": "32569",
 									"path": [
 										"api",
 										"platform"
@@ -38,16 +38,67 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:32004/api/platform/1",
+									"raw": "http://localhost:32569/api/platform/1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "32004",
+									"port": "32569",
 									"path": [
 										"api",
 										"platform",
 										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CommandService",
+					"item": [
+						{
+							"name": "http://commands-clusterip-srv:80/api/c/platforms",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://commands-clusterip-srv:80/api/c/platforms",
+									"protocol": "http",
+									"host": [
+										"commands-clusterip-srv"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"c",
+										"platforms"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Platform Service (Nginx)",
+					"item": [
+						{
+							"name": "Get All Platforms (Nginx)",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://acme.com/api/platform",
+									"protocol": "http",
+									"host": [
+										"acme",
+										"com"
+									],
+									"path": [
+										"api",
+										"platform"
 									]
 								}
 							},
