@@ -4,7 +4,7 @@ namespace pure_DSA.src.KeyValuePair
     {
         public static void SampleOne()
         {
-            Console.WriteLine("KeyValuePair Sample One ===>");
+            Console.WriteLine("\nKeyValuePair Sample One ===>");
             var person = new KeyValuePair<string, int>("Alice", 30);
             Console.WriteLine($"Name : {person.Key}, Age: {person.Value}");
 
@@ -26,7 +26,7 @@ namespace pure_DSA.src.KeyValuePair
     {
         public static void SampleOne()
         {
-            Console.WriteLine("Nested KeyValuePair Sample One ===>");
+            Console.WriteLine("\nNested KeyValuePair Sample One ===>");
             var nestedKeyValuePair = new KeyValuePair<string, KeyValuePair<string, int>>(
                 "outerKey",
                 new("InnerKey", 10)
@@ -42,7 +42,7 @@ namespace pure_DSA.src.KeyValuePair
     {
         public static void SampleOne()
         {
-            Console.WriteLine("Nested KeyValuePair Sample Two ===>");
+            Console.WriteLine("\nNested KeyValuePair Sample Two ===>");
 
             // List of Employees and their Salaries
             var employees = new List<KeyValuePair<string, decimal>> {

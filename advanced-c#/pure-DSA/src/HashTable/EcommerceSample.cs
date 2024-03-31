@@ -96,7 +96,7 @@ namespace pure_DSA.src.HashTable
     {
         public static void SampleOne()
         {
-            Console.WriteLine("EcommerceHashTableUsage ====> ");
+            Console.WriteLine("\nEcommerceHashTableUsage ====> ");
             EcommerceHashTableSample<string, int> ecommerceHashTableSample = new();
             ecommerceHashTableSample.Add("Alice", 30);
             ecommerceHashTableSample.Add("Bob", 40);

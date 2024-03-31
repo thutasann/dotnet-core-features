@@ -1,5 +1,6 @@
 ﻿using pure_DSA.src.HashTable;
 using pure_DSA.src.KeyValuePair;
+using pure_DSA.src.StackSamples;
 
 Console.WriteLine("PURE DATA STRUCTURE AND ALGORITHMS! 🚀");
 
@@ -12,3 +13,9 @@ KeyValuePairSampleOne.SampleOne();
 KVPEcommerceSample.SampleOne();
 NestedKeyValuePairSampleOne.SampleOne();
 NestedKeyValuePairSampleTwo.SampleOne();
+
+// ---------------------------- Stack 🚀 ----------------------------
+StackSampleOne.SampleOne();
+StackSampleOne.SampleTwo();
+StackEcommerce.SampleOne();
+StackCRUD.SampleOne();

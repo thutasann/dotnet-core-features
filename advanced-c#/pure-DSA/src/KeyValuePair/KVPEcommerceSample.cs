@@ -4,7 +4,7 @@ namespace pure_DSA.src.KeyValuePair
     {
         public static void SampleOne()
         {
-            Console.WriteLine("KVP Ecommerce Sample ====> ");
+            Console.WriteLine("\nKVP Ecommerce Sample ====> ");
             var products = new Dictionary<int, decimal>
             {
                 { 1001, 29.99m },

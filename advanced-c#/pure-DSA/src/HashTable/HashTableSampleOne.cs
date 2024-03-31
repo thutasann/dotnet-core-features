@@ -65,7 +65,7 @@ namespace pure_DSA.src.HashTable
     {
         public static void SampelOne()
         {
-            Console.WriteLine("Hash Table Sample One ===> ");
+            Console.WriteLine("\nHash Table Sample One ===> ");
             HashTableSampleOne hashTableSampleOne = new();
             hashTableSampleOne.Set("Thuta", "123-123-123-14");
             hashTableSampleOne.Set("Steve", "343-3435-465");
