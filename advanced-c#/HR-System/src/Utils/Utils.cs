@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Net;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
+using YamlDotNet.Serialization;
 
 namespace advanced_c_.src.Utils
 {
@@ -148,5 +148,42 @@ namespace advanced_c_.src.Utils
         {
             return (T)Enum.Parse(typeof(T), value, true);
         }
+
+        public static void ReadYamlFile()
+        {
+            Console.WriteLine("Read YAML File ==>");
+
+            string filePath = "example.yaml";
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    throw new FileNotFoundException($"File not found: {filePath}");
+                }
+
+                string yamlContent = File.ReadAllText(filePath);
+
+                var deserializer = new DeserializerBuilder()
+                    .Build();
+
+                Employee employee = deserializer.Deserialize<Employee>(yamlContent);
+
+                Console.WriteLine($"Name: {employee.Name}");
+                Console.WriteLine($"Age: {employee.Age}");
+                Console.WriteLine($"Department: {employee.Department}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error reading YAML file: {ex.Message}");
+                throw;
+            }
+        }
     }
+}
+
+public class Employee
+{
+    public required string Name { get; set; }
+    public int Age { get; set; }
+    public required string Department { get; set; }
 }

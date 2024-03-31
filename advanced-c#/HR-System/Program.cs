@@ -38,5 +38,6 @@ var value = "Value1";
 var enumValue = Utils.ParseEnum<MyEnum>(value);
 Console.WriteLine("Parse Enum ==>" + enumValue);
 
-
 EncryptionDecryption.UsageSample();
+
+Utils.ReadYamlFile();

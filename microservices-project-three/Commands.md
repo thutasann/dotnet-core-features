@@ -69,3 +69,9 @@ kubectl delete deployment <deployment-name>
 ```bash
 kubectl delete service <service-name>
 ```
+
+### Ingress Controller NGINX Installation
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
+```
