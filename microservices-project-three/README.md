@@ -41,66 +41,16 @@ It will include two services `Platform service` and `Command service`.
 
 ![Asynchronous Messaging](examples/message-bus.png)
 
-## Docker Commands
+## Commands
 
-### Docker Build
+-   [Commands Here](./Commands.md)
 
-```bash
-docker build -t thutasann/platformservice .
-```
+### Deployed NodePort Services
 
-### Docker Push
+**Platforms Service**
 
-```bash
-docker push thutasann/platformservice
-```
+> http://localhost:32569/swagger/index.html <br/>
 
-## Kubernetes Commands
+**Commands Service**
 
-### Check version
-
-```bash
-kubectl version
-```
-
-### Create Deploy
-
-```bash
-cd K8S
-
-kubectl apply -f platforms-depl.yaml
-```
-
-### Get Deployments
-
-```bash
-kubectl get deployments
-```
-
-### Get Services
-
-```bash
-kubectl get services
-```
-
-### Get pods
-
-```bash
-kubectl get pods
-```
-
-### Open
-
-**_K8S Platforms Service_**
-
-> http://localhost:32569/swagger/index.html
-
-### Delete Deployment / Service
-
-```bash
-kubectl delete deployment <deployment-name>
-```
-
-```bash
-kubectl delete service <service-name>
-```
+> http://localhost:32136/swagger/index.html <br/>

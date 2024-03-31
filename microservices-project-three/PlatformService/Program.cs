@@ -18,6 +18,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Register HttpClient
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+Console.WriteLine($"--> Command  Service Endpoint : {builder.Configuration["CommandService"]}");
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
