@@ -10,3 +10,5 @@ EcommerceHashTableUsage.SampleOne();
 // ---------------------------- KeyValuePair 🚀 ----------------------------
 KeyValuePairSampleOne.SampleOne();
 KVPEcommerceSample.SampleOne();
+NestedKeyValuePairSampleOne.SampleOne();
+NestedKeyValuePairSampleTwo.SampleOne();

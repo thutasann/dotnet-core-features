@@ -17,6 +17,7 @@ import {
     StringSearch,
 } from './src/SearchAlgorithms'
 import { MapDataStructure } from './src/data-structure/MapStructure'
+import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
 import { RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
 
@@ -95,6 +96,8 @@ hashTableSampleOne.setItem('lastName', 'Sann')
 console.log('table => ', hashTableSampleOne.table[0])
 console.log('Get Item => ', hashTableSampleOne.getItem('firstName'))
 
-// ------------ RecordType  🚀 ------------
+// ------------ Record, KeyValue Pair  🚀 ------------
 RecordSampleOne.SampleOne()
 RecordEcommerceSample.SampleOne()
+NestedRecordSampleOne.SampleOne()
+NestedRecordSampleOne.SampleTwo()
