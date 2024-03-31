@@ -66,6 +66,12 @@ kubectl get pods
 kubectl get namespace
 ```
 
+### Get Storage Class
+
+```bash
+kubectl get storageclass
+```
+
 ### Delete Deployment / Service
 
 ```bash
