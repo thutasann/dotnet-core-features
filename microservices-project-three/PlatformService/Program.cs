@@ -3,6 +3,7 @@ using PlatformService.Data;
 using PlatformService.Middleware;
 using PlatformService.Repositories;
 using PlatformService.Repositories.Interfaces;
+using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,12 +16,17 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Auto Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+// Register HttpClient
+builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 // Reigster Scopes
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
+
 
 var app = builder.Build();
 app.UseMiddleware<ResponseTimeMiddleware>();

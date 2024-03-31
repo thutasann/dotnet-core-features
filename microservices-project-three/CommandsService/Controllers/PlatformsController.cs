@@ -6,6 +6,8 @@ namespace CommandsService.Controllers
     [Route("api/c/platforms")]
     public class PlatformsController : ControllerBase
     {
+        private static int inboundCount = 0;
+
         public PlatformsController()
         {
 
@@ -14,7 +16,8 @@ namespace CommandsService.Controllers
         [HttpPost]
         public IActionResult TestInboundConnection()
         {
-            Console.WriteLine("==> Inbound POST # Command Service");
+            inboundCount++;
+            Console.WriteLine($"==> Inbound POST # Command Service , count => {inboundCount}");
             return Ok("Inbound test of from Platforms Controller");
         }
     }
