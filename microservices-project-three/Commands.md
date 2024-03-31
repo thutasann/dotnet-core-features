@@ -91,3 +91,15 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 ```bash
 kubectl get pods --namespace=ingress-nginx
 ```
+
+### K&S Secret
+
+```bash
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="u4L#9SfPxG2@6Rt!"
+```
+
+#### Delete Secret
+
+```bash
+kubectl delete secret mssql
+```
