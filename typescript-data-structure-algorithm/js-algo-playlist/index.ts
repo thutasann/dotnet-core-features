@@ -20,6 +20,7 @@ import { MapDataStructure } from './src/data-structure/MapStructure'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
 import { RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
 import { StackUsage } from './src/data-structure/Stack/Stack'
+import { StackEcommerceUsage, StackShoppingCart } from './src/data-structure/Stack/StackEcommerce'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
 
 console.log('JAVASCRIPT ALGORITHMS PLAYLIST ..... 🚀')
@@ -105,3 +106,4 @@ NestedRecordSampleOne.SampleTwo()
 
 // ------------ Stack  🚀 ------------
 StackUsage.SampleOne()
+StackEcommerceUsage.SampleOne()

@@ -94,8 +94,34 @@ kubectl get pods --namespace=ingress-nginx
 
 ### K&S Secret
 
+**MSSQL**
+
 ```bash
-kubectl create secret generic mssql --from-literal=SA_PASSWORD="u4L#9SfPxG2@6Rt!"
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="thutasann2002@TTS!"
+```
+
+```json
+{
+    "username": "SA",
+    "password": "thutasann2002@TTS!"
+}
+```
+
+**MYSQL**
+
+```bash
+kubectl create secret generic mysql-secret \
+  --from-literal=MYSQL_ROOT_PASSWORD=thutasann2002@TTS! \
+  --from-literal=MYSQL_USER=thuta \
+  --from-literal=MYSQL_PASSWORD=thutasann2002tts \
+  --from-literal=MYSQL_DATABASE=test_db
+```
+
+```json
+{
+    "username": "thuta",
+    "password": "thutasann2002tts"
+}
 ```
 
 #### Delete Secret
