@@ -124,8 +124,14 @@ kubectl create secret generic mysql-secret \
 }
 ```
 
-#### Delete Secret
+### Delete Secret
 
 ```bash
 kubectl delete secret mssql
+```
+
+### Port Forwarding
+
+```bash
+kubectl port-forward deployment/mssql-depl 1431:1431
 ```
