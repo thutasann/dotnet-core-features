@@ -34,13 +34,6 @@ spec:
       - name: mssqldb
         persistentVolumeClaim:
           claimName: mssql-claim
-      initContainers:
-      - name: init-database
-        image: mcr.microsoft.com/mssql-tools
-        command: ["/bin/bash", "-c"]
-        args:
-        - |
-          /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "thutasann2002@TTS!" -Q "CREATE DATABASE platformsdb;"
 ---
 apiVersion: v1
 kind: Service
