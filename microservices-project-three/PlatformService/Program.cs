@@ -7,31 +7,38 @@ using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Data Context
-builder.Services.AddDbContext<AppDbContext>(options =>
+Console.WriteLine("builder.Environment.IsProduction() ==> " + builder.Environment.IsProduction());
+
+if (builder.Environment.IsProduction())
 {
-    options.UseInMemoryDatabase("InMen");
-});
+    Console.WriteLine("--> Using SqlServer Db");
+    builder.Services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConn")));
+}
+else
+{
+    Console.WriteLine("--> Using InMemo Db");
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMen"));
+}
 
 // Auto Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Register HttpClient
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
-Console.WriteLine($"--> Command  Service Endpoint : {builder.Configuration["CommandService"]}");
+Console.WriteLine($"==> Prod Command Service Endpoint : {builder.Configuration["CommandService"]}");
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 // Reigster Scopes
 builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
-
 var app = builder.Build();
 app.UseMiddleware<ResponseTimeMiddleware>();
-PrepDb.PrepPopulation(app);
+
+// Prepare DB
+PrepDb.PrepPopulation(app, app.Environment.IsProduction());
 
 app.UseSwagger();
 app.UseSwaggerUI();

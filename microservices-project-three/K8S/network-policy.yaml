@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-external-access
+spec:
+  podSelector: {} # Apply policy to all pods
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 0.0.0.0/0 # Allow traffic from any source IP
+    ports:
+    - protocol: TCP
+      port: 1433 # Port for SQL Server

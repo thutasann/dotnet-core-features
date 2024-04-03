@@ -107,7 +107,7 @@ kubectl create secret generic mssql --from-literal=SA_PASSWORD="thutasann2002@TT
 }
 ```
 
-**MYSQL**
+**MYSQL (Just a Testing)**
 
 ```bash
 kubectl create secret generic mysql-secret \
@@ -133,5 +133,17 @@ kubectl delete secret mssql
 ### Port Forwarding
 
 ```bash
-kubectl port-forward deployment/mssql-depl 1431:1431
+kubectl port-forward service/mssql-loadbalancer 1433:1433
+```
+
+### Get External IP of the LoadBalancer
+
+```bash
+kubectl get svc mssqlnpservice-srv
+```
+
+### Check K8S Secret
+
+```bash
+kubectl get secret mssql -o jsonpath="{.data.SA_PASSWORD}" | base64 --decode
 ```
