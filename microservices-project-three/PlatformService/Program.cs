@@ -9,19 +9,19 @@ var builder = WebApplication.CreateBuilder(args);
 
 Console.WriteLine("builder.Environment.IsProduction() ==> " + builder.Environment.IsProduction());
 
-// if (builder.Environment.IsProduction())
-// {
-Console.WriteLine("--> Using MySQL Db");
-builder.Services.AddDbContext<AppDbContext>(options =>
+if (builder.Environment.IsProduction())
 {
-    options.UseMySQL(builder.Configuration.GetConnectionString("PlatformsConn")!);
-});
-// }
-// else
-// {
-//     Console.WriteLine("--> Using InMemo Db");
-//     builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMen"));
-// }
+    Console.WriteLine("--> Using MySQL Db");
+    builder.Services.AddDbContext<AppDbContext>(options =>
+    {
+        options.UseMySQL(builder.Configuration.GetConnectionString("PlatformsConn")!);
+    });
+}
+else
+{
+    Console.WriteLine("--> Using InMemo Db");
+    builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMen"));
+}
 
 // Auto Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
