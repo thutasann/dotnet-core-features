@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 Console.WriteLine("builder.Environment.IsProduction() ==> " + builder.Environment.IsProduction());
 
-if (builder.Environment.IsProduction())
+if (!builder.Environment.IsProduction())
 {
     Console.WriteLine("--> Using MySQL Db");
     builder.Services.AddDbContext<AppDbContext>(options =>
