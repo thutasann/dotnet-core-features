@@ -20,6 +20,7 @@ StackSampleOne.SampleOne();
 StackSampleOne.SampleTwo();
 StackEcommerce.SampleOne();
 StackCRUD.SampleOne();
+TextEditorUsage.SampleOne();
 
 // ---------------------------- Queue 🚀 ----------------------------
 QueueSampleOne.SampleOne();

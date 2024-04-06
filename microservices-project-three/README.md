@@ -3,7 +3,9 @@
 This Project is from the [.NET Microservices](https://www.youtube.com/watch?v=DgVjEo3OGBI).
 It will include two services `Platform service` and `Command service`.
 
-> This Microservice projects is mostly focused on the `docker`, `k8s`.
+> This Microservice projects is mostly focused on the `docker`, `k8s`. <br/>
+
+> For now, InMemo DB is used for both services.
 
 ## Tech Stacks
 
