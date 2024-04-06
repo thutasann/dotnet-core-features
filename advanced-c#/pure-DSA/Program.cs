@@ -1,5 +1,6 @@
 ﻿using pure_DSA.src.HashTable;
 using pure_DSA.src.KeyValuePair;
+using pure_DSA.src.QueueSamples;
 using pure_DSA.src.StackSamples;
 
 Console.WriteLine("PURE DATA STRUCTURE AND ALGORITHMS! 🚀");
@@ -19,3 +20,9 @@ StackSampleOne.SampleOne();
 StackSampleOne.SampleTwo();
 StackEcommerce.SampleOne();
 StackCRUD.SampleOne();
+
+// ---------------------------- Queue 🚀 ----------------------------
+QueueSampleOne.SampleOne();
+QueueSampleOne.EcommerceSample();
+QueueSampleOne.ContainsSample();
+ProprityQueueUsage.SampleOne();

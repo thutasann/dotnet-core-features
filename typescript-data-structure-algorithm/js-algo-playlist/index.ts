@@ -17,6 +17,7 @@ import {
     StringSearch,
 } from './src/SearchAlgorithms'
 import { MapDataStructure } from './src/data-structure/MapStructure'
+import { QueueUsage } from './src/data-structure/Queue/Queue'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
 import { RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
 import { StackUsage } from './src/data-structure/Stack/Stack'
@@ -107,3 +108,6 @@ NestedRecordSampleOne.SampleTwo()
 // ------------ Stack  🚀 ------------
 StackUsage.SampleOne()
 StackEcommerceUsage.SampleOne()
+
+// ------------ Queue  🚀 ------------
+QueueUsage.SampleOne()
