@@ -13,3 +13,5 @@ spec:
     ports:
     - protocol: TCP
       port: 1433 # Port for SQL Server
+    - protocol: TCP
+      port: 3306

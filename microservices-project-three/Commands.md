@@ -147,3 +147,19 @@ kubectl get svc mssqlnpservice-srv
 ```bash
 kubectl get secret mssql -o jsonpath="{.data.SA_PASSWORD}" | base64 --decode
 ```
+
+### Validate pod and check the printenv
+
+```bash
+kubectl exec -it mysql-deployment-868b8fb8d8-xm8fx -- /bin/bash
+```
+
+```bash
+printenv
+```
+
+### K8S describe
+
+```bash
+kubectl describe service mysql-loadbalancer
+```
