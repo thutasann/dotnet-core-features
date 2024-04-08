@@ -27,7 +27,7 @@ export class Queue<T> implements IQueue<T> {
 
 export abstract class QueueUsage {
     public static SampleOne(): void {
-        console.log('Queue Usage ===> ')
+        console.log('\nQueue Usage ===> ')
 
         const queue = new Queue<string>()
         queue.enqueue('A')

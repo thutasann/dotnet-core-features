@@ -16,6 +16,7 @@ import {
     SearchAlgorithmFundamentals,
     StringSearch,
 } from './src/SearchAlgorithms'
+import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
 import { MapDataStructure } from './src/data-structure/MapStructure'
 import { QueueUsage } from './src/data-structure/Queue/Queue'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
@@ -111,3 +112,7 @@ StackEcommerceUsage.SampleOne()
 
 // ------------ Queue  🚀 ------------
 QueueUsage.SampleOne()
+
+// ------------ LinkedList  🚀 ------------
+SinglyLinkedListUsage.SampleOne()
+SinglyLinkedListUsage.SampleTwo()
