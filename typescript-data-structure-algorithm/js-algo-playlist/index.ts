@@ -17,6 +17,7 @@ import {
     StringSearch,
 } from './src/SearchAlgorithms'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
+import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRedo'
 import { MapDataStructure } from './src/data-structure/MapStructure'
 import { QueueUsage } from './src/data-structure/Queue/Queue'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
@@ -116,3 +117,4 @@ QueueUsage.SampleOne()
 // ------------ LinkedList  🚀 ------------
 SinglyLinkedListUsage.SampleOne()
 SinglyLinkedListUsage.SampleTwo()
+UndoRedoLinkedListUsage.SampleOne()
