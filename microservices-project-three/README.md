@@ -52,3 +52,7 @@ It will include two services `Platform service` and `Command service`.
 **Platforms Service**
 
 > http://localhost:32208/swagger/index.html <br/>
+
+**Platforms Service**
+
+> http://localhost:32136/swagger/index.html <br/>
