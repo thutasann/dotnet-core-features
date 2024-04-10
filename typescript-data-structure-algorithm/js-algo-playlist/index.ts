@@ -1,5 +1,7 @@
 import { BigONotation } from './src/BigONotation'
 import { handleDragStart, handleDragStop, products } from './src/DragAndDrop'
+import { ForConstInSamples } from './src/ForConstInSamples'
+import { ForConstOfSamples } from './src/ForConstOfSamples'
 import { HashTableSampleOne } from './src/HashTable'
 import { FactorialNumber, FibonacciSeries, PowerOfTwo, PrimeNumber } from './src/MathAlgorithms'
 import {
@@ -16,6 +18,7 @@ import {
     SearchAlgorithmFundamentals,
     StringSearch,
 } from './src/SearchAlgorithms'
+import { HashMapUsageSampleOne } from './src/data-structure/HashMap/HashMapSampleOne'
 import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
 import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRedo'
@@ -24,7 +27,7 @@ import { QueueUsage } from './src/data-structure/Queue/Queue'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
 import { GetPropertySample, RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
 import { StackUsage } from './src/data-structure/Stack/Stack'
-import { StackEcommerceUsage, StackShoppingCart } from './src/data-structure/Stack/StackEcommerce'
+import { StackEcommerceUsage } from './src/data-structure/Stack/StackEcommerce'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
 
 console.log('JAVASCRIPT ALGORITHMS PLAYLIST ..... 🚀')
@@ -93,6 +96,20 @@ console.log('------>> String Search  🚀 ')
 const stringSearch = new StringSearch()
 console.log('string search result => ', stringSearch.SolutionOne('search and find', 'an'))
 
+// ------------ For Const Of  🚀 ------------
+ForConstOfSamples.SampleOne()
+ForConstOfSamples.SampleTwo()
+ForConstOfSamples.SampleThree()
+ForConstOfSamples.SampleFour()
+ForConstOfSamples.SampleFive()
+ForConstOfSamples.SampleSix()
+
+// ------------ For Const In 🚀 ------------
+ForConstInSamples.SampleOne()
+ForConstInSamples.SampleTwo()
+ForConstInSamples.SampleThree()
+ForConstInSamples.SampleFour()
+
 // ------------ Hash Table  🚀 ------------
 console.log('------>> Hash Table Sample One  🚀 ')
 const hashTableSampleOne = new HashTableSampleOne()
@@ -121,3 +138,6 @@ SinglyLinkedListUsage.SampleOne()
 SinglyLinkedListUsage.SampleTwo()
 UndoRedoLinkedListUsage.SampleOne()
 DoublyLinkedListUsage.SampleOne()
+
+// ------------ Hash Map  🚀 ------------
+HashMapUsageSampleOne.SampleOne()
