@@ -1,3 +1,5 @@
+using AutoMapper;
+using CommandsService.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CommandsService.Controllers
@@ -7,10 +9,13 @@ namespace CommandsService.Controllers
     public class PlatformsController : ControllerBase
     {
         private static int inboundCount = 0;
+        private readonly ICommandRepo _commandRepo;
+        private readonly IMapper _mapper;
 
-        public PlatformsController()
+        public PlatformsController(ICommandRepo commandRepo, IMapper mapper)
         {
-
+            _commandRepo = commandRepo;
+            _mapper = mapper;
         }
 
         [HttpPost]

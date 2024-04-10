@@ -16,6 +16,7 @@ import {
     SearchAlgorithmFundamentals,
     StringSearch,
 } from './src/SearchAlgorithms'
+import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
 import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRedo'
 import { MapDataStructure } from './src/data-structure/MapStructure'
@@ -119,3 +120,4 @@ QueueUsage.SampleOne()
 SinglyLinkedListUsage.SampleOne()
 SinglyLinkedListUsage.SampleTwo()
 UndoRedoLinkedListUsage.SampleOne()
+DoublyLinkedListUsage.SampleOne()
