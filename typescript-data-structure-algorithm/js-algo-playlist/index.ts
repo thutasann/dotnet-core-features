@@ -21,7 +21,7 @@ import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRed
 import { MapDataStructure } from './src/data-structure/MapStructure'
 import { QueueUsage } from './src/data-structure/Queue/Queue'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
-import { RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
+import { GetPropertySample, RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
 import { StackUsage } from './src/data-structure/Stack/Stack'
 import { StackEcommerceUsage, StackShoppingCart } from './src/data-structure/Stack/StackEcommerce'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
@@ -106,6 +106,7 @@ RecordSampleOne.SampleOne()
 RecordEcommerceSample.SampleOne()
 NestedRecordSampleOne.SampleOne()
 NestedRecordSampleOne.SampleTwo()
+GetPropertySample.SampleOne()
 
 // ------------ Stack  🚀 ------------
 StackUsage.SampleOne()

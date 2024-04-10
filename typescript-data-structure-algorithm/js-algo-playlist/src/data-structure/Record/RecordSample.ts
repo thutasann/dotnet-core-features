@@ -50,3 +50,20 @@ export abstract class RecordEcommerceSample {
         }
     }
 }
+
+export abstract class GetPropertySample {
+    public static SampleOne() {
+        const user = {
+            name: 'Alice',
+            age: 30,
+            email: 'alice@gmail.com',
+        }
+
+        console.log(this.getProperty(user, 'age'))
+        console.log(this.getProperty(user, 'age'))
+    }
+
+    private static getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+        return obj[key]
+    }
+}
