@@ -1,5 +1,5 @@
 import { AsyncAwait } from './src/AsyncAwait'
-import { DoWhileSampleOne } from './src/DoWhileSample'
+import { DoWhileSampleOne, NestedWhileLoopSample } from './src/WhileSamples'
 import { MethodChainingCalculator } from './src/MethodChaining'
 import {
     AbstractCircle,
@@ -129,6 +129,7 @@ console.log('------>> Method Chaining  🚀 ')
 const calculatorResult = new MethodChainingCalculator(10).add(5).substract(3).multiply(2).divide(4).getValue()
 console.log('calculatorResult ', calculatorResult)
 
-// ------------ Do While  🚀 ------------
-console.log('------>> Do While 🚀 ')
+// ------------ While Samples  🚀 ------------
 DoWhileSampleOne.SampleOne()
+NestedWhileLoopSample.SampleOne()
+NestedWhileLoopSample.WhileBreak()

@@ -18,6 +18,7 @@ import {
     SearchAlgorithmFundamentals,
     StringSearch,
 } from './src/SearchAlgorithms'
+import { TopologicalSorting } from './src/SortingAlgorithms'
 import { HashMapUsageSampleOne } from './src/data-structure/HashMap/HashMapSampleOne'
 import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
@@ -95,6 +96,9 @@ console.log('recursive binary search result => ', recursiveBinarySearch.Solution
 console.log('------>> String Search  🚀 ')
 const stringSearch = new StringSearch()
 console.log('string search result => ', stringSearch.SolutionOne('search and find', 'an'))
+
+// ------------ Sorting Algorithms  🚀 ------------
+TopologicalSorting.SolutionOne()
 
 // ------------ For Const Of  🚀 ------------
 ForConstOfSamples.SampleOne()

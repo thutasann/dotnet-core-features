@@ -46,7 +46,7 @@ export class ProductRepository implements IRepository<IProduct> {
  * - It provides a way to centralize data access logic and encapsulate the details of how data is fetched, stored, and manipulated.
  */
 export async function testRepositoryPattern() {
-    console.log('------>> Repositoyr Pattern Sample  🚀 ')
+    console.log('------>> Repository Pattern Sample  🚀 ')
 
     const productRepository = new ProductRepository()
 
