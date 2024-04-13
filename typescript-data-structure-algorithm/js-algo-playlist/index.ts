@@ -19,6 +19,7 @@ import {
     StringSearch,
 } from './src/SearchAlgorithms'
 import { TopologicalSorting } from './src/SortingAlgorithms'
+import { HashMapCacheUsage } from './src/data-structure/HashMap/CacheSample'
 import { HashMapUsageSampleOne } from './src/data-structure/HashMap/HashMapSampleOne'
 import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
@@ -145,3 +146,4 @@ DoublyLinkedListUsage.SampleOne()
 
 // ------------ Hash Map  🚀 ------------
 HashMapUsageSampleOne.SampleOne()
+HashMapCacheUsage.SampleOne()
