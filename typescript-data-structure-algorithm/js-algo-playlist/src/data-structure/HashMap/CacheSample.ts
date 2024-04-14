@@ -76,13 +76,13 @@ export abstract class HashMapCacheUsage {
         cache.put('key2', 'value2')
         cache.put('key3', 'value3')
 
-        setTimeout(() => {
-            console.log('key1 value => ', cache.get('key1')) // Output: undefined (expired)
-        }, 5000)
+        // setTimeout(() => {
+        //     console.log('key1 value => ', cache.get('key1')) // Output: undefined (expired)
+        // }, 5000)
 
-        setTimeout(() => {
-            console.log('key2 value => ', cache.get('key2')) // Output: value2 (still valid)
-        }, 15000)
+        // setTimeout(() => {
+        //     console.log('key2 value => ', cache.get('key2')) // Output: value2 (still valid)
+        // }, 15000)
 
         for (const key of cache.keys()) {
             console.log('keys ', key)

@@ -30,4 +30,6 @@ QueueSampleOne.ContainsSample();
 ProprityQueueUsage.SampleOne();
 
 // ---------------------------- HashMap 🚀 ----------------------------
+DictionarySampleOne.SampleOne();
 HashMapSampleOne.SampleOne();
+HashMapGenericUsage.SampleOne();

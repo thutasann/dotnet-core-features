@@ -80,3 +80,24 @@ export abstract class HashMapUsageSampleOne {
         console.log('b value => ', map.get('b'))
     }
 }
+
+export abstract class HashMapCheckGradeUtil {
+    public static SampleOne(score: number): string {
+        console.log('\nHashMap Check Grade SampleOne : ')
+        const scoreMap = { A: 90, B: 80, C: 70, D: 60 }
+        for (const i in scoreMap) {
+            if (score >= scoreMap[i]) return i
+        }
+        return 'E'
+    }
+
+    public static SampleTwo(score: number): string {
+        const map = ['F', 'D', 'C', 'B', 'A']
+        function check(score: number) {
+            if (score > 100 || score < 0) throw Error('Out of Range')
+            return map[Math.ceil((score - 59) / 10)]
+        }
+        const result = check(score)
+        return result
+    }
+}

@@ -20,7 +20,7 @@ import {
 } from './src/SearchAlgorithms'
 import { TopologicalSorting } from './src/SortingAlgorithms'
 import { HashMapCacheUsage } from './src/data-structure/HashMap/CacheSample'
-import { HashMapUsageSampleOne } from './src/data-structure/HashMap/HashMapSampleOne'
+import { HashMapCheckGradeUtil, HashMapUsageSampleOne } from './src/data-structure/HashMap/HashMapSampleOne'
 import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
 import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRedo'
@@ -147,3 +147,5 @@ DoublyLinkedListUsage.SampleOne()
 // ------------ Hash Map  🚀 ------------
 HashMapUsageSampleOne.SampleOne()
 HashMapCacheUsage.SampleOne()
+console.log('Grade (Sample One) => ', HashMapCheckGradeUtil.SampleOne(80))
+console.log('Grade (Sample Two) => ', HashMapCheckGradeUtil.SampleTwo(80))
