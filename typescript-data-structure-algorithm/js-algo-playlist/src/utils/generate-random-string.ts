@@ -3,7 +3,7 @@ import { IRandomUser } from './types'
 export abstract class GenerateRandomUsers {
     private static userIdCounter = 1
 
-    public static generateUserArray(count: number) {
+    public static generateUserArray(count: number): IRandomUser[] {
         let users: IRandomUser[] = []
         for (let i = 0; i < count; i++) {
             users.push(this.generateUser())

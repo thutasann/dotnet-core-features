@@ -2,10 +2,11 @@
  * # Map Data Structure
  * - data structure to store key-value pairs where both the keys and values can be of any type
  */
-export class MapDataStructure {
-    private objKey = { name: 'Thuta' }
+export abstract class MapDataStructure {
+    private static objKey = { name: 'Thuta' }
 
-    public SampleOne(): void {
+    public static SampleOne(): void {
+        console.log('\nMap Sample One: ')
         const map = new Map()
         map.set('key1', 'value1')
         map.set(2, 'value2')

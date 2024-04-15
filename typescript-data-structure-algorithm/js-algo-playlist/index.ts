@@ -2,7 +2,6 @@ import { BigONotation } from './src/BigONotation'
 import { handleDragStart, handleDragStop, products } from './src/DragAndDrop'
 import { ForConstInSamples } from './src/ForConstInSamples'
 import { ForConstOfSamples } from './src/ForConstOfSamples'
-import { HashTableSampleOne } from './src/HashTable'
 import { FactorialNumber, FibonacciSeries, PowerOfTwo, PrimeNumber } from './src/MathAlgorithms'
 import {
     RecursiveEcommerceSample,
@@ -20,9 +19,10 @@ import {
 } from './src/SearchAlgorithms'
 import { TopologicalSorting } from './src/SortingAlgorithms'
 import { HashMapCacheUsage } from './src/data-structure/HashMap/CacheSample'
-import { fetchCacheSample } from './src/data-structure/HashMap/FetchAndCache'
 import { HashMapCheckGradeUtil, HashMapUsageSampleOne } from './src/data-structure/HashMap/HashMapSampleOne'
 import { HashMapUserSearchUsage } from './src/data-structure/HashMap/HashUserSearch'
+import { HashTableUsageOne } from './src/data-structure/HashTable/HashTableSampleOne'
+import { HashTableUsageTwo } from './src/data-structure/HashTable/HashTableSampleTwo'
 import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
 import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRedo'
@@ -30,20 +30,19 @@ import { MapDataStructure } from './src/data-structure/MapStructure'
 import { QueueUsage } from './src/data-structure/Queue/Queue'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
 import { GetPropertySample, RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
+import { SetSample } from './src/data-structure/SetStructure'
 import { StackUsage } from './src/data-structure/Stack/Stack'
 import { StackEcommerceUsage } from './src/data-structure/Stack/StackEcommerce'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
-import { GenerateRandomUsers } from './src/utils/generate-random-string'
 
 console.log('JAVASCRIPT ALGORITHMS PLAYLIST ..... 🚀')
 
 // ------------ BigO Notation  🚀 ------------
 const bigORelateds = new BigONotation()
 
-// ------------ Map Data Structure  🚀 ------------
-console.log('------>> Map Data Structure  🚀 ')
-const mapStructure = new MapDataStructure()
-mapStructure.SampleOne()
+// ------------ Map/Set Data Structure  🚀 ------------
+MapDataStructure.SampleOne()
+SetSample.SampleOne()
 
 // ------------ Math Algorithms  🚀 ------------
 console.log('------>> Math Algorithms  🚀 ')
@@ -118,15 +117,6 @@ ForConstInSamples.SampleTwo()
 ForConstInSamples.SampleThree()
 ForConstInSamples.SampleFour()
 
-// ------------ Hash Table  🚀 ------------
-console.log('------>> Hash Table Sample One  🚀 ')
-const hashTableSampleOne = new HashTableSampleOne()
-hashTableSampleOne.Intro()
-hashTableSampleOne.setItem('firstName', 'thuta')
-hashTableSampleOne.setItem('lastName', 'Sann')
-console.log('table => ', hashTableSampleOne.table[0])
-console.log('Get Item => ', hashTableSampleOne.getItem('firstName'))
-
 // ------------ Record, KeyValue Pair  🚀 ------------
 RecordSampleOne.SampleOne()
 RecordEcommerceSample.SampleOne()
@@ -153,4 +143,8 @@ HashMapCacheUsage.SampleOne()
 console.log('Grade (Sample One) => ', HashMapCheckGradeUtil.SampleOne(80))
 console.log('Grade (Sample Two) => ', HashMapCheckGradeUtil.SampleTwo(80))
 HashMapUserSearchUsage.SampleOne()
-fetchCacheSample()
+// fetchCacheSample()
+
+// ------------ Hash Table  🚀 ------------
+HashTableUsageOne.SampleOne()
+HashTableUsageTwo.SampleOne()

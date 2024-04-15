@@ -70,3 +70,14 @@ export class HashTableSampleOne {
         this.table = newTable
     }
 }
+
+export abstract class HashTableUsageTwo {
+    public static SampleOne() {
+        console.log('\nHash Table Sample Two ')
+        const hashTableSampleOne = new HashTableSampleOne()
+        hashTableSampleOne.setItem('firstName', 'thuta')
+        hashTableSampleOne.setItem('lastName', 'Sann')
+        console.log('table => ', hashTableSampleOne.table[0])
+        console.log('Get Item => ', hashTableSampleOne.getItem('firstName'))
+    }
+}
