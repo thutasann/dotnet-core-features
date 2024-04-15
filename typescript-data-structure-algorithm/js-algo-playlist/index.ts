@@ -20,7 +20,9 @@ import {
 } from './src/SearchAlgorithms'
 import { TopologicalSorting } from './src/SortingAlgorithms'
 import { HashMapCacheUsage } from './src/data-structure/HashMap/CacheSample'
+import { fetchCacheSample } from './src/data-structure/HashMap/FetchAndCache'
 import { HashMapCheckGradeUtil, HashMapUsageSampleOne } from './src/data-structure/HashMap/HashMapSampleOne'
+import { HashMapUserSearchUsage } from './src/data-structure/HashMap/HashUserSearch'
 import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
 import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRedo'
@@ -31,6 +33,7 @@ import { GetPropertySample, RecordEcommerceSample, RecordSampleOne } from './src
 import { StackUsage } from './src/data-structure/Stack/Stack'
 import { StackEcommerceUsage } from './src/data-structure/Stack/StackEcommerce'
 import { category, flatNestedObj, nestedObj } from './src/utils/constants'
+import { GenerateRandomUsers } from './src/utils/generate-random-string'
 
 console.log('JAVASCRIPT ALGORITHMS PLAYLIST ..... 🚀')
 
@@ -149,3 +152,5 @@ HashMapUsageSampleOne.SampleOne()
 HashMapCacheUsage.SampleOne()
 console.log('Grade (Sample One) => ', HashMapCheckGradeUtil.SampleOne(80))
 console.log('Grade (Sample Two) => ', HashMapCheckGradeUtil.SampleTwo(80))
+HashMapUserSearchUsage.SampleOne()
+fetchCacheSample()
