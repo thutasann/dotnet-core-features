@@ -43,6 +43,10 @@ It will include two services `Platform service` and `Command service`.
 
 ![Asynchronous Messaging](examples/message-bus.png)
 
+## RabbitMQ Topic Exchange
+
+![RabbitMQ Topic Exchange](examples/rabbitmq-topic-exchange.png)
+
 ## Commands
 
 -   [Commands Here](./Commands.md)
