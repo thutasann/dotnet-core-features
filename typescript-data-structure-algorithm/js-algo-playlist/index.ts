@@ -26,8 +26,9 @@ import { HashTableUsageTwo } from './src/data-structure/HashTable/HashTableSampl
 import { DoublyLinkedListUsage } from './src/data-structure/LinkedList/DoubleLinkedList'
 import { SinglyLinkedListUsage } from './src/data-structure/LinkedList/SinglyLinkedList'
 import { UndoRedoLinkedListUsage } from './src/data-structure/LinkedList/UndoRedo'
-import { MapDataStructure } from './src/data-structure/MapStructure'
+import { MapDataStructure, NestedMap } from './src/data-structure/Map/MapStructure'
 import { QueueUsage } from './src/data-structure/Queue/Queue'
+import { NestedKVPAndFindValue } from './src/data-structure/Record/NestedKVPAndFindValue'
 import { NestedRecordSampleOne } from './src/data-structure/Record/NestedRecordSample'
 import { GetPropertySample, RecordEcommerceSample, RecordSampleOne } from './src/data-structure/Record/RecordSample'
 import { SetSample } from './src/data-structure/SetStructure'
@@ -43,6 +44,7 @@ const bigORelateds = new BigONotation()
 // ------------ Map/Set Data Structure  🚀 ------------
 MapDataStructure.SampleOne()
 SetSample.SampleOne()
+NestedMap.SampleOne()
 
 // ------------ Math Algorithms  🚀 ------------
 console.log('------>> Math Algorithms  🚀 ')
@@ -123,6 +125,7 @@ RecordEcommerceSample.SampleOne()
 NestedRecordSampleOne.SampleOne()
 NestedRecordSampleOne.SampleTwo()
 GetPropertySample.SampleOne()
+NestedKVPAndFindValue.SampleOne()
 
 // ------------ Stack  🚀 ------------
 StackUsage.SampleOne()
