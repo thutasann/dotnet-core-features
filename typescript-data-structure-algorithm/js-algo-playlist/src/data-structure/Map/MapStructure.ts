@@ -26,6 +26,43 @@ export abstract class MapDataStructure {
     }
 }
 
+interface IValueType {
+    name: string
+    age: number
+}
+type KeyType = { id: number }
+
+export abstract class MapSampleTwo {
+    public static SampleOne(): void {
+        console.log('\nMap Sample Two : ')
+        const complexMap = new Map<KeyType, IValueType>()
+
+        const key1: KeyType = { id: 1 }
+        const value1: IValueType = {
+            name: 'Alice',
+            age: 30,
+        }
+        complexMap.set(key1, value1)
+
+        const key2: KeyType = { id: 2 }
+        const value2: IValueType = { name: 'Bob', age: 25 }
+        complexMap.set(key2, value2)
+
+        const retrievedValue = complexMap.get(key1)
+        if (retrievedValue) {
+            console.log(`Retrieved value for key1:`, retrievedValue)
+        } else {
+            console.log(`Key1 not found in the Map.`)
+        }
+
+        complexMap.forEach((value, key) => {
+            console.log(`Key: ${JSON.stringify(key)}, Value: ${JSON.stringify(value)}`)
+        })
+
+        console.log(`Size of the Map:`, complexMap.size)
+    }
+}
+
 export abstract class NestedMap {
     public static SampleOne(): void {
         console.log('\nNested Map Sample One')

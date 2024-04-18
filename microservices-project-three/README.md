@@ -53,10 +53,14 @@ It will include two services `Platform service` and `Command service`.
 
 ### Deployed NodePort Services
 
-**Platforms Service**
+**Platforms Service (replace with your NodePort)**
 
 > http://localhost:32208/swagger/index.html <br/>
 
-**Platforms Service**
+**Platforms Service (replace with your NodePort)**
 
 > http://localhost:32136/swagger/index.html <br/>
+
+**RabbitMQ**
+
+> http://localhost:15672/

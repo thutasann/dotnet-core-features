@@ -15,6 +15,7 @@ KeyValuePairSampleOne.SampleOne();
 KVPEcommerceSample.SampleOne();
 NestedKeyValuePairSampleOne.SampleOne();
 NestedKeyValuePairSampleTwo.SampleOne();
+UsersFilterSample.SampleOne();
 
 // ---------------------------- Stack 🚀 ----------------------------
 StackSampleOne.SampleOne();
