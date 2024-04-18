@@ -27,7 +27,7 @@ namespace PlatformService.SyncDataServices.Http
 
             if (response.IsSuccessStatusCode)
             {
-                Console.WriteLine("-> sync POST to command service was OK!");
+                Console.WriteLine("--> sync POST to command service was OK!");
             }
             else
             {

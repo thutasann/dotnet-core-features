@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.Middleware;
 using PlatformService.Repositories;
@@ -29,6 +30,9 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 // Register HttpClient
 builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
 Console.WriteLine($"==> Prod Command Service Endpoint : {builder.Configuration["CommandService"]}");
+
+// Register MessageBusClient RabbitMQ
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
