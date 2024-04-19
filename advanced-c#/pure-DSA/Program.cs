@@ -1,4 +1,5 @@
 ﻿using pure_DSA.src.HashMap;
+using pure_DSA.src.HashMap.EcommerceSample;
 using pure_DSA.src.HashTable;
 using pure_DSA.src.KeyValuePair;
 using pure_DSA.src.QueueSamples;
@@ -34,3 +35,4 @@ ProprityQueueUsage.SampleOne();
 DictionarySampleOne.SampleOne();
 HashMapSampleOne.SampleOne();
 HashMapGenericUsage.SampleOne();
+EcommerceHashMapUsage.SampleOne();
