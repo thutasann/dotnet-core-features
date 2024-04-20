@@ -10,12 +10,10 @@ namespace ef_core_relationships.Controllers
     [Route("api/user")]
     public class UserController : ControllerBase
     {
-        private readonly DataContext _context;
         private readonly IUserRepo _userRepo;
 
-        public UserController(DataContext context, IUserRepo userRepo)
+        public UserController(IUserRepo userRepo)
         {
-            _context = context;
             _userRepo = userRepo;
         }
 

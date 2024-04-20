@@ -1,14 +1,12 @@
-namespace ef_core_relationships.Models
+namespace ef_core_relationships.Dto
 {
     /// <summary>
-    /// Character Model
+    /// Character Create DTO
     /// </summary>
-    public class Character
+    public class CharacterCreateDto
     {
-        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string RpgClass { get; set; } = "Knight";
-        public User User { get; set; } = new User();
         public int UserId { get; set; }
     }
 }

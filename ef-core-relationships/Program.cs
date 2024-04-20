@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 
 // Register Scopes
 builder.Services.AddScoped<IUserRepo, UserRepository>();
+builder.Services.AddScoped<ICharacterRepo, CharacterRepository>();
 
 var app = builder.Build();
 
