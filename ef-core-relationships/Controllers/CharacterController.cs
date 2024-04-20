@@ -1,6 +1,8 @@
+using ef_core_relationships.Data;
 using ef_core_relationships.Dto;
 using ef_core_relationships.Interfaces;
 using ef_core_relationships.Mapper;
+using ef_core_relationships.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ef_core_relationships.Controllers
@@ -10,10 +12,12 @@ namespace ef_core_relationships.Controllers
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterRepo _characterRepo;
+        private readonly DataContext _context;
 
-        public CharacterController(ICharacterRepo characterRepo)
+        public CharacterController(ICharacterRepo characterRepo, DataContext context)
         {
             _characterRepo = characterRepo;
+            _context = context;
         }
 
         [HttpGet]
@@ -33,7 +37,17 @@ namespace ef_core_relationships.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateCharacter([FromForm] CharacterCreateDto characterCreateDto)
         {
-            var characterModel = characterCreateDto.ToCharacterFromCreateDto();
+            var user = await _context.Users.FindAsync(characterCreateDto.UserId);
+            if (user == null)
+                return NotFound();
+
+            var characterModel = new Character
+            {
+                Name = characterCreateDto.Name,
+                RpgClass = characterCreateDto.RpgClass,
+                User = user,
+            };
+
             await _characterRepo.CreateCharacterAsync(characterModel);
             return Ok(characterCreateDto);
         }
