@@ -9,11 +9,11 @@ It will include two services `Platform service` and `Command service`.
 
 ## Tech Stacks
 
--   Postgres
+-   MySql
 -   Docker
 -   Kubernetes
--   gRPC (Synchronous messaging)
--   RabbitMQ (Asynchronous messaging)
+-   gRPC
+-   RabbitMQ
 
 ## Solution Architecture
 
@@ -46,6 +46,10 @@ It will include two services `Platform service` and `Command service`.
 ## RabbitMQ Topic Exchange
 
 ![RabbitMQ Topic Exchange](examples/rabbitmq-topic-exchange.png)
+
+## gRPC
+
+![gRPC](examples/grpc.png)
 
 ## Commands
 
