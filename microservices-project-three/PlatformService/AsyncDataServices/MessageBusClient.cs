@@ -71,7 +71,7 @@ namespace PlatformService.AsyncDataServices
                 body: body
             );
 
-            Console.WriteLine($"--> Message has been sent {message}");
+            Console.WriteLine($"--> Message has been sent {message} 🚀");
         }
 
         private void RabbitMQ_ConnectionShutdown(object sender, ShutdownEventArgs e)

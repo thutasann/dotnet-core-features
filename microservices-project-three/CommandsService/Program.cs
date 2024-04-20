@@ -1,4 +1,5 @@
 using CommandsService.Data;
+using CommandsService.EventProcessing;
 using CommandsService.Repositories;
 using CommandsService.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,9 @@ builder.Services.AddSwaggerGen();
 
 // Auto Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Register EventProcess
+builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 
 // Register Scopes
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
