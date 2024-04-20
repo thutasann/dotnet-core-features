@@ -24,6 +24,7 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 | Practical SingalR                       | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)               | WebSocket        |
 | SignalR Nextjs Simple Chat app          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)                 | WebSocket        |
 | Send Email With MailKit & SMTP          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)                  | Email            |
+| EF Core Relationshipts                  | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/ef-core-relationships)               | Ef-Core          |
 | Game System MicroService Project        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)           | MicroService ⭐️ |
 | Ecommerce System MicroService Project   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-two)           | MicroService ⭐️ |
 | Platform System MicroService Project    | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-three)         | MicroService ⭐️ |

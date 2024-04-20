@@ -54,3 +54,9 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
+            - name: Build and Test EF Core Relationships
+              run: |
+                  cd ef-core-relationships
+                  dotnet restore
+                  dotnet build
+                  dotnet test
