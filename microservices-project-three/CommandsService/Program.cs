@@ -1,3 +1,4 @@
+using CommandsService.AsyncDataServices;
 using CommandsService.Data;
 using CommandsService.EventProcessing;
 using CommandsService.Repositories;
@@ -18,6 +19,9 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Register EventProcess
 builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+
+// HostedService MessageBus Subscriber
+builder.Services.AddHostedService<MessageBusSubscriber>();
 
 // Register Scopes
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();

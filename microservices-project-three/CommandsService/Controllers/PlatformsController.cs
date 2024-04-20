@@ -34,7 +34,7 @@ namespace CommandsService.Controllers
         public IActionResult TestInboundConnection()
         {
             inboundCount++;
-            Console.WriteLine($"==> Inbound POST # Command Service , count => {inboundCount}");
+            Console.WriteLine($"--> HTTP Inbound POST # Command Service , count => {inboundCount}");
             return Ok("Inbound test of from Platforms Controller");
         }
     }
