@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CommandsService.Models
 {
+    /// <summary>
+    /// Platform Model
+    /// </summary>
     public class Platform
     {
         [Key]
