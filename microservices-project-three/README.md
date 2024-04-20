@@ -12,8 +12,8 @@ It will include two services `Platform service` and `Command service`.
 -   MySql
 -   Docker
 -   Kubernetes
--   gRPC
--   RabbitMQ
+-   gRPC (synchronous)
+-   RabbitMQ (asynchronous)
 
 ## Solution Architecture
 
@@ -50,6 +50,11 @@ It will include two services `Platform service` and `Command service`.
 ## gRPC
 
 ![gRPC](examples/grpc.png)
+
+-   in `.csproj` file, add `<Protobuf/>`
+-   create `.proto` file
+-   dotnet build
+-   in `obj/Debug`, Protos folder will be creted
 
 ## Commands
 

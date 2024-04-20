@@ -4,6 +4,7 @@ using PlatformService.Data;
 using PlatformService.Middleware;
 using PlatformService.Repositories;
 using PlatformService.Repositories.Interfaces;
+using PlatformService.SyncDataServices.Grpc;
 using PlatformService.SyncDataServices.Http;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,6 +35,9 @@ Console.WriteLine($"==> Prod Command Service Endpoint : {builder.Configuration["
 // Register MessageBusClient RabbitMQ
 builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
+// Register gRPC
+builder.Services.AddGrpc();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -52,5 +56,10 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
+app.MapGrpcService<GrpcPlatformService>(); // Map Grpc Service
+app.MapGet("/protos/platforms.proto", async context =>
+{
+    await context.Response.WriteAsync(File.ReadAllText("Protos/platforms.proto"));
+});
 app.Run();
 

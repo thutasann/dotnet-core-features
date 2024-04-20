@@ -2,6 +2,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PlatformService.Models
 {
+    /// <summary>
+    /// Platform Model
+    /// </summary>
     public class Platform
     {
         [Key]
