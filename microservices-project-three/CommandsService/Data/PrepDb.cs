@@ -12,7 +12,7 @@ namespace CommandsService.Data
     {
         public static void PrepPopulation(IApplicationBuilder applicationBuilder)
         {
-            Console.WriteLine("📊---> Preparing Population....");
+            Console.WriteLine("---> Preparing Population....");
             using var serviceSope = applicationBuilder.ApplicationServices.CreateScope();
             var grpcClient = serviceSope.ServiceProvider.GetService<IPlatformDataClient>();
 

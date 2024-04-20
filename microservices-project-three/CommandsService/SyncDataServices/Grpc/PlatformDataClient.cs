@@ -10,7 +10,6 @@ namespace CommandsService.SyncDataServices.Grpc
     /// </summary>
     public class PlatformDataClient : IPlatformDataClient
     {
-
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
 
@@ -22,7 +21,7 @@ namespace CommandsService.SyncDataServices.Grpc
 
         public IEnumerable<Platform>? ReturnAllPlatforms()
         {
-            Console.WriteLine($"--> Calling GRPC Service {_configuration["GrpcPlatform"]}🚀");
+            Console.WriteLine($"--> Calling GRPC Service {_configuration["GrpcPlatform"]} 🚀");
             var channel = GrpcChannel.ForAddress(_configuration["GrpcPlatform"]!);
             var client = new GrpcPlatform.GrpcPlatformClient(channel);
             var request = new GetAllRequest();
@@ -34,7 +33,7 @@ namespace CommandsService.SyncDataServices.Grpc
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"--> Could not GRPC Server {ex.Message}");
+                Console.WriteLine($"--> Could not connect GRPC Server 🔴 {ex.Message}");
                 return null;
             }
         }

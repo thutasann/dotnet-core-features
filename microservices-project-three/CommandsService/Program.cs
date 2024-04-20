@@ -18,9 +18,6 @@ builder.Services.AddSwaggerGen();
 // Auto Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-// GRPC Client
-builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
-
 // Register EventProcess
 builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
 
@@ -30,6 +27,9 @@ builder.Services.AddHostedService<MessageBusSubscriber>();
 // Register Scopes
 builder.Services.AddScoped<ICommandRepo, CommandRepo>();
 
+// GRPC Client
+builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -37,5 +37,6 @@ app.UseSwaggerUI();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
-PrepDb.PrepPopulation(app); // PrepDB for data from gRPC
 app.Run();
+
+PrepDb.PrepPopulation(app); // PrepDB for data from gRPC
