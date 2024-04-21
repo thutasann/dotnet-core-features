@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using ef_core_relationships.Data;
 using ef_core_relationships.Dto;
 using ef_core_relationships.Models;
@@ -6,6 +7,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ef_core_relationships.Controllers
 {
+    /// <summary>
+    /// The Last of Us Game Controller
+    /// </summary>
     [ApiController]
     [Route("api/[controller]")]
     public class TlouController : ControllerBase
@@ -20,19 +24,46 @@ namespace ef_core_relationships.Controllers
         [HttpGet("characters")]
         public async Task<ActionResult<List<Character>>> GetAllCharacters()
         {
-            var result = await _context.Characters.Include(c => c.Backpack).Include(c => c.Weapons).ToListAsync();
+            var stopWatch = Stopwatch.StartNew();
+            var result = await _context.Characters
+                            .Include(c => c.Backpack)
+                            .Include(c => c.Weapons)
+                            .Include(c => c.Factions)
+                            .ToListAsync();
+
+            stopWatch.Stop();
+            Console.WriteLine($"--> All Characters API call took {stopWatch.ElapsedMilliseconds} milliseconds.");
             return Ok(result);
+        }
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<Character>> GetCharacter([FromRoute] int id)
+        {
+            var stopwatch = Stopwatch.StartNew();
+            var character = await _context.Characters
+                                    .Include(c => c.Backpack)
+                                    .Include(c => c.Weapons)
+                                    .Include(c => c.Factions)
+                                    .FirstOrDefaultAsync(c => c.Id == id);
+            if (character == null)
+                return NotFound("Character not Found");
+
+            stopwatch.Stop();
+            Console.WriteLine($"--> Character Detail API call took {stopwatch.ElapsedMilliseconds} milliseconds.");
+            return Ok(character);
         }
 
         [HttpPost]
         public async Task<ActionResult<List<Character>>> CreateChracter(CharacterCreateDto request)
         {
+            var startTime = DateTime.Now;
+
             var newCharacter = new Character
             {
                 Name = request.Name,
             };
 
-            var newBackpack = new Backpack
+            var backpack = new Backpack
             {
                 Description = request.Backpack.Description,
                 Character = newCharacter
@@ -42,8 +73,13 @@ namespace ef_core_relationships.Controllers
                             .Select(w => new Weapon { Name = w.Name, Character = newCharacter })
                             .ToList();
 
-            newCharacter.Backpack = newBackpack;
+            var factions = request.Factions
+                             .Select(f => new Faction { Name = f.Name, Characters = new List<Character> { newCharacter } })
+                             .ToList();
+
+            newCharacter.Backpack = backpack;
             newCharacter.Weapons = weapons;
+            newCharacter.Factions = factions;
 
             await _context.Characters.AddAsync(newCharacter);
             await _context.SaveChangesAsync();
@@ -52,6 +88,10 @@ namespace ef_core_relationships.Controllers
                                 .Include(c => c.Backpack)
                                 .Include(c => c.Weapons)
                                 .ToListAsync();
+
+            var endTime = DateTime.Now;
+            var elapsedTime = endTime - startTime;
+            Console.WriteLine($"--> Character Create API call took {elapsedTime.TotalMilliseconds} milliseconds.");
             return Ok(response);
         }
 

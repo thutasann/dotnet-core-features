@@ -6,6 +6,7 @@ namespace ef_core_relationships.Dto
     public record struct CharacterCreateDto(
         string Name,
         BackpackCreateDto Backpack,
-        List<WeaponCreateDto> Weapons
+        List<WeaponCreateDto> Weapons,
+        List<FactionCreateDto> Factions
     );
 }
