@@ -1,6 +1,4 @@
 using ef_core_relationships.Data;
-using ef_core_relationships.Interfaces;
-using ef_core_relationships.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,10 +12,6 @@ builder.Services.AddDbContext<DataContext>(option =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-// Register Scopes
-builder.Services.AddScoped<IUserRepo, UserRepository>();
-builder.Services.AddScoped<ICharacterRepo, CharacterRepository>();
 
 var app = builder.Build();
 
