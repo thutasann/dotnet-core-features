@@ -1,7 +1,6 @@
 using ef_core_relationships.Data;
 using ef_core_relationships.Dto;
 using ef_core_relationships.Interfaces;
-using ef_core_relationships.Mapper;
 using ef_core_relationships.Models;
 using Microsoft.AspNetCore.Mvc;
 

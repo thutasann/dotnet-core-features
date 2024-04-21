@@ -76,11 +76,11 @@ dotnet tool install --global dotnet-ef --version 7.*
 ```
 
 ```bash
-dotnet ef migrations add init
+dotnet ef migrations add Init
 ```
 
 ```bash
-dotnet ef database update
+dotnet ef database Update
 ```
 
 ### Dotnet Certificates

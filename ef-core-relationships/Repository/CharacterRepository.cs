@@ -28,7 +28,10 @@ namespace ef_core_relationships.Repository
 
         public async Task<List<Character>> GetCharactersByUserIdAsync(int userId)
         {
-            var characters = await _context.Characters.Where(c => c.UserId == userId).ToListAsync();
+            var characters = await _context.Characters
+                .Where(c => c.UserId == userId)
+                .Include(c => c.Weapon)
+                .ToListAsync();
             return characters;
         }
     }

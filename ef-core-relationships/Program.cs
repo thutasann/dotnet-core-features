@@ -11,10 +11,7 @@ builder.Services.AddDbContext<DataContext>(option =>
     option.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!);
 });
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.MaxDepth = 32;
-});
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
