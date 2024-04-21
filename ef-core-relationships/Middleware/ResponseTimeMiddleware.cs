@@ -26,7 +26,7 @@ namespace ef_core_relationships.Middleware
             stopwatch.Stop();
             var responseTime = stopwatch.ElapsedMilliseconds;
 
-            _logger.LogInformation($"API Response Time: {responseTime} ms");
+            _logger.LogInformation($"--> (Middleware) API Response Time: {responseTime} ms");
         }
     }
 }

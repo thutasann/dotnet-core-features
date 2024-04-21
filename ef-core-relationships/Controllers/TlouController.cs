@@ -11,14 +11,16 @@ namespace ef_core_relationships.Controllers
     /// The Last of Us Game Controller
     /// </summary>
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/game")]
     public class TlouController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly ILogger<TlouController> _logger;
 
-        public TlouController(DataContext context)
+        public TlouController(DataContext context, ILogger<TlouController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [HttpGet("characters")]
@@ -32,7 +34,7 @@ namespace ef_core_relationships.Controllers
                             .ToListAsync();
 
             stopWatch.Stop();
-            Console.WriteLine($"--> All Characters API call took {stopWatch.ElapsedMilliseconds} milliseconds.");
+            _logger.LogInformation($"--> All Characters API call took {stopWatch.ElapsedMilliseconds} milliseconds.");
             return Ok(result);
         }
 
@@ -44,12 +46,13 @@ namespace ef_core_relationships.Controllers
                                     .Include(c => c.Backpack)
                                     .Include(c => c.Weapons)
                                     .Include(c => c.Factions)
+                                    .AsNoTracking()
                                     .FirstOrDefaultAsync(c => c.Id == id);
             if (character == null)
                 return NotFound("Character not Found");
 
             stopwatch.Stop();
-            Console.WriteLine($"--> Character Detail API call took {stopwatch.ElapsedMilliseconds} milliseconds.");
+            _logger.LogInformation($"--> Character Detail API call took {stopwatch.ElapsedMilliseconds} milliseconds.");
             return Ok(character);
         }
 
@@ -70,7 +73,7 @@ namespace ef_core_relationships.Controllers
                 count = weaponCount
             };
             stopWatch.Stop();
-            Console.WriteLine($"--> Weapon Count API call took {stopWatch.ElapsedMilliseconds} milliseconds.");
+            _logger.LogInformation($"--> Weapon Count API call took {stopWatch.ElapsedMilliseconds} milliseconds.");
             return Ok(response);
         }
 
@@ -112,7 +115,7 @@ namespace ef_core_relationships.Controllers
 
             var endTime = DateTime.Now;
             var elapsedTime = endTime - startTime;
-            Console.WriteLine($"--> Character Create API call took {elapsedTime.TotalMilliseconds} milliseconds.");
+            _logger.LogInformation($"--> Character Create API call took {elapsedTime.TotalMilliseconds} milliseconds.");
             return Ok(response);
         }
 

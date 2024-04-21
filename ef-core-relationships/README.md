@@ -11,3 +11,8 @@
 ## First Section
 
 -   This section includes `Character`, `Backpack`, `Faction`, `Weapon` relationships for Game system.
+
+## Second Section
+
+-   Better EF Core Configuration
+-   EF Core Optimizations
