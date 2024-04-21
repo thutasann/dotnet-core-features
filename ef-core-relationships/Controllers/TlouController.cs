@@ -53,6 +53,27 @@ namespace ef_core_relationships.Controllers
             return Ok(character);
         }
 
+        [HttpGet("{id:int}/weapon-count")]
+        public async Task<IActionResult> GetCharacterWeaponCount(int id)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            var character = await _context.Characters
+                                    .Include(c => c.Weapons)
+                                    .FirstOrDefaultAsync(c => c.Id == id);
+            if (character == null)
+                return NotFound("Character not found");
+
+            int weaponCount = character.Weapons?.Count ?? 0;
+            var response = new
+            {
+                character.Name,
+                count = weaponCount
+            };
+            stopWatch.Stop();
+            Console.WriteLine($"--> Weapon Count API call took {stopWatch.ElapsedMilliseconds} milliseconds.");
+            return Ok(response);
+        }
+
         [HttpPost]
         public async Task<ActionResult<List<Character>>> CreateChracter(CharacterCreateDto request)
         {
