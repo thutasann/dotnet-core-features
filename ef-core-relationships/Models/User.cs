@@ -11,6 +11,6 @@ namespace ef_core_relationships.Models
         [Key]
         public int Id { get; set; }
         public string UserName { get; set; } = string.Empty;
-        public List<Character> Characters { get; set; } = new List<Character>();
+        public ICollection<Character> Characters { get; set; } = new List<Character>();
     }
 }

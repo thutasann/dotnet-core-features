@@ -24,7 +24,8 @@ namespace ef_core_relationships.Repository
 
         public async Task<List<User>> GetAllUsersAsync()
         {
-            return await _context.Users.ToListAsync();
+            var users = await _context.Users.ToListAsync();
+            return users;
         }
     }
 }
