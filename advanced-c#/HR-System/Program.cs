@@ -1,5 +1,6 @@
 ﻿using advanced_c_.src.AsyncAwait;
 using advanced_c_.src.Delegates;
+using advanced_c_.src.Pointers;
 using advanced_c_.src.SchoolHRAdministration;
 using advanced_c_.src.Utils;
 
@@ -9,14 +10,14 @@ Console.WriteLine("WELCOME TO C# ADVANCED CONCEPTS.... 🚀");
 SchoolHRSystem.SampleOne();
 
 // ---------------------------- Async/Await 🚀 ----------------------------
-Console.WriteLine("------->> Async/Await Sample 🚀");
+// Console.WriteLine("------->> Async/Await Sample 🚀");
 
-Console.WriteLine("CPU Bound Operation => " + await CPUBoundOperation.CalculateResultAsync("This is string input"));
+// Console.WriteLine("CPU Bound Operation => " + await CPUBoundOperation.CalculateResultAsync("This is string input"));
 
-Console.WriteLine("I/O Bound Operation => " + await IOBOundOperation.DownlaodDataAsync());
-await IOBOundOperation.MultipleTasks();
+// Console.WriteLine("I/O Bound Operation => " + await IOBOundOperation.DownlaodDataAsync());
+// await IOBOundOperation.MultipleTasks();
 
-await AwaitKeywordImpact.Main();
+// await AwaitKeywordImpact.Main();
 
 // ---------------------------- Delegates 🚀 ----------------------------
 DelegateReferenceToStaticMethod.SampleOne();
@@ -41,3 +42,8 @@ Console.WriteLine("Parse Enum ==>" + enumValue);
 EncryptionDecryption.UsageSample();
 
 Utils.ReadYamlFile();
+
+// ---------------------------- Pointers 🚀 ----------------------------
+PointerSampleOne.Intro();
+PointerSampleOne.IntroTwo();
+PointerAndMethod.SampleMethod();
