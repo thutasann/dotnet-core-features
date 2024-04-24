@@ -68,6 +68,12 @@ cd <project-dir>
 dotnet watch run
 ```
 
+**Reference project (P2P) **
+
+```bash
+dotnet add reference ../Play.Catalog.Contracts/Play.Catalog.Contracts.csproj
+```
+
 ### EF Database Migration
 
 -   Replace `DefaultConnection` in `ConnectionStrings` with your real one.
