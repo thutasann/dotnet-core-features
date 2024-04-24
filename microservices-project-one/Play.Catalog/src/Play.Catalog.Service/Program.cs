@@ -1,5 +1,3 @@
-using MassTransit;
-using MassTransit.Definition;
 using Play.Catalog.Service.Entities;
 using Play.Catalog.Service.Middlewares;
 using Play.Common.MassTransit;

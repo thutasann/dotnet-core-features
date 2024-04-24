@@ -9,6 +9,10 @@ This section will contain Advanced C# Programming language.
 
 ## Table Of Contents
 
--   HR System (Abstraction, Factory Pattern, Delegate, AsyncAwait, etc...)
+-   HR System
+    -   Abstraction
+    -   Factory Pattern
+    -   Delegate
+    -   Async/Await
 -   FildValiatorAPI (delegate sample lib)
 -   Pure DSA (Data Structure and Algorithms only)
