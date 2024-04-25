@@ -68,6 +68,19 @@ cd <project-dir>
 dotnet watch run
 ```
 
+### Dotnet Create Solution
+
+```
+dotnet new sln -n MySolution 
+```
+
+### Add Proj to Solution
+
+```
+dotnet sln add Project1/Project1.csproj
+dotnet sln add Project2/Project2.csproj
+```
+
 **Reference project (P2P) **
 
 ```bash
