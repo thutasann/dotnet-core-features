@@ -1,2 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using LINQExamples_1.src;
+
+Console.WriteLine("LINE EXAMLE ONE!");
+
+SampleOne.SelectAndWhere();
