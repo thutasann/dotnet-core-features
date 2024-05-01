@@ -3,3 +3,4 @@
 Console.WriteLine("LINE EXAMLE ONE!");
 
 SampleOne.SelectAndWhere();
+SampleOne.QuerySyntax();

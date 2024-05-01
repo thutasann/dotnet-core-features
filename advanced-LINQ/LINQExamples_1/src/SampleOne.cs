@@ -23,5 +23,25 @@ namespace LINQExamples_1.src
             }
         }
 
+        public static void QuerySyntax()
+        {
+            Console.WriteLine("\n(Query Syntax) : ");
+            List<Employee> employees = Data.GetEmployees();
+            List<Department> departments = Data.GetDepartments();
+
+            var results = from emp in employees
+                          where emp.AnnualSalary >= 5000
+                          select new
+                          {
+                              FullName = emp.FirstName + " " + emp.LastName,
+                              emp.AnnualSalary
+                          };
+
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.FullName,-20} {result.AnnualSalary}");
+            }
+        }
+
     }
 }
