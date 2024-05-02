@@ -24,5 +24,12 @@ yarn dev:jsalgo
 ### Namaste Javascript Playlist Index
 
 ```bash
-yarn dev:nama
+yarn dev:namaste
+```
+
+## For others that is not imported
+
+```bash
+cd <folder-name>
+ts-node <file-name>.ts
 ```
