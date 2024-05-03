@@ -7,4 +7,4 @@ SampleOne.QuerySyntax();
 SampleOne.DeferredEnumberableExtensionUsage();
 SampleOne.ImmediateEnumberableExtensionUsage();
 
-JoinOperator.SampleOne();
+JoinOperator.MethodSyntax();

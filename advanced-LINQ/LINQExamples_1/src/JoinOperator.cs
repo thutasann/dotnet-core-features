@@ -4,9 +4,9 @@ namespace LINQExamples_1.src
 {
     public static class JoinOperator
     {
-        public static void SampleOne()
+        public static void MethodSyntax()
         {
-            Console.WriteLine("\nJoin Operator : ");
+            Console.WriteLine("\nJoin Operator (Method Syntax) : ");
             List<Employee> employees = Data.GetEmployees();
             List<Department> departments = Data.GetDepartments();
 
@@ -24,6 +24,28 @@ namespace LINQExamples_1.src
             foreach (var result in results)
             {
                 Console.WriteLine($"{result.FullName,-20} {result.AnnualSalary}\t{result.departmentName}");
+            }
+        }
+
+        public static void QuerySyntax()
+        {
+            Console.WriteLine("\nJoin Operator (Query Syntax )");
+            List<Employee> employees = Data.GetEmployees();
+            List<Department> departments = Data.GetDepartments();
+
+            var results = from dept in departments
+                          join emp in employees
+                          on dept.Id equals emp.DepartmentId
+                          select new
+                          {
+                              FullName = emp.FirstName + " " + emp.LastName,
+                              emp.AnnualSalary,
+                              DepartmentName = dept.LongName
+                          };
+
+            foreach (var result in results)
+            {
+                Console.WriteLine($"{result.FullName,-20} {result.AnnualSalary}\t{result.DepartmentName}");
             }
         }
     }
