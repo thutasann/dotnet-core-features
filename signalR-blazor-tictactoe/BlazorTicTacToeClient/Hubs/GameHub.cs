@@ -2,14 +2,9 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace BlazorTicTacToe.Hubs
 {
-    public class GameHub : Hub
+    public class GameHub(ILogger<GameHub> logger) : Hub
     {
-        private readonly ILogger<GameHub> _logger;
-
-        public GameHub(ILogger<GameHub> logger)
-        {
-            _logger = logger;
-        }
+        private readonly ILogger<GameHub> _logger = logger;
 
         public override Task OnConnectedAsync()
         {

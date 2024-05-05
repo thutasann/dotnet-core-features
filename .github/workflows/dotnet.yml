@@ -70,7 +70,7 @@ jobs:
             - name: Build and Test BlazorTicTacToe (Client)
               run: |
                   cd signalR-blazor-tictactoe
-                  cd BlazorTicTacToe
+                  cd BlazorTicTacToeClient
                   dotnet restore
                   dotnet build
                   dotnet test
