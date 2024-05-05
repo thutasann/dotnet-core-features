@@ -1,18 +1,51 @@
 @page "/"
+
 @inject NavigationManager navigationManager
-@rendermode @(new InteractiveWebAssemblyRenderMode(false))
+@rendermode InteractiveServer
 
 <PageTitle>Lobby</PageTitle>
 
 <h3>Lobby</h3>
 
+<input type="text" @bind="playerName" placeholder="Your Name" />
+<input type="text" @bind="currentRoomName" placeholder="Room Name" />
+<button @onclick="CreateRoomAsync">Create Room</button>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
 @code {
    private HubConnection? hubConnection;
+   private string playerName = string.Empty;
+   private string currentRoomName = string.Empty;
+   private GameRoom? currentRoom;
+   private List<GameRoom> rooms = new();
+   private int currentCount = 0;
+
    protected override async Task OnInitializedAsync()
    {
-        hubConnection = new HubConnectionBuilder()
-                        .WithUrl(navigationManager.ToAbsoluteUri("/gamehub"))
-                        .Build();
-        await hubConnection.StartAsync();
+      hubConnection = new HubConnectionBuilder()
+                     .WithUrl(navigationManager.ToAbsoluteUri("/gamehub"))
+                     .Build();
+      hubConnection.On<List<GameRoom>>("Rooms", (roomList) => {
+         Console.WriteLine($"We got rooms! Count -> {roomList.Count}");
+      });
+      await hubConnection.StartAsync();
+   }
+
+   private async Task CreateRoomAsync()
+   {
+      Console.WriteLine("Click....");
+      if(hubConnection is null)
+         return;
+      currentRoom = await hubConnection.InvokeAsync<GameRoom>("CreateRoom", currentRoomName, playerName);
+      Console.WriteLine($"Current Room => {currentRoom.RoomName}");
+   }
+
+   private void IncrementCount()
+   {
+      currentCount++;
+      Console.WriteLine(currentCount);
    }
 }    

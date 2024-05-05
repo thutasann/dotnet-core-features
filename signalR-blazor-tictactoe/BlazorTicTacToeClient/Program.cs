@@ -4,8 +4,8 @@ using BlazorTicTacToeClient.Hubs;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor().AddInteractiveServerComponents();
 
 // Add SignalR Service
 builder.Services.AddSignalR();
