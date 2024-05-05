@@ -20,4 +20,7 @@ SortingOperators.OrderByMethodSyntax();
 SortingOperators.OrderByQuerySyntax();
 GroupingOperators.GroupByQuerySyntax();
 GroupingOperators.ToLookUpOperator();
-QuantifierOperators.AllAndAnyOperators();
+QualifierOperators.AllAndAnyOperators();
+QualifierOperators.ContainsOperator();
+FilterOperators.FilterOperatorQuerySyntax();
+ElementOperator.ElementAtSample();

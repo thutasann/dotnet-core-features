@@ -1,3 +1,5 @@
+using System.Collections;
+
 namespace TCPData
 {
     /// <summary>
@@ -5,6 +7,10 @@ namespace TCPData
     /// </summary>
     public static class Data
     {
+        /// <summary>
+        /// Get Employees
+        /// </summary>
+        /// <returns></returns>
         public static List<Employee> GetEmployees()
         {
             List<Employee> employees = new();
@@ -54,6 +60,10 @@ namespace TCPData
             return employees;
         }
 
+        /// <summary>
+        /// Get Departments
+        /// </summary>
+        /// <returns></returns>
         public static List<Department> GetDepartments()
         {
             List<Department> departments = new();
@@ -79,6 +89,54 @@ namespace TCPData
             };
             departments.Add(department);
             return departments;
+        }
+
+        /// <summary>
+        /// Mix Collection Data ArrayList
+        /// </summary>
+        /// <returns></returns>
+        public static ArrayList GetHeterogeneousDataCollection()
+        {
+            ArrayList arrayList = new()
+            {
+                100,
+                "Bob Jones",
+                2000,
+                3000,
+                "Bill Henderson",
+                new Employee {
+                    Id = 6,
+                    FirstName = "Jennifer",
+                    LastName = "Dale",
+                    AnnualSalary = 90000,
+                    IsManager = true,
+                    DepartmentId  = 1,
+                },
+                new Employee {
+                    Id = 7,
+                    FirstName = "Dane",
+                    LastName = "Hughes",
+                    AnnualSalary = 90000,
+                    IsManager = true,
+                    DepartmentId = 2
+                },
+                new Department {
+                    Id = 4,
+                    ShortName = "MKT",
+                    LongName = "Marketing"
+                },
+                new Department {
+                    Id = 5,
+                    ShortName = "R&D",
+                    LongName = "Research and Development"
+                },
+                new Department {
+                    Id = 6,
+                    ShortName = "PRD",
+                    LongName = "Production"
+                },
+            };
+            return arrayList;
         }
     }
 }

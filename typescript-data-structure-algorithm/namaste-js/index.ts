@@ -28,6 +28,7 @@ import {
 } from './src/OOP/Polymorphism/PolyEmployees'
 import { PolyCircle, PolyRectangle, getPolyTotalArea } from './src/OOP/Polymorphism/PolymorphismSample'
 import { product } from './src/utils/constants'
+import { EqualityComparerUsage } from './src/EqualityComparer'
 
 console.log('NAMASTE JAVASCRIPT PLAYLIST ..... 🚀')
 
@@ -133,3 +134,6 @@ console.log('calculatorResult ', calculatorResult)
 DoWhileSampleOne.SampleOne()
 NestedWhileLoopSample.SampleOne()
 NestedWhileLoopSample.WhileBreak()
+
+// ------------ Utils  🚀 ------------
+EqualityComparerUsage.SampleUsage()
