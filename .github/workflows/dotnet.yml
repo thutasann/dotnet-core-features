@@ -60,3 +60,17 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
+            - name: Build and Test Advanced LINQ
+              run: |
+                  cd advanced-LINQ
+                  cd LINQExamples_1
+                  dotnet restore
+                  dotnet build
+                  dotnet test
+            - name: Build and Test BlazorTicTacToe (Client)
+              run: |
+                  cd signalR-blazor-tictactoe
+                  cd BlazorTicTacToe
+                  dotnet restore
+                  dotnet build
+                  dotnet test
