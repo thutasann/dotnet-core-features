@@ -29,9 +29,11 @@
 
         await Task.CompletedTask;
     }
-}
-    using System.Security.Cryptography;
 
-#line default
-#line hidden
-#nullable disable
+    async Task StartGame()
+    {
+        if(HubConnection is null || CurrentRoom is null)
+            return;
+        await Task.CompletedTask;
+    }
+}
