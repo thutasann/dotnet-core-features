@@ -1,3 +1,37 @@
-<h3>Room</h3>
+@if(CurrentRoom is not null)
+{
+    <h3>@CurrentRoom.RoomName</h3>
 
-@code {}
+    if(CurrentRoom.Players.Count < 2)
+    {
+        <h4>Waiting for another player...</h4>
+    }
+}
+
+@code {
+    [CascadingParameter]
+    public HubConnection? HubConnection { get; set; }
+    
+    [Parameter]
+    public GameRoom? CurrentRoom { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(CurrentRoom is null || HubConnection is null || HubConnection.ConnectionId is null)
+        {
+            return;
+        }
+
+        HubConnection.On<Player>(ConnectionMethods.PlayerJoined, player => {
+            CurrentRoom.Players.Add(player);
+            StateHasChanged();
+        });
+
+        await Task.CompletedTask;
+    }
+}
+    using System.Security.Cryptography;
+
+#line default
+#line hidden
+#nullable disable

@@ -13,7 +13,6 @@
    <input type="text" @bind="currentRoomName" placeholder="Room Name" />
    <button @onclick="CreateRoomAsync">Create Room</button>
    <br/>
-   <p>Current Room : @currentRoom?.RoomName</p>
 
    <h3 style="margin-top: 12px;">Rooms:</h3>
 
@@ -30,7 +29,9 @@
 }
 else 
 {
-   <Room/>
+   <CascadingValue Value="hubConnection">
+      <Room CurrentRoom="currentRoom" />
+   </CascadingValue>
 }
 
 @code {
@@ -48,6 +49,7 @@ else
       hubConnection.On<List<GameRoom>>(ConnectionMethods.Rooms, (roomList) => {
          Console.WriteLine($"We got rooms! Count -> {roomList.Count}");
          rooms = roomList;
+         StateHasChanged();
       });
       await hubConnection.StartAsync();
    }
