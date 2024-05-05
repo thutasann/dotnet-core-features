@@ -7,10 +7,10 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 
 -   .NET Core
 -   EF Core
+-   SignalR
 -   Mysql
 -   MongoDB
--   Docker
--   Nodejs
+-   Docker, K8S, RabbitMQ
 -   Typescript
 
 ## Features
@@ -24,6 +24,7 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 | JWT Authentication                      | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                            | Auth             |
 | Practical SingalR                       | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)               | WebSocket        |
 | SignalR Nextjs Simple Chat app          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)                 | WebSocket        |
+| SignalR Blazor TicTacToe                | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-blazor-tictactoe)            | WebSocket        |
 | Send Email With MailKit & SMTP          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)                  | Email            |
 | EF Core Relationships                   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/ef-core-relationships)               | EF Core          |
 | Game System MicroService Project        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)           | MicroService ⭐️ |
@@ -71,7 +72,7 @@ dotnet watch run
 ### Dotnet Create Solution
 
 ```
-dotnet new sln -n MySolution 
+dotnet new sln -n MySolution
 ```
 
 ### Add Proj to Solution
@@ -85,6 +86,18 @@ dotnet sln add Project2/Project2.csproj
 
 ```bash
 dotnet add reference ../Play.Catalog.Contracts/Play.Catalog.Contracts.csproj
+```
+
+### Dotnet Create Blazor
+
+```bash
+dotnet new blazor -o <ProjectName>
+```
+
+### Dotnet Create Blazor WebAssembly
+
+```bash
+dotnet new blazorwasm -o <ProjectName>
 ```
 
 ### EF Database Migration
