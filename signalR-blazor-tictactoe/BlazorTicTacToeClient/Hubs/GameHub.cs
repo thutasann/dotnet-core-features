@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.SignalR;
 
-namespace BlazorTicTacToe.Hubs
+namespace BlazorTicTacToeClient.Hubs
 {
     public class GameHub(ILogger<GameHub> logger) : Hub
     {

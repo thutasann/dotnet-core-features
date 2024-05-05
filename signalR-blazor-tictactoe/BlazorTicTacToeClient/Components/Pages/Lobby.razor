@@ -1,8 +1,18 @@
 @page "/"
-@rendermode InteractiveWebAssembly
+@inject NavigationManager navigationManager
+@rendermode @(new InteractiveWebAssemblyRenderMode(false))
+
+<PageTitle>Lobby</PageTitle>
 
 <h3>Lobby</h3>
 
 @code {
-
-}
+   private HubConnection? hubConnection;
+   protected override async Task OnInitializedAsync()
+   {
+        hubConnection = new HubConnectionBuilder()
+                        .WithUrl(navigationManager.ToAbsoluteUri("/gamehub"))
+                        .Build();
+        await hubConnection.StartAsync();
+   }
+}    
