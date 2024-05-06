@@ -11,3 +11,5 @@ using System.Diagnostics.CodeAnalysis;
 [assembly: SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "<Pending>", Scope = "member", Target = "~F:BlazorTicTacToeShared.ConnectionMethods.JoinRoom")]
 [assembly: SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "<Pending>", Scope = "member", Target = "~F:BlazorTicTacToeShared.ConnectionMethods.PlayerJoined")]
 [assembly: SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "<Pending>", Scope = "member", Target = "~F:BlazorTicTacToeShared.ConnectionMethods.StartGame")]
+[assembly: SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "<Pending>", Scope = "member", Target = "~F:BlazorTicTacToeShared.ConnectionMethods.UpdateRoom")]
+[assembly: SuppressMessage("Usage", "CA2211:Non-constant fields should not be visible", Justification = "<Pending>", Scope = "member", Target = "~F:BlazorTicTacToeShared.ConnectionMethods.MakeMove")]

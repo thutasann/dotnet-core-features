@@ -12,6 +12,16 @@
         <h4>Waiting for the other player to start the Game...</h4>
     }
 
+    if(CurrentRoom.Game.GameOver && !CurrentRoom.Game.IsDraw)
+    {
+        <h4>Game Over! Winner : @CurrentRoom.Game.Winner</h4>
+    }
+
+    if(CurrentRoom.Game.GameOver && CurrentRoom.Game.IsDraw)
+    {
+        <h4>Game Over! Draw!</h4>
+    }
+
     if((!CurrentRoom.Game.GameStarted || CurrentRoom.Game.GameOver)
         && CurrentRoom.Game.PlayerXId == myPlayerId
         && CurrentRoom.Players.Count == 2)
@@ -23,6 +33,27 @@
     {
         <h4>It's @CurrentRoom.Game.CurrentPlayerSymbol's Turn</h4>
         <span>Currently playing : @CurrentRoom.Players[0].Name (X), @CurrentRoom.Players[0].Name (Y)</span>
+
+        <table class="tic-tac-toe">
+            @for(int row = 0; row < 3; row++)
+            {
+                <tr>
+                    @for(int col = 0; col < 3; col++)
+                    {
+                        var r = row;
+                        var c = col;
+                        <td @onclick="() => MakeMove(r, c)">
+                            @CurrentRoom.Game.Board[row][col]
+                        </td>   
+                    }
+                </tr>
+            }
+        </table>
+
+        @if(!IsMyturn() && !CurrentRoom.Game.GameOver)
+        {
+            <p>Please wait for the other player to make a move.</p>
+        }
     }
 }
 
@@ -63,5 +94,27 @@
             return;
 
         await HubConnection.InvokeAsync(ConnectionMethods.StartGame, CurrentRoom.RoomId);
+    }
+
+    private async Task MakeMove(int row, int col)
+    {
+        if(IsMyturn() && CurrentRoom is not null && CurrentRoom.Game.GameStarted && !CurrentRoom.Game.GameOver && HubConnection is not null)
+        { 
+            await HubConnection.InvokeAsync(ConnectionMethods.MakeMove, 
+                CurrentRoom.RoomId,
+                row,
+                col,
+                myPlayerId
+            );
+        }
+    }
+
+    private bool IsMyturn()
+    {
+        if(CurrentRoom is not null)
+        {
+            return myPlayerId == CurrentRoom.Game.CurrentPlayerId;
+        }
+        return false;
     }
 }
