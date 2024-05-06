@@ -6,9 +6,29 @@
     {
         <h4>Waiting for another player...</h4>
     }
+
+    if(!CurrentRoom.Game.GameStarted && CurrentRoom.Game.PlayerXId != myPlayerId && CurrentRoom.Players.Count == 2)
+    {
+        <h4>Waiting for the other player to start the Game...</h4>
+    }
+
+    if((!CurrentRoom.Game.GameStarted || CurrentRoom.Game.GameOver)
+        && CurrentRoom.Game.PlayerXId == myPlayerId
+        && CurrentRoom.Players.Count == 2)
+    {
+        <button @onclick="StartGame">Start Game</button>
+    }
+
+    if(CurrentRoom.Game.GameStarted)
+    {
+        <h4>It's @CurrentRoom.Game.CurrentPlayerSymbol's Turn</h4>
+        <span>Currently playing : @CurrentRoom.Players[0].Name (X), @CurrentRoom.Players[0].Name (Y)</span>
+    }
 }
 
 @code {
+    private string? myPlayerId;
+
     [CascadingParameter]
     public HubConnection? HubConnection { get; set; }
     
@@ -22,8 +42,15 @@
             return;
         }
 
+        myPlayerId = HubConnection.ConnectionId;
+
         HubConnection.On<Player>(ConnectionMethods.PlayerJoined, player => {
             CurrentRoom.Players.Add(player);
+            StateHasChanged();
+        });
+
+        HubConnection.On<GameRoom>(ConnectionMethods.UpdateRoom, serverRoom => {
+            CurrentRoom = serverRoom;
             StateHasChanged();
         });
 
@@ -34,6 +61,7 @@
     {
         if(HubConnection is null || CurrentRoom is null)
             return;
-        await Task.CompletedTask;
+
+        await HubConnection.InvokeAsync(ConnectionMethods.StartGame, CurrentRoom.RoomId);
     }
 }

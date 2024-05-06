@@ -1,4 +1,3 @@
-using System.Text.RegularExpressions;
 using BlazorTicTacToeShared;
 using Microsoft.AspNetCore.SignalR;
 
@@ -45,6 +44,16 @@ namespace BlazorTicTacToeClient.Hubs
                 }
             }
             return null;
+        }
+
+        public async Task StartGame(string roomId)
+        {
+            var room = _rooms.FirstOrDefault(r => r.RoomId == roomId);
+            if (room is not null)
+            {
+                room.Game.StartGame();
+                await Clients.Group(roomId).SendAsync(ConnectionMethods.UpdateRoom, room);
+            }
         }
     }
 }

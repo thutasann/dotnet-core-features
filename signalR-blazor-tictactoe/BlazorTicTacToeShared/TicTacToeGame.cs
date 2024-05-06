@@ -20,6 +20,9 @@ namespace BlazorTicTacToeShared
             InitializeBoard();
         }
 
+        /// <summary>
+        /// Start Game Method
+        /// </summary>
         public void StartGame()
         {
             CurrentPlayerId = PlayerXId;
