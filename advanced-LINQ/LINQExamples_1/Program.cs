@@ -24,3 +24,6 @@ QualifierOperators.AllAndAnyOperators();
 QualifierOperators.ContainsOperator();
 FilterOperators.FilterOperatorQuerySyntax();
 ElementOperator.ElementAtSample();
+ElementOperator.FirstOrDefaultSample();
+ElementOperator.LastOrDefaultSample();
+ElementOperator.SingleOrDefaultSample();
