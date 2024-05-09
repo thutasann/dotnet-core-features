@@ -34,3 +34,9 @@ ElementOperator.SingleOrDefaultSample();
 //------- More LINQ Operators
 Console.WriteLine("\n------- More LINQ Operator");
 EqualityOperator.SequenceEqual();
+ConcatenationOperator.ConcatSample();
+AggregateOperator.AggregateSample();
+AggregateOperator.AverageSample();
+AggregateOperator.CountSample();
+AggregateOperator.SumSample();
+AggregateOperator.MaxSample();
