@@ -40,3 +40,25 @@ type IsSubType<T, U> = T extends U ? true : false
 
 type Result1 = IsSubType<number, string>
 type Result2 = IsSubType<number, number>
+
+// ----------- Using Extends to constrain generics -----------
+export const getDeepValue = <Obj, FirstKey extends keyof Obj, SecondKey extends keyof Obj[FirstKey]>(
+    obj: Obj,
+    firstKey: FirstKey,
+    secondKey: SecondKey
+): Obj[FirstKey][SecondKey] => {
+    return {} as Obj[FirstKey][SecondKey]
+}
+
+const deepObj = {
+    foo: {
+        a: true,
+        b: 2,
+    },
+    bar: {
+        c: 'cool',
+        d: 2,
+    },
+}
+
+const result = getDeepValue(deepObj, 'bar', 'c')
