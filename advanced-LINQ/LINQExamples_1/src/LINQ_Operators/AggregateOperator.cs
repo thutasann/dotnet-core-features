@@ -32,7 +32,7 @@ namespace LINQExamples_1.src.LINQ_Operators
         {
             Console.WriteLine("\nAverage Operator Sample : ");
             List<Employee> employees = Data.GetEmployees();
-            decimal average = employees.Where(e => e.DepartmentId == 3).Average(e => e.AnnualSalary);
+            decimal average = employees.Average(e => e.AnnualSalary);
             Console.WriteLine($"Average Annual Salary : {average}");
         }
 

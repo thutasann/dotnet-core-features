@@ -40,3 +40,5 @@ AggregateOperator.AverageSample();
 AggregateOperator.CountSample();
 AggregateOperator.SumSample();
 AggregateOperator.MaxSample();
+GenerationOperator.DefaultIfEmpty();
+GenerationOperator.EmptySample();
