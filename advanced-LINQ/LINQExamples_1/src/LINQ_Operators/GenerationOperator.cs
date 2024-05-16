@@ -31,5 +31,25 @@ namespace LINQExamples_1.src.LINQ_Operators
                 Console.WriteLine($"{item.FirstName} {item.LastName}");
             }
         }
+
+        public static void RangeSample()
+        {
+            Console.WriteLine($"\nRange Operator Sample : ");
+            var intCollection = Enumerable.Range(25, 20);
+            foreach (var item in intCollection)
+            {
+                Console.WriteLine($"int Item : {item}");
+            }
+        }
+
+        public static void RepeatSample()
+        {
+            Console.WriteLine($"\nRepeat Operator Sample : ");
+            var strCollection = Enumerable.Repeat<string>("Placeholder", 10);
+            foreach (var item in strCollection)
+            {
+                Console.WriteLine($"Repeat item : {item}");
+            }
+        }
     }
 }

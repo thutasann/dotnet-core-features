@@ -42,3 +42,7 @@ AggregateOperator.SumSample();
 AggregateOperator.MaxSample();
 GenerationOperator.DefaultIfEmpty();
 GenerationOperator.EmptySample();
+GenerationOperator.RangeSample();
+GenerationOperator.RepeatSample();
+SetOperators.DistinceSample();
+SetOperators.ExceptSample();
