@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using LINQExamples_1.src;
+﻿using LINQExamples_1.src;
 using LINQExamples_1.src.LINQ_Operators;
 
 Console.WriteLine("LINE EXAMLE ONE!");
@@ -40,9 +39,20 @@ AggregateOperator.AverageSample();
 AggregateOperator.CountSample();
 AggregateOperator.SumSample();
 AggregateOperator.MaxSample();
+
 GenerationOperator.DefaultIfEmpty();
 GenerationOperator.EmptySample();
 GenerationOperator.RangeSample();
 GenerationOperator.RepeatSample();
+
 SetOperators.DistinceSample();
 SetOperators.ExceptSample();
+
+ParticipatingOperators.SkipSample();
+ParticipatingOperators.SkipWhileSample();
+ParticipatingOperators.TakeSample();
+ParticipatingOperators.TakeWhileSample();
+
+ConversionOperator.ToListSample();
+ConversionOperator.ToDictionarySample();
+ConversionOperator.ToListSample();
