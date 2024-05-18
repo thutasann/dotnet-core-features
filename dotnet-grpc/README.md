@@ -1,6 +1,6 @@
 # .NET gRPC
 
-This is the simple DOTNET + gRPC Todo Service.
+This is the simple DOTNET + gRPC Todo CRUD Service.
 
 ## Tech Stacks
 
