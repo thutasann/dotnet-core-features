@@ -1,4 +1,5 @@
 using dotnet_grpc.Data;
+using dotnet_grpc.Middleware;
 using dotnet_grpc.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddGrpc();
 
 var app = builder.Build();
+
+app.UseMiddleware<ResponseTimeMiddleware>();
 
 app.MapGrpcService<GreeterService>();
 app.MapGrpcService<TodoService>();
