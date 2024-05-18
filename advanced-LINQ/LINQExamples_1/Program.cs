@@ -56,3 +56,9 @@ ParticipatingOperators.TakeWhileSample();
 ConversionOperator.ToListSample();
 ConversionOperator.ToDictionarySample();
 ConversionOperator.ToListSample();
+
+LetIntoClauses.LetClauseSample();
+LetIntoClauses.IntoSample();
+
+ProjectionOperator.SelectSample();
+ProjectionOperator.SelectManySample();

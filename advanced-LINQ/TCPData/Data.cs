@@ -64,28 +64,40 @@ namespace TCPData
         /// Get Departments
         /// </summary>
         /// <returns></returns>
-        public static List<Department> GetDepartments()
+        public static List<Department> GetDepartments(IEnumerable<Employee>? employees = null!)
         {
+            // If employees is null, initialize it to an empty list
+            employees ??= new List<Employee>();
+
             List<Department> departments = new();
             Department department = new Department
             {
                 Id = 1,
                 ShortName = "HR",
-                LongName = "Human Resources"
+                LongName = "Human Resources",
+                Employees = from emp in employees
+                            where emp.DepartmentId == 1
+                            select emp
             };
             departments.Add(department);
             department = new Department
             {
                 Id = 2,
                 ShortName = "FN",
-                LongName = "Finance"
+                LongName = "Finance",
+                Employees = from emp in employees
+                            where emp.DepartmentId == 2
+                            select emp
             };
             departments.Add(department);
             department = new Department
             {
                 Id = 3,
                 ShortName = "TE",
-                LongName = "Technology"
+                LongName = "Technology",
+                Employees = from emp in employees
+                            where emp.DepartmentId == 3
+                            select emp
             };
             departments.Add(department);
             return departments;
