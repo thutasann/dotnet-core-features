@@ -8,7 +8,7 @@ public class GreeterService(ILogger<GreeterService> logger) : Greeter.GreeterBas
 
     public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
     {
-        Console.WriteLine($"Last Name : {request.LastName}");
+        _logger.LogInformation($"Last Name : {request.LastName}");
         return Task.FromResult(new HelloReply
         {
             Message = "Hello " + request.Name + " " + request.LastName

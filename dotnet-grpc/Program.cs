@@ -1,6 +1,14 @@
+using dotnet_grpc.Data;
 using dotnet_grpc.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")!);
+});
+
 
 builder.Services.AddGrpc();
 
