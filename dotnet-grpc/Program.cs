@@ -11,12 +11,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 
-builder.Services.AddGrpc();
+builder.Services.AddGrpc().AddJsonTranscoding();
 
 var app = builder.Build();
 
 app.UseMiddleware<ResponseTimeMiddleware>();
-
 app.MapGrpcService<GreeterService>();
 app.MapGrpcService<TodoService>();
 

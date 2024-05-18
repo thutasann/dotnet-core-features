@@ -5,16 +5,10 @@ namespace dotnet_grpc.Middleware
     /// <summary>
     /// API response time Middleware
     /// </summary>
-    public class ResponseTimeMiddleware
+    public class ResponseTimeMiddleware(RequestDelegate next, ILogger<ResponseTimeMiddleware> logger)
     {
-        private readonly RequestDelegate _next;
-        private readonly ILogger<ResponseTimeMiddleware> _logger;
-
-        public ResponseTimeMiddleware(RequestDelegate next, ILogger<ResponseTimeMiddleware> logger)
-        {
-            _next = next ?? throw new ArgumentNullException(nameof(next));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        }
+        private readonly RequestDelegate _next = next ?? throw new ArgumentNullException(nameof(next));
+        private readonly ILogger<ResponseTimeMiddleware> _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
         public async Task Invoke(HttpContext context)
         {
