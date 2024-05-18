@@ -1,4 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
 using dotnet_grpc.Data;
 using dotnet_grpc.Models;
 using Grpc.Core;
@@ -6,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace dotnet_grpc.Services
 {
-    public class TodoService(AppDbContext dbContext) : ToDoIt.ToDoItBase
+    public class TodoService(AppDbContext dbContext) : ToDo.ToDoBase
     {
         private readonly AppDbContext _dbContext = dbContext;
 
