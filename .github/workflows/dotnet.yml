@@ -74,3 +74,9 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
+            - name: Build and Test .NET gRPC
+              run: |
+                  cd dotnet-grpc
+                  dotnet restore
+                  dotnet build
+                  dotnet test
