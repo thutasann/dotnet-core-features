@@ -67,6 +67,12 @@ jobs:
                   dotnet restore
                   dotnet build
                   dotnet test
+            - name: Build and Test Design Patterns
+              run: |
+                  cd design-patterns
+                  dotnet restore
+                  dotnet build
+                  dotnet test
             - name: Build and Test BlazorTicTacToe (Client)
               run: |
                   cd signalR-blazor-tictactoe

@@ -91,6 +91,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Play.Inventory.Service", "m
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-grpc", "dotnet-grpc\dotnet-grpc.csproj", "{6FE05B4A-2398-460E-B274-6FCFD62C9D9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "design-patterns", "design-patterns\design-patterns.csproj", "{92D1D1B1-DAE9-4C5E-81AD-03212DA45758}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -209,6 +211,10 @@ Global
 		{6FE05B4A-2398-460E-B274-6FCFD62C9D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FE05B4A-2398-460E-B274-6FCFD62C9D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FE05B4A-2398-460E-B274-6FCFD62C9D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D1D1B1-DAE9-4C5E-81AD-03212DA45758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D1D1B1-DAE9-4C5E-81AD-03212DA45758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D1D1B1-DAE9-4C5E-81AD-03212DA45758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D1D1B1-DAE9-4C5E-81AD-03212DA45758}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

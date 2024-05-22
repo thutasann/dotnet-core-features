@@ -20,6 +20,7 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 | Data Structure and Algorithm            | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)                 | C# DSA           |
 | Advanced C#                             | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/advanced-c#)                         | Advanced C#      |
 | Advanced LINQ                           | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/advanced-LINQ)                       | Advanced LINQ    |
+| Design Patterns                         | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/design-patterns)                     | Design Patterns  |
 | TypeScript Data Structure and Algorithm | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/typescript-data-structure-algorithm) | TypeScript DSA   |
 | JWT Authentication                      | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                            | Auth             |
 | Practical SingalR                       | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)               | WebSocket        |
@@ -86,7 +87,6 @@ dotnet new sln -n MySolution
 
 ```
 dotnet sln add Project1/Project1.csproj
-dotnet sln add Project2/Project2.csproj
 ```
 
 **Reference project (P2P) **
