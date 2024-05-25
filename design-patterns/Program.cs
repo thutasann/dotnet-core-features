@@ -1,4 +1,5 @@
-﻿using design_patterns.src.Factory;
+﻿using design_patterns.src.Facade;
+using design_patterns.src.Factory;
 using design_patterns.src.Singleton;
 using design_patterns.src.Singleton.EcommerceSample;
 
@@ -10,3 +11,6 @@ SingletonEcommerce.Usage();
 
 Console.WriteLine("\n---------------- Factory Pattern 🚀");
 FactoryNetworkUsage.SampleOne();
+
+Console.WriteLine("\n---------------- Facade Pattern 🚀");
+FacadeUsage.SampleOne();
