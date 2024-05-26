@@ -1,6 +1,7 @@
 ﻿using design_patterns.src.Adapter;
 using design_patterns.src.Facade;
 using design_patterns.src.Factory;
+using design_patterns.src.Proxy;
 using design_patterns.src.Singleton;
 using design_patterns.src.Singleton.EcommerceSample;
 
@@ -18,3 +19,6 @@ FacadeUsage.SampleOne();
 
 Console.WriteLine("\n---------------- Adapter Pattern 🚀");
 AdapterUsage.SampleOne();
+
+Console.WriteLine("\n---------------- Proxy Pattern 🚀");
+ProxyUsage.SampleOne();
