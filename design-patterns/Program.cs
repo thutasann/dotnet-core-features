@@ -1,4 +1,5 @@
 ﻿using design_patterns.src.Adapter;
+using design_patterns.src.ChainOfResponsibility;
 using design_patterns.src.Facade;
 using design_patterns.src.Factory;
 using design_patterns.src.Proxy;
@@ -22,3 +23,6 @@ AdapterUsage.SampleOne();
 
 Console.WriteLine("\n---------------- Proxy Pattern 🚀");
 ProxyUsage.SampleOne();
+
+Console.WriteLine("\n---------------- ChainOfResponsibility Pattern 🚀");
+ChainOfResponsibilityUsage.SampleOne();
