@@ -5,6 +5,7 @@ using design_patterns.src.Factory;
 using design_patterns.src.Proxy;
 using design_patterns.src.Singleton;
 using design_patterns.src.Singleton.EcommerceSample;
+using design_patterns.src.Strategy;
 
 Console.WriteLine("WELCOME TO DESIGN PATTERNS IN C#!");
 
@@ -26,3 +27,6 @@ ProxyUsage.SampleOne();
 
 Console.WriteLine("\n---------------- ChainOfResponsibility Pattern 🚀");
 ChainOfResponsibilityUsage.SampleOne();
+
+Console.WriteLine("\n---------------- Strategy Pattern 🚀");
+StrategyPatternUsage.SampleOne();

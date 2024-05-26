@@ -28,6 +28,10 @@ In this section, Design patterns in c# will be included.
 
 ![Chain of Responsibility](./docs/chain-of-responsibility.png)
 
+### Strategy Pattern
+
+![Strategy](./docs/strategy.png)
+
 ## Resources
 
 -   https://www.youtube.com/watch?v=DTBm3uqLuUE&list=PL82C6-O4XrHeS_EJlqBSvvvAfZr9mus-V&pp=iAQB
@@ -37,3 +41,4 @@ In this section, Design patterns in c# will be included.
 -   https://www.c-sharpcorner.com/UploadFile/efa3cf/adapter-design-pattern-in-C-Sharp/
 -   https://www.c-sharpcorner.com/UploadFile/b1df45/proxy-design-pattern-using-C-Sharp/
 -   https://mohamed-hendawy.medium.com/chain-of-responsibility-design-pattern-in-c-with-examples-d87da6e5ead
+-   https://www.c-sharpcorner.com/UploadFile/shinuraj587/strategy-pattern-in-net/
