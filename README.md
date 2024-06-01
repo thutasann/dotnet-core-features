@@ -15,23 +15,25 @@ Typescript Data Structure and Algorithms are also included to compare DSA betwee
 
 ## Features
 
-| Topic                                   | Source                                                                                                      | Type             |
-| --------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------- |
-| Data Structure and Algorithm            | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)                 | C# DSA           |
-| Advanced C#                             | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/advanced-c#)                         | Advanced C#      |
-| Advanced LINQ                           | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/advanced-LINQ)                       | Advanced LINQ    |
-| Design Patterns                         | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/design-patterns)                     | Design Patterns  |
-| TypeScript Data Structure and Algorithm | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/typescript-data-structure-algorithm) | TypeScript DSA   |
-| JWT Authentication                      | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                            | Auth             |
-| Practical SingalR                       | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)               | WebSocket        |
-| SignalR Nextjs Simple Chat app          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)                 | WebSocket        |
-| SignalR Blazor TicTacToe                | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-blazor-tictactoe)            | WebSocket        |
-| Send Email With MailKit & SMTP          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)                  | Email            |
-| EF Core Relationships                   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/ef-core-relationships)               | EF Core          |
-| Game System MicroService Project        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)           | MicroService ⭐️ |
-| Ecommerce System MicroService Project   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-two)           | MicroService ⭐️ |
-| Platform System MicroService Project    | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-three)         | MicroService ⭐️ |
-| .NET gRPC                               | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/dotnet-grpc)                         | gRPC ⭐️         |
+| Topic                                   | Source                                                                                                      | Type               |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------ |
+| Data Structure and Algorithm            | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/data-structure-algo)                 | C# DSA             |
+| Advanced C#                             | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/advanced-c#)                         | Advanced C#        |
+| Advanced LINQ                           | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/advanced-LINQ)                       | Advanced LINQ      |
+| Design Patterns                         | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/design-patterns)                     | Design Patterns    |
+| TypeScript Data Structure and Algorithm | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/typescript-data-structure-algorithm) | TypeScript DSA     |
+| JWT Authentication                      | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/jwt-auth)                            | Auth               |
+| Practical SingalR                       | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/practical-signalR-mvc)               | WebSocket          |
+| SignalR Nextjs Simple Chat app          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-nextjs-chat)                 | WebSocket          |
+| SignalR Blazor TicTacToe                | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/signalR-blazor-tictactoe)            | WebSocket          |
+| Send Email With MailKit & SMTP          | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/email-mailkit-smtp)                  | Email              |
+| EF Core Relationships                   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/ef-core-relationships)               | EF Core            |
+| Game System MicroService Project        | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-one)           | MicroService ⭐️   |
+| Ecommerce System MicroService Project   | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-two)           | MicroService ⭐️   |
+| Platform System MicroService Project    | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/microservices-project-three)         | MicroService ⭐️   |
+| .NET gRPC                               | [Source](https://github.com/thutasann/dotnet-core-features/tree/master/dotnet-grpc)                         | gRPC ⭐️           |
+| Discord Bot                             | [Source](https://github.com/thutasann/csharp-discord-bot)                                                   | Bot Development    |
+| URL Shortener                           | [Source](https://github.com/thutasann/dotnet-nextjs-url-shortener)                                          | Mini URL Shortener |
 
 ## Scripts
 
