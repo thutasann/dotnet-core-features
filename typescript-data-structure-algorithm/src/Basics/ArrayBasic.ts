@@ -174,4 +174,26 @@ export class ArrayBasic {
         console.log(arr.hasOwnProperty(1)) // true '1' is an own property
         console.log(arr.hasOwnProperty('length')) // true, 'length' is an own property
     }
+
+    /**
+     * To Spliced Sample
+     */
+    public ToSplicedSample(): void {
+        console.log('------>> To Spliced Sample')
+        // Original array
+        const originalArray = [1, 2, 3, 4, 5]
+
+        // Using toSpliced to create a new array with elements removed
+        const removedArray = originalArray.toSpliced(2, 2) // Start at index 2, remove 2 elements
+        console.log('Original Array:', originalArray) // Output: [1, 2, 3, 4, 5]
+        console.log('Removed Array:', removedArray) // Output: [1, 2, 5]
+
+        // Using toSpliced to create a new array with elements replaced
+        const replacedArray = originalArray.toSpliced(1, 2, 9, 10) // Start at index 1, remove 2 elements, add 9, 10
+        console.log('Replaced Array:', replacedArray) // Output: [1, 9, 10, 4, 5]
+
+        // Using toSpliced to create a new array with elements added
+        const addedArray = originalArray.toSpliced(3, 0, 6, 7) // Start at index 3, remove 0 elements, add 6, 7
+        console.log('Added Array:', addedArray) // Output: [1, 2, 3, 6, 7, 4, 5]
+    }
 }
